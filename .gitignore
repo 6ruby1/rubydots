@@ -1,0 +1,15 @@
+### env ###
+.env
+
+### IDEs ###
+.idea/
+.vscode/
+
+### Temp ###
+*.tmp
+
+### non-root documentation ###
+**/README*
+!/README
+**/LICENSE*
+!/LICENSE
