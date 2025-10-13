@@ -299,6 +299,11 @@ on = ["b", "r"]
 run = "plugin fazif fazifrg"
 desc = "ripgrep + fzf"
 
+[[mgr.prepend_keymap]]
+on = ["c", "m"]
+run = "plugin chmod"
+desc = "run chmod"
+
 [tasks]
 
 keymap = [
