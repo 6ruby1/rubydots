@@ -1,0 +1,360 @@
+## Purple
+
+#a48cf2
+rgb(164,140,242)
+hsl(254.12, 79.69%, 74.9%)
+cmyk(32,42,0,5)
+ANSI16 5
+ANSI256 63
+
+## Blue/cyan
+
+#04d1f9
+rgb(4, 209, 249)
+hsl(189.8, 96.84%, 49.61%)
+cmyk(98, 16, 0, 2)
+ANSI16 14
+ANSI256 81
+
+## Green
+
+#37f499
+rgb(55, 244, 153)
+hsl(151.11, 89.57%, 58.63%)
+cmyk(40, 36, 0, 78)
+ANSI16 10
+ANSI256 120
+
+## Red
+
+#f16c75
+rgb(241, 108, 117)
+hsl(355.94, 82.61%, 68.43%)
+cmyk(0,55,51,5)
+ANSI16 9
+ANSI256 203
+
+## Orange
+
+#f7c67f
+rgb(247, 198, 127)
+hsl(35.5, 88.24%, 73.33%)
+cmyk(0, 20, 49, 3)
+ANSI16 11
+ANSI256 222
+
+## Dark Purple
+
+#7081d0
+rgb(112, 129, 208)
+hsl(229.38, 50.53%, 62.75%)
+cmyk(46, 38, 0, 18)
+ASNI16 4
+ANSI256 105
+
+## Pink
+
+#f265b5
+rgb(242, 101, 181)
+hsl(325.96, 84.43%, 67.25%)
+cmyk(0, 58, 25, 5)
+ANSI16 13
+ANSI256 205
+
+## Yellow
+
+#f1fc79
+rgb(241, 252, 121)
+hsl(65.04, 95.62%, 73.14%)
+cmyk(4, 0, 52, 1)
+ANSI16 11
+ANSI256 227
+
+## Background
+
+#212337
+rgb(33, 35, 55)
+hsl(234.55, 25%, 17.25%)
+cmyk(40, 36, 0, 78)
+ANSI16 0
+ANSI256 236
+
+## Alt Background
+
+#323449
+rgb(50, 52, 73)
+hsl(234.78, 18.7%, 24.12%)
+cmyk(32, 42, 0, 5)
+ANSI16 8
+ANSI256 59
+
+## White
+
+#ebfafa
+rgb(235, 250, 250)
+hsl(180, 60%, 95.1%)
+cmyk(6, 0, 0, 2)
+ANSI16 15
+ANSI256 231
+
+# Eldritch Syntax Highlighting Specification
+
+1.  Prelude
+    1.1 Color Palette
+    1.1.1 Standard
+
+        Background:
+            #212337
+        Current Line:
+            #323449
+        Foreground:
+            #ebfafa
+        Comment:
+            #7081d0
+        Cyan:
+            #04d1f9
+        Green:
+            #37f499
+        Orange:
+            #f7c67f
+        Pink:
+            #f265b5
+        Purple:
+            #a48cf2
+        Red:
+            #f16c75
+        Yellow:
+            #f1fc79
+
+1.1.2 ANSI
+
+    AnsiBlack
+        #21222C
+    AnsiRed
+        #f16c75
+    AnsiGreen
+        #37f499
+    AnsiYellow
+        #f1fc79
+    AnsiBlue
+        #a48cf2
+    AnsiMagenta
+        #f265b5
+    AnsiCyan
+        #04d1f9
+    AnsiWhite
+        #ebfafa
+    AnsiBrightBlack
+        #323449
+    AnsiBrightRed
+        #f9515d
+    AnsiBrightGreen
+        #69F8B3
+    AnsiBrightYellow
+        #e9f941
+    AnsiBrightBlue
+        #9071f4
+    AnsiBrightMagenta
+        #FD92CE
+    AnsiBrightCyan
+        #66e4fd
+    AnsiBrightWhite
+        #FFFFFF
+
+2. Supplementary Colors
+
+   bg_dark
+   #171928
+   bg_highlight
+   #292e42
+   terminal_black
+   #414868
+   fg_dark
+   #ABB4DA
+   fg_gutter
+   #3b4261
+   dark3
+   #6473B7
+   comment
+   #7081d0
+   dark5
+   #5866A2
+   visual
+   #76639e
+   dark_cyan
+   #10A1BD
+   magenta2
+   #bf4f8e
+   magenta3
+   #722f55
+   dark_yellow
+   #c0c95f
+   dark_green
+   #33C57F
+   bright_red
+   #f0313e
+
+3. Syntax Highlighting
+
+   ["@error"] = { fg = colors.bright_red },
+   ["@punctuation.delimiter"] = { fg = colors.fg },
+   ["@punctuation.bracket"] = { fg = colors.fg },
+   ["@markup.list"] = { fg = colors.cyan },
+   ["@constant"] = { fg = colors.bright_cyan },
+   ["@constant.builtin"] = { fg = colors.bright_cyan },
+   ["@markup.link.label.symbol"] = { fg = colors.bright_cyan },
+   ["@constant.macro"] = { fg = colors.cyan },
+   ["@string.regexp"] = { fg = colors.yellow },
+   ["@string"] = { fg = colors.yellow },
+   ["@string.escape"] = { fg = colors.cyan },
+   ["@string.special.symbol"] = { fg = colors.green },
+   ["@character"] = { fg = colors.pink },
+   ["@number"] = { fg = colors.green },
+   ["@boolean"] = { fg = colors.green },
+   ["@number.float"] = { fg = colors.pink },
+   ["@annotation"] = { fg = colors.yellow },
+   ["@attribute"] = { fg = colors.cyan },
+   ["@module"] = { fg = colors.orange },
+   ["@function.builtin"] = { fg = colors.cyan },
+   ["@function"] = { fg = colors.purple },
+   ["@function.macro"] = { fg = colors.purple },
+   ["@variable.parameter"] = { fg = colors.orange },
+   ["@variable.parameter.reference"] = { fg = colors.orange },
+   ["@function.method"] = { fg = colors.purple },
+   ["@variable.member"] = { fg = colors.orange },
+   ["@property"] = { fg = colors.bright_green },
+   ["@constructor"] = { fg = colors.cyan },
+   ["@keyword.conditional"] = { fg = colors.purple },
+   ["@keyword.repeat"] = { fg = colors.purple },
+   ["@label"] = { fg = colors.cyan },
+   ["@keyword"] = { fg = colors.green },
+   ["@keyword.function"] = { fg = colors.cyan },
+   ["@keyword.function.ruby"] = { fg = colors.purple },
+   ["@keyword.operator"] = { fg = colors.purple },
+   ["@operator"] = { fg = colors.purple },
+   ["@keyword.exception"] = { fg = colors.green },
+   ["@type"] = { fg = colors.bright_purple },
+   ["@type.builtin"] = { fg = colors.cyan, italic = true },
+   ["@type.qualifier"] = { fg = colors.purple },
+   ["@type.def"] = { fg = colors.yellow },
+   ["@structure"] = { fg = colors.green },
+   ["@keyword.include"] = { fg = colors.purple },
+   ["@variable"] = { fg = colors.red },
+   ["@variable.builtin"] = { fg = colors.green },
+   ["@markup"] = { fg = colors.orange },
+   ["@markup.strong"] = { fg = colors.orange, bold = true }, -- bold
+   ["@markup.emphasis"] = { fg = colors.yellow, italic = true }, -- italic
+   ["@markup.underline"] = { fg = colors.orange },
+   ["@markup.heading"] = { fg = colors.purple, bold = true }, -- title
+   ["@markup.raw"] = { fg = colors.yellow }, -- inline code
+   ["@markup.link.url"] = { fg = colors.yellow, italic = true }, -- urls
+   ["@markup.link"] = { fg = colors.orange, bold = true },
+   ["@tag"] = { fg = colors.cyan },
+   ["@tag.attribute"] = { fg = colors.pink },
+   ["@tag.delimiter"] = { fg = colors.cyan },
+
+Semantic
+
+    ["@class"] = { fg = colors.cyan },
+    ["@struct"] = { fg = colors.cyan },
+    ["@enum"] = { fg = colors.cyan },
+    ["@enumMember"] = { fg = colors.green },
+    ["@event"] = { fg = colors.cyan },
+    ["@interface"] = { fg = colors.cyan },
+    ["@modifier"] = { fg = colors.cyan },
+    ["@regexp"] = { fg = colors.yellow },
+    ["@typeParameter"] = { fg = colors.cyan },
+    ["@decorator"] = { fg = colors.cyan },
+
+LSP Semantic
+
+    ["@lsp.type.boolean"] = { link = "@boolean" },
+    ["@lsp.type.builtinType"] = { link = "@type.builtin" },
+    ["@lsp.type.comment"] = { link = "@comment" },
+    ["@lsp.type.decorator"] = { link = "@attribute" },
+    ["@lsp.type.deriveHelper"] = { link = "@attribute" },
+    ["@lsp.type.enum"] = { link = "@type" },
+    ["@lsp.type.enumMember"] = { link = "@constant" },
+    ["@lsp.type.escapeSequence"] = { link = "@string.escape" },
+    ["@lsp.type.formatSpecifier"] = { link = "@markup.list" },
+    ["@lsp.type.generic"] = { link = "@variable" },
+    ["@lsp.type.keyword"] = { link = "@keyword" },
+    ["@lsp.type.namespace"] = { link = "@module" },
+    ["@lsp.type.number"] = { link = "@number" },
+    ["@lsp.type.operator"] = { link = "@operator" },
+    ["@lsp.type.parameter"] = { link = "@variable.parameter" },
+    ["@lsp.type.property"] = { link = "@property" },
+    ["@lsp.type.selfKeyword"] = { link = "@variable.builtin" },
+    ["@lsp.type.selfTypeKeyword"] = { link = "@variable.builtin" },
+    ["@lsp.type.string"] = { link = "@string" },
+    ["@lsp.type.typeAlias"] = { link = "@type.def" },
+    ["@lsp.type.variable"] = {}, -- use treesitter styles for regular variables
+    ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.enum.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.enumMember.defaultLibrary"] = { link = "@constant.builtin" },
+    ["@lsp.typemod.function.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.keyword.injected"] = { link = "@keyword" },
+    ["@lsp.typemod.macro.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.method.defaultLibrary"] = { link = "@function.builtin" },
+    ["@lsp.typemod.operator.injected"] = { link = "@operator" },
+    ["@lsp.typemod.string.injected"] = { link = "@string" },
+    ["@lsp.typemod.struct.defaultLibrary"] = { link = "@type.builtin" },
+    ["@lsp.typemod.variable.callable"] = { link = "@function" },
+    ["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
+    ["@lsp.typemod.variable.injected"] = { link = "@variable" },
+    ["@lsp.typemod.variable.static"] = { link = "@constant" },
+    ["@lsp.type.namespace.python"] = { link = "@variable" },
+
+HTML
+
+    htmlArg = { fg = colors.pink },
+    htmlBold = { fg = colors.yellow, bold = true },
+    htmlEndTag = { fg = colors.cyan },
+    htmlH1 = { fg = colors.purple },
+    htmlH2 = { fg = colors.purple },
+    htmlH3 = { fg = colors.purple },
+    htmlH4 = { fg = colors.purple },
+    htmlH5 = { fg = colors.purple },
+    htmlH6 = { fg = colors.purple },
+    htmlItalic = { fg = colors.green, italic = true },
+    htmlLink = { fg = colors.green, underline = true },
+    htmlSpecialChar = { fg = colors.yellow },
+    htmlSpecialTagName = { fg = colors.cyan },
+    htmlTag = { fg = colors.cyan },
+    htmlTagN = { fg = colors.cyan },
+    htmlTagName = { fg = colors.cyan },
+    htmlTitle = { fg = colors.white },
+
+Markdown
+
+    markdownBlockquote = { fg = colors.yellow, italic = true },
+    markdownBold = { fg = colors.orange, bold = true },
+    markdownCode = { fg = colors.pink },
+    markdownCodeBlock = { fg = colors.orange },
+    markdownCodeDelimiter = { fg = colors.red },
+    markdownH1 = { fg = colors.purple, bold = true },
+    markdownH2 = { fg = colors.purple, bold = true },
+    markdownH3 = { fg = colors.purple, bold = true },
+    markdownH4 = { fg = colors.purple, bold = true },
+    markdownH5 = { fg = colors.purple, bold = true },
+    markdownH6 = { fg = colors.purple, bold = true },
+    markdownHeadingDelimiter = { fg = colors.red },
+    markdownHeadingRule = { fg = colors.comment },
+    markdownId = { fg = colors.green },
+    markdownIdDeclaration = { fg = colors.cyan },
+    markdownIdDelimiter = { fg = colors.green },
+    markdownItalic = { fg = colors.yellow, italic = true },
+    markdownLinkDelimiter = { fg = colors.green },
+    markdownLinkText = { fg = colors.purple },
+    markdownListMarker = { fg = colors.cyan },
+    markdownOrderedListMarker = { fg = colors.red },
+    markdownRule = { fg = colors.comment },
+
+Diff
+
+    diffAdded = { fg = colors.pink },
+    diffRemoved = { fg = colors.red },
+    diffFileId = { fg = colors.yellow, bold = true, reverse = true },
+    diffFile = { fg = colors.nontext },
+    diffNewFile = { fg = colors.pink },
+    diffOldFile = { fg = colors.red },
