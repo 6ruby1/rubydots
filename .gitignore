@@ -10,6 +10,6 @@
 
 ### non-root documentation ###
 **/README*
-!/README
+!/README.md
 **/LICENSE*
 !/LICENSE
