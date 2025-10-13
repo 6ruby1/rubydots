@@ -1,0 +1,14 @@
+[[plugin.deps]]
+use = "Shallow-Seek/fazif"
+rev = "6e10488"
+hash = "c549ff30fb1d1d97c734010fe82f6295"
+
+[[plugin.deps]]
+use = "imsi32/yatline"
+rev = "88bd1c5"
+hash = "981acbe9b758b1af3a8154c932bb936d"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:dracula"
+rev = "2d73b79"
+hash = "fc6944561718351d70cffde75839211f"
