@@ -1,2 +1,13 @@
 [flavor]
 dark = "dracula"
+
+[mgr]
+border_style = { fg = "#a48cf2" }
+
+preview_hovered = { fg = "#04d1f9", underline = true, italic = true, bold = true }
+hovered = { reversed = true, fg = "#04d1f9" }
+
+marker_copied = { fg = "#37f499", bg = "#50fa7b" }
+marker_cut = { fg = "#f16c75", bg = "#f16c75" }
+marker_marked = { fg = "#f7c67f", bg = "#f7c67f" }
+marker_selected = { fg = "#f7c67f", bg = "#f7c67f" }

@@ -232,7 +232,7 @@ keymap = [
 	{ on = [
 		"g",
 		"c",
-	], run = "cd ~/.config", desc = "Config" },
+	], run = "cd ~/dot", desc = "config" },
 	{ on = [
 		"g",
 		"d",
