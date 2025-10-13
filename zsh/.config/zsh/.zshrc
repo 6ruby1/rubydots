@@ -1,13 +1,6 @@
 # Run neofetch
 fastfetch
 
-# Add to path
-export PATH=$PATH:~/.local/share/bin
-
-# Set default editor
-export EDITOR=/usr/bin/nvim
-export VISUAL=/usr/bin/nvim
-
 # Set theme for batman (add colours to man)
 batman() {
   BAT_THEME="Monokai Extended" command batman "$@"
@@ -15,7 +8,6 @@ batman() {
 }
 
 # Set hyprshot directory
-export HYPRSHOT_DIR=/home/ruby/Pictures/screenshots
 
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -175,8 +167,8 @@ zstyle ':fzf-tab:*' fzf-min-height 15
 # Shell integrations ------------------------------------------------------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
+eval "$(starship init zsh)"         # (see .zprofile)
+export STARSHIP_CONFIG=/home/ruby/.config/starship/starship.toml
 eval "$(tv init zsh)"
 eval "$(atuin init zsh)"
 
