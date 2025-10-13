@@ -1,0 +1,63 @@
+
+
+[column]
+	ui = auto
+
+[branch]
+  sort = -committerdate
+
+[tag]
+  sort = version:refname
+
+[init]
+  defaultBranch = main
+
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+
+[push]
+  default = simple
+  autoSetupRemote = true
+  followTags = true
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[alias]
+	st = status -s
+	sta = status
+	conf = config --global --edit
+	ci = commit
+	co = checkout
+	rh = reset HEAD
+	aa = add -A
+	br = branch
+	bra = branch -a
+	pr = pull --rebase
+	amend = commit -a --amend --no-edit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[core]
+	autocrlf = input
+
+[help]
+  autocorrect = prompt
+
+[commit]
+  verbose = true
+	
+
+[rerere]
+  enabled = true
+  autoupdate = true
+
+
+
+[merge]
+  conflictstyle = zdiff3
