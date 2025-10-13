@@ -13,3 +13,7 @@
 !/README.md
 **/LICENSE*
 !/LICENSE
+
+### Zsh ###
+*.zhistory
+*.zsh_history
