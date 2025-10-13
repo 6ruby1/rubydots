@@ -1,5 +1,7 @@
 require("folder-rules"):setup()
 
+require("full-border"):setup()
+
 require("yatline"):setup({
 	--theme = my_theme,
 	section_separator = { open = "", close = "" },
@@ -11,7 +13,7 @@ require("yatline"):setup({
 		bg_mode = {
 			normal = "#04d1f9",
 			select = "#a48cf2",
-			un_set = "brightred",
+			un_set = "#f16c75",
 		},
 	},
 	style_b = {
