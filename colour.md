@@ -97,6 +97,309 @@ cmyk(6, 0, 0, 2)
 ANSI16 15
 ANSI256 231
 
+# eldritch.nvim pallette
+
+```lua
+M.default = {
+  none = "NONE",
+  bg_dark = "#171928",
+  bg = "#212337",
+  bg_highlight = "#292e42",
+  terminal_black = "#414868",
+  fg = "#ebfafa",
+  fg_dark = "#ABB4DA",
+  fg_gutter = "#3b4261",
+  fg_gutter_light = "#7081d0",
+  dark3 = "#6473B7",
+  comment = "#7081d0",
+  dark5 = "#5866A2",
+  bright_cyan = "#39DDFD",
+  visual = "#76639e",
+  bg_visual = "#76639e",
+  cyan = "#04d1f9",
+  dark_cyan = "#10A1BD",
+  magenta = "#a48cf2",
+  magenta2 = "#bf4f8e",
+  magenta3 = "#722f55",
+  pink = "#f265b5",
+  purple = "#a48cf2",
+  orange = "#f7c67f",
+  yellow = "#f1fc79",
+  dark_yellow = "#c0c95f",
+  green = "#37f499",
+  bright_green = "#00FA82",
+  dark_green = "#33C57F",
+  red = "#f16c75",
+  bright_red = "#f0313e",
+  git = { change = "#7081d0", add = "#37f499", delete = "#f16c75" },
+  gitSigns = {
+    add = "#37f499",
+    change = "#7081d0",
+    delete = "#f16c75",
+  },
+}
+```
+
+## interactive elditch.nvim lua utils
+
+```lua
+-- Interactive Lua color utility and palette picker with palette preview and result formatting
+
+local M = {}
+
+---@class Palette
+M.default = {
+	none = "NONE",
+	bg_dark = "#171928",
+	bg = "#212337",
+	bg_highlight = "#292e42",
+	terminal_black = "#414868",
+	fg = "#ebfafa",
+	fg_dark = "#ABB4DA",
+	fg_gutter = "#3b4261",
+	fg_gutter_light = "#7081d0",
+	dark3 = "#6473B7",
+	comment = "#7081d0",
+	dark5 = "#5866A2",
+	bright_cyan = "#39DDFD",
+	visual = "#76639e",
+	bg_visual = "#76639e",
+	cyan = "#04d1f9",
+	dark_cyan = "#10A1BD",
+	magenta = "#a48cf2",
+	magenta2 = "#bf4f8e",
+	magenta3 = "#722f55",
+	pink = "#f265b5",
+	purple = "#a48cf2",
+	orange = "#f7c67f",
+	yellow = "#f1fc79",
+	dark_yellow = "#c0c95f",
+	green = "#37f499",
+	bright_green = "#00FA82",
+	dark_green = "#33C57F",
+	red = "#f16c75",
+	bright_red = "#f0313e",
+	git = { change = "#7081d0", add = "#37f499", delete = "#f16c75" },
+	gitSigns = {
+		add = "#37f499",
+		change = "#7081d0",
+		delete = "#f16c75",
+	},
+}
+
+M.bg = M.default.bg
+M.fg = M.default.fg
+
+---@param c string
+local function hexToRgb(c)
+	c = c:gsub("#", "")
+	return { tonumber(c:sub(1, 2), 16), tonumber(c:sub(3, 4), 16), tonumber(c:sub(5, 6), 16) }
+end
+
+---@param hex string
+local function get_palette_name(hex)
+	local flat = flatten_palette(M.default)
+	for name, value in pairs(flat) do
+		if value == hex then
+			return name
+		end
+	end
+	return nil
+end
+
+---@param foreground string
+---@param background string
+---@param alpha number|string
+function M.blend(foreground, background, alpha)
+	alpha = type(alpha) == "string" and (tonumber(alpha, 16) / 0xff) or alpha
+	local bg = hexToRgb(background)
+	local fg = hexToRgb(foreground)
+
+	local blendChannel = function(i)
+		local ret = (alpha * fg[i] + ((1 - alpha) * bg[i]))
+		return math.floor(math.min(math.max(0, ret), 255) + 0.5)
+	end
+
+	return string.format("#%02x%02x%02x", blendChannel(1), blendChannel(2), blendChannel(3))
+end
+
+function M.darken(hex, amount, bg)
+	return M.blend(hex, bg or M.bg, amount)
+end
+
+function M.lighten(hex, amount, fg)
+	return M.blend(hex, fg or M.fg, amount)
+end
+
+function M.invert_color(color)
+	local ok, hsluv = pcall(require, "eldritch.hsluv")
+	if not ok then
+		return "eldritch.hsluv module not found"
+	end
+	if color ~= "NONE" then
+		local hsl = hsluv.hex_to_hsluv(color)
+		hsl[3] = 100 - hsl[3]
+		if hsl[3] < 40 then
+			hsl[3] = hsl[3] + (100 - hsl[3]) * (M.day_brightness or 0.0)
+		end
+		return hsluv.hsluv_to_hex(hsl)
+	end
+	return color
+end
+
+-- Palette Picker
+function flatten_palette(pal)
+	local flat = {}
+	for k, v in pairs(pal) do
+		if type(v) == "table" then
+			for subk, subv in pairs(v) do
+				flat[k .. "." .. subk] = subv
+			end
+		else
+			flat[k] = v
+		end
+	end
+	return flat
+end
+
+local function show_color_preview(name, hex)
+	if hex == "NONE" then
+		print(string.format("     %-18s %-9s NONE (no color)", name, hex))
+		return
+	end
+	local rgb = hexToRgb(hex)
+	local preview = string.format("\27[48;2;%d;%d;%dm     \27[0m", rgb[1], rgb[2], rgb[3])
+	print(string.format("%s %-18s %-9s", preview, name, hex))
+end
+
+local function print_palette_previews()
+	local flat = flatten_palette(M.default)
+	local keys = {}
+	for k, _ in pairs(flat) do
+		table.insert(keys, k)
+	end
+	table.sort(keys)
+	print("\nPalette colors:")
+	for _, name in ipairs(keys) do
+		show_color_preview(name, flat[name])
+	end
+end
+
+local function pick_palette_color()
+	local flat = flatten_palette(M.default)
+	local keys = {}
+	for k, _ in pairs(flat) do
+		table.insert(keys, k)
+	end
+	table.sort(keys)
+	print("\nSelect a color by name (or press Enter to quit):")
+	local sel = io.read()
+	if sel == "" then
+		return nil
+	end
+	local color = flat[sel]
+	if color then
+		print("\nPreview of selected color:")
+		show_color_preview(sel, color)
+		return color
+	else
+		print("Not found: " .. sel)
+		return nil
+	end
+end
+
+-- Interactive Prompt
+local function prompt(msg)
+	io.write(msg)
+	return io.read()
+end
+
+local function show_menu()
+	print("\nChoose a function to run:")
+	print("1. Blend two colors")
+	print("2. Darken a color")
+	print("3. Lighten a color")
+	print("4. Invert a color (needs eldritch.hsluv)")
+	print("5. Pick a color from Palette")
+	print("6. Exit")
+	io.write("Enter choice: ")
+end
+
+-- Print result with original name and preview, operation, and result color/preview
+local function print_result(orig_name, orig_hex, operation, result_hex)
+	if orig_hex == "NONE" then
+		show_color_preview(orig_name, orig_hex)
+		print(string.format("Operation: %s", operation))
+		print("Result: NONE (no color)")
+		return
+	end
+	show_color_preview(orig_name, orig_hex)
+	print(string.format("Operation: %s", operation))
+	if result_hex and result_hex:sub(1, 1) == "#" then
+		show_color_preview("result", result_hex)
+	else
+		print("Result: " .. tostring(result_hex))
+	end
+end
+
+local function run()
+	print_palette_previews()
+	while true do
+		show_menu()
+		local choice = tonumber(io.read())
+		if choice == 1 then
+			local fg_input = prompt("Enter foreground color (hex or palette name): ")
+			local fg = M.default[fg_input] or fg_input
+			local fg_name = get_palette_name(fg) or fg_input
+			local bg_input = prompt("Enter background color (hex or palette name): ")
+			local bg = M.default[bg_input] or bg_input
+			local bg_name = get_palette_name(bg) or bg_input
+			local alpha = prompt("Enter alpha (0-1 or hex): ")
+			local blend = M.blend(fg, bg, tonumber(alpha) or alpha)
+			print_result(fg_name .. " (fg) | " .. bg_name .. " (bg)", fg, "blend", blend)
+		elseif choice == 2 then
+			local hex_input = prompt("Enter color (hex or palette name): ")
+			local hex = M.default[hex_input] or hex_input
+			local name = get_palette_name(hex) or hex_input
+			local amount = tonumber(prompt("Enter amount (0-1): "))
+			local bg_input = prompt("Enter background color (hex or palette name, optional): ")
+			local bg = (bg_input ~= "" and (M.default[bg_input] or bg_input)) or nil
+			local result = M.darken(hex, amount, bg)
+			print_result(name, hex, "darken", result)
+		elseif choice == 3 then
+			local hex_input = prompt("Enter color (hex or palette name): ")
+			local hex = M.default[hex_input] or hex_input
+			local name = get_palette_name(hex) or hex_input
+			local amount = tonumber(prompt("Enter amount (0-1): "))
+			local fg_input = prompt("Enter foreground color (hex or palette name, optional): ")
+			local fg = (fg_input ~= "" and (M.default[fg_input] or fg_input)) or nil
+			local result = M.lighten(hex, amount, fg)
+			print_result(name, hex, "lighten", result)
+		elseif choice == 4 then
+			local color_input = prompt("Enter color (hex or palette name): ")
+			local color = M.default[color_input] or color_input
+			local name = get_palette_name(color) or color_input
+			local result = M.invert_color(color)
+			print_result(name, color, "invert", result)
+		elseif choice == 5 then
+			pick_palette_color()
+		elseif choice == 6 then
+			print("Exiting.")
+			break
+		else
+			print("Invalid choice.")
+		end
+	end
+end
+
+-- Run as script if executed directly
+if pcall(debug.getlocal, 4, 1) == false then
+	run()
+end
+
+return M
+```
+
 # Eldritch Syntax Highlighting Specification
 
 1.  Prelude
