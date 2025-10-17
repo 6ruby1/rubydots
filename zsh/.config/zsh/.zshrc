@@ -1,14 +1,6 @@
 # Run neofetch
 fastfetch
 
-# Set theme for batman (add colours to man)
-batman() {
-  BAT_THEME="Monokai Extended" command batman "$@"
-  return $?
-}
-
-# Set hyprshot directory
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -180,6 +172,18 @@ function y() {
     builtin cd -- "$cwd"
   fi
   rm -f -- "$tmp"
+}
+
+lazygit() {
+    kitty @ set-colors --all ~/.config/kitty/Eldritch.conf
+    command lazygit "$@"
+    kitty @ set-colors --all ~/.config/kitty/Catppuccin-Mocha.conf
+}
+
+copilot() {
+    kitty @ set-colors --all ~/.config/kitty/Eldritch.conf
+    command copilot "$@"
+    kitty @ set-colors --all ~/.config/kitty/Catppuccin-Mocha.conf
 }
 
 # enable transient prompt -------------------------------------------------------------

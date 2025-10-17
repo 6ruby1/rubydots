@@ -10,6 +10,10 @@
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/share/bin
 
+#### FPATH #### ------------------------------
+
+export FPATH=$FPATH:$HOME/.config/zsh/functions
+
 #### ENV #### --------------------------------
 
 export EDITOR=/usr/bin/nvim
