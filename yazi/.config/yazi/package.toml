@@ -18,7 +18,72 @@ use = "yazi-rs/plugins:chmod"
 rev = "d1c8baa"
 hash = "8ad3e90b079190b4905f24a44f4ca06b"
 
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "03f6c4a"
+hash = "f14a951bf376d7fe73033c4a48aa5fa4"
+
+[[plugin.deps]]
+use = "Lil-Dank/lazygit"
+rev = "8f37dc5"
+hash = "ee71543790f0ce3951161045a3787abd"
+
+[[plugin.deps]]
+use = "XYenon/clipboard"
+rev = "9089f90"
+hash = "e6efc609de1b617c7e8e98efd5286221"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/bypass"
+rev = "c1e5fcf"
+hash = "208e77480824f62558a5b037c8569d61"
+
+[[plugin.deps]]
+use = "KKV9/compress"
+rev = "c264639"
+hash = "e17c11b605d989568a1d1741ca17c584"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:diff"
+rev = "9a52857"
+hash = "82376c3381ae915fd799d40f4dd4c6cd"
+
+[[plugin.deps]]
+use = "aresler/path-from-root"
+rev = "c4f03df"
+hash = "5022fdb08fcb05c10eb59b63663edb10"
+
+[[plugin.deps]]
+use = "KKV9/command"
+rev = "4762ecc"
+hash = "65fff40a0060fe4b1c42d49d29f770fd"
+
+[[plugin.deps]]
+use = "MasouShizuka/projects"
+rev = "a5e33db"
+hash = "3de26efded35814ba3e55e28f1c389a4"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "a97cf55"
+hash = "cc3aef07a8b1c3fe820f1fbb9a5a2483"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "9a52857"
+hash = "a20327710c3a8d37ee0972128dcb6a31"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "2d73b79"
 hash = "fc6944561718351d70cffde75839211f"
+
+[[flavor.deps]]
+use = "BennyOe/tokyo-night"
+rev = "5f56364"
+hash = "c0bf69ad2c44005892d586e9693993c6"
+
+[[flavor.deps]]
+use = "gosxrgxx/flexoki-dark"
+rev = "28e1977"
+hash = "9dbbb64ea20f9f1271c31951dea55c7b"

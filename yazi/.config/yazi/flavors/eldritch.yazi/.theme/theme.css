@@ -1,0 +1,12 @@
+/* comment.block */
+body {
+  color: #ff0000; /* constant.other */
+  font-weight: bold; /* keyword.other */
+  background: url("img.jpg"); /* string.quoted.single, markup.underline.link */
+}
+:root {
+  --main-color: #333; /* variable.other */
+}
+a:hover {
+  text-decoration: underline; /* markup.underline */
+}

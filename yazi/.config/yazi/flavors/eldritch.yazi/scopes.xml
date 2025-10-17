@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Neovim Treesitter and LSP Mapping</string>
+    <key>settings</key>
+    <array>
+      <!-- Annotation -->
+      <dict>
+        <key>scope</key>
+        <string>meta.annotation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Attribute -->
+      <dict>
+        <key>scope</key>
+        <string>meta.attribute</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Boolean -->
+      <dict>
+        <key>scope</key>
+        <string>constant.language.boolean</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Character -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Character Special/Escape -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character.escape</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Comment -->
+      <dict>
+        <key>scope</key>
+        <string>comment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Conditional Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Constant -->
+      <dict>
+        <key>scope</key>
+        <string>constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Builtin Constant -->
+      <dict>
+        <key>scope</key>
+        <string>constant.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Macro Constant -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.constant.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Debug Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.debug</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Directive Define -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.directive.define</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Exception Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.trycatch</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Float Number -->
+      <dict>
+        <key>scope</key>
+        <string>constant.numeric.float</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Builtin Function -->
+      <dict>
+        <key>scope</key>
+        <string>support.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Function Call -->
+      <dict>
+        <key>scope</key>
+        <string>meta.function-call</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Macro Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Import Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.import</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Coroutine Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.coroutine</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Operator Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.operator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Return Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.return</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Method Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function.method</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Method Call -->
+      <dict>
+        <key>scope</key>
+        <string>meta.function-call.method</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Namespace Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.namespace</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Number -->
+      <dict>
+        <key>scope</key>
+        <string>constant.numeric</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Directive Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.directive</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Repeat Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.loop</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Storage Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>storage.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- String -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link Label -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link.label</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link Label Symbol -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link.label.symbol</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Tag -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Tag Attribute -->
+      <dict>
+        <key>scope</key>
+        <string>entity.other.attribute-name</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Tag Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup -->
+      <dict>
+        <key>scope</key>
+        <string>markup</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Environment -->
+      <dict>
+        <key>scope</key>
+        <string>markup.environment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Environment Name -->
+      <dict>
+        <key>scope</key>
+        <string>markup.environment.name</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Raw -->
+      <dict>
+        <key>scope</key>
+        <string>markup.raw</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Math -->
+      <dict>
+        <key>scope</key>
+        <string>markup.math</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Strong -->
+      <dict>
+        <key>scope</key>
+        <string>markup.bold</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Emphasis -->
+      <dict>
+        <key>scope</key>
+        <string>markup.italic</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Strikethrough -->
+      <dict>
+        <key>scope</key>
+        <string>markup.strikethrough</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Underline -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Heading -->
+      <dict>
+        <key>scope</key>
+        <string>markup.heading</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Operator -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.operator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.delimiter</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Bracket -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.section.brackets</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Special -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.special</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup List -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Markdown -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.markdown</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- String Documentation -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted.docstring</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- String HTML -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted.html</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- String Regexp -->
+      <dict>
+        <key>scope</key>
+        <string>string.regexp</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- String Escape -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character.escape</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Constructor -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.type.constructor</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Variable Parameter -->
+      <dict>
+        <key>scope</key>
+        <string>variable.parameter</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Variable Parameter Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>variable.parameter.builtin</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Keyword Function -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Label -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.label</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Type Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Variable Member -->
+      <dict>
+        <key>scope</key>
+        <string>variable.other.member</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Property -->
+      <dict>
+        <key>scope</key>
+        <string>variable.other.property</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Variable -->
+      <dict>
+        <key>scope</key>
+        <string>variable</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Variable Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>variable.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Module Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.module</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Raw Markdown Inline -->
+      <dict>
+        <key>scope</key>
+        <string>markup.raw.inline.markdown</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Unchecked -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.unchecked</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Checked -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.checked</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Diff Plus -->
+      <dict>
+        <key>scope</key>
+        <string>markup.inserted.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Diff Minus -->
+      <dict>
+        <key>scope</key>
+        <string>markup.deleted.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Diff Delta -->
+      <dict>
+        <key>scope</key>
+        <string>markup.changed.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- Module Import -->
+      <dict>
+        <key>scope</key>
+        <string>support.module</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- TSX Tag -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- TSX Constructor -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.type.constructor.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+      <!-- TSX Tag Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.tag.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${}</string>
+        </dict>
+      </dict>
+    </array>
+  </dict>
+</plist>

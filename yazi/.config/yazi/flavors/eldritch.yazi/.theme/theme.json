@@ -1,0 +1,17 @@
+{
+  // comment.line.double-slash (not standard in JSON, but used by some editors)
+  /* comment.block */ // Also not standard, but some editors support as extension
+  "number": 42, // constant.numeric
+  "string": "Hello\nWorld", // string.quoted.double, constant.character.escape
+  "boolean_true": true, // constant.language
+  "boolean_false": false, // constant.language
+  "null_value": null, // constant.language
+  "array": [1, "two", null], // constant.numeric, string.quoted.double, constant.language
+  "object": {
+    "color": "#ff0000", // constant.other
+    "section": {
+      // entity.name.section
+      "attribute": "value" // entity.attribute-name, string.quoted.double
+    }
+  }
+}

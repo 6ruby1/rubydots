@@ -1,0 +1,12 @@
+# comment.line.number-sign
+
+monitor=DP-1,1920x1080@60,0x0,1     # variable.other, constant.numeric
+input {
+    kb_layout = us                  # entity.attribute-name
+    kb_variant = ""                 # string.quoted.double
+}
+general {
+    gaps_in = 10                    # constant.numeric
+    border_size = 2                 # constant.numeric
+    active_opacity = 1.0            # constant.numeric
+}

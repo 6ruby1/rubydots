@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>author</key>
+    <string>Adapted for Eldritch by 6ruby1</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>name</key>
+    <string>Eldritch Theme</string>
+    <key>semanticClass</key>
+    <string>eldritch.theme</string>
+    <key>settings</key>
+    <array>
+      <dict>
+        <key>settings</key>
+        <dict>
+          <key>activeGuide</key>
+          <string>#6473B7</string> <!-- dark3 -->
+          <key>background</key>
+          <string>#212337</string> <!-- bg -->
+          <key>caret</key>
+          <string>#f1fc79</string> <!-- yellow -->
+          <key>findHighlight</key>
+          <string>#f265b5</string> <!-- pink -->
+          <key>findHighlightForeground</key>
+          <string>#212337</string> <!-- bg -->
+          <key>foreground</key>
+          <string>#ebfafa</string> <!-- fg -->
+          <key>guide</key>
+          <string>#3b4261</string> <!-- fg_gutter -->
+          <key>gutterForeground</key>
+          <string>#8998c9</string> <!-- vfs/eldritch gray -->
+          <key>inactiveSelection</key>
+          <string>#292e42</string> <!-- bg_highlight -->
+          <key>invisibles</key>
+          <string>#5866A2</string> <!-- dark5 -->
+          <key>lineHighlight</key>
+          <string>#323449</string> <!-- current line -->
+          <key>phantomCss</key>
+          <string>&lt;![CDATA[ html { position: relative; } ]]&gt;</string>
+          <key>popupCss</key>
+          <string>&lt;![CDATA[ html { color: #ebfafa; background-color: #212337; padding: 10px; } a
+            { color: #04d1f9; line-height: 1.2; text-decoration: none; } .error, .deleted { color:
+            #f16c75; } .success, .inserted { color: #37f499; } .warning, .modified { color: #f1fc79;
+            } ]]&gt;</string>
+          <key>selection</key>
+          <string>#76639e</string> <!-- visual -->
+          <key>selectionBorder</key>
+          <string>#a48cf2</string> <!-- purple -->
+          <key>shadow</key>
+          <string>#171928</string> <!-- bg_dark -->
+          <key>stackGuide</key>
+          <string>#8998c9</string> <!-- vfs/eldritch gray -->
+          <key>tagsOptions</key>
+          <string>underline</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Italics - Comments, Storage, Keyword Flow, Vue attributes, Decorators</string>
+        <key>scope</key>
+        <string>comment, meta.var.expr storage.type, keyword.control.flow, meta.directive.vue
+          punctuation.separator.key-value.html, meta.directive.vue entity.other.attribute-name.html,
+          tag.decorator.js entity.name.tag.js, tag.decorator.js punctuation.definition.tag.js,
+          storage.modifier</string>
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Comment</string>
+        <key>scope</key>
+        <string>comment, comment.block.documentation, punctuation.definition.comment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#7081d0</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Comment Doc</string>
+        <key>scope</key>
+        <string>comment.block.documentation variable, comment.block.documentation storage,
+          comment.block.documentation punctuation, comment.block.documentation keyword,
+          comment.block.documentation support, comment.block.documentation markup,
+          comment.block.documentation markup.inline.raw.string.markdown, keyword.other.phpdoc.php</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#ABB4DA</string> <!-- fg_dark -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Number, Boolean, Undefined, Null</string>
+        <key>scope</key>
+        <string>variable.other.constant, punctuation.definition.constant, constant.language,
+          constant.numeric, support.constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#37f499</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String, Symbols, Markup Heading</string>
+        <key>scope</key>
+        <string>string, constant.other.symbol, constant.other.key, markup.heading,
+          meta.attribute-selector</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f1fc79</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Colors</string>
+        <key>scope</key>
+        <string>constant.other.color, constant.other.color.rgb-value.hex
+          punctuation.definition.constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Invalid</string>
+        <key>scope</key>
+        <string>invalid, invalid.illegal</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Invalid deprecated</string>
+        <key>scope</key>
+        <string>invalid.deprecated</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#FD92CE</string>
+        </dict>
+      </dict>
+      <!-- Continue mapping further scopes using Eldritch palette -->
+      <dict>
+        <key>name</key>
+        <string>Storage Type</string>
+        <key>scope</key>
+        <string>storage.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword</string>
+        <key>scope</key>
+        <string>keyword, keyword.control, keyword.other.important</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#37f499</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function</string>
+        <key>scope</key>
+        <string>entity.name.function, meta.function-call</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Variable</string>
+        <key>scope</key>
+        <string>variable, support.variable</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Operator</string>
+        <key>scope</key>
+        <string>keyword.operator, punctuation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Tag</string>
+        <key>scope</key>
+        <string>entity.name.tag, meta.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Attribute</string>
+        <key>scope</key>
+        <string>entity.other.attribute-name</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f265b5</string>
+        </dict>
+      </dict>
+      <!-- Add more mappings as needed, using the Eldritch palette -->
+    </array>
+    <key>uuid</key>
+    <string>eldritch-tmtheme</string>
+  </dict>
+</plist>

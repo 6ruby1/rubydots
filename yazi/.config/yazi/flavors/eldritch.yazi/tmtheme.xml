@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+
+
+    <key>author</key>
+    <string>Adapted for Eldritch by 6ruby1</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>name</key>
+    <string>Eldritch Theme</string>
+    <key>semanticClass</key>
+    <string>eldritch.theme</string>
+    <key>settings</key>
+    <array>
+      <dict>
+        <key>settings</key>
+        <dict>
+          <key>activeGuide</key>
+          <string>#6473B7</string> <!-- dark3 -->
+          <key>background</key>
+          <string>#212337</string> <!-- bg -->
+          <key>caret</key>
+          <string>#f1fc79</string> <!-- yellow -->
+          <key>findHighlight</key>
+          <string>#f7c67f</string> <!-- FindHighlightBackground -->
+          <key>findHighlightForeground</key>
+          <string>#212337</string> <!-- FindHighlightForeground -->
+          <key>foreground</key>
+          <string>#ebfafa</string> <!-- fg -->
+          <key>guide</key>
+          <string>#3b4261</string> <!-- fg_gutter -->
+          <key>gutterForeground</key>
+          <string>#3b4261</string> <!-- fg_gutter -->
+          <key>inactiveSelection</key>
+          <string>#7081d0</string> <!-- bg_search -->
+          <key>invisibles</key>
+          <string>#5866A2</string> <!-- dark5 -->
+          <key>lineHighlight</key>
+          <string>#37f499</string> <!-- CursorLineNr -->
+          <key>phantomCss</key>
+          <string>&lt;![CDATA[ html { position: relative; } ]]&gt;</string>
+          <key>popupCss</key>
+          <string>&lt;![CDATA[ html { color: #ebfafa; background-color: #212337; padding: 10px; } a
+            { color: #04d1f9; line-height: 1.2; text-decoration: none; } .error, .deleted { color:
+            #f16c75; } .success, .inserted { color: #37f499; } .warning, .modified { color: #f1fc79;
+            } ]]&gt;</string>
+          <key>selection</key>
+          <string>#76639e</string> <!-- Visual -->
+          <key>shadow</key>
+          <string>#171928</string> <!-- bg_dark -->
+          <key>stackGuide</key>
+          <string>#ABB4DA</string> <!-- fg_dark -->
+          <key>tagsOptions</key>
+          <string>underline</string>
+        </dict>
+      </dict>
+
+      <!-- Italics
+      - Comment
+      - x @markup.emphasis
+      -->
+      <dict>
+        <key>name</key>
+        <string>Italics - Comments, Storage, Keyword Flow, Vue attributes, Decorators</string>
+        <key>scope</key>
+        <string>markup.italic</string>
+        <!-- <string>comment, meta.var.expr storage.type, keyword.control.flow, meta.directive.vue -->
+        <!--   punctuation.separator.key-value.html, meta.directive.vue
+        entity.other.attribute-name.html, -->
+        <!--   tag.decorator.js entity.name.tag.js, tag.decorator.js punctuation.definition.tag.js, -->
+        <!--   storage.modifier</string> -->
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+
+      <!-- Bold 
+      - VertSplit
+      - WinSeperator
+      - MatchParen
+      - ModeMsg
+      - QuickFixLine
+      - Title
+      - htmlH1
+      - htmlH2
+      - mkdHeading
+      - mkdCodeStart
+      - mkdCodeEnd
+      - markdownHeadingDelimiter
+      - markdownH1
+      - markdownH2
+      - @markup.strong
+      - @markup.list.markdown
+      -->
+
+      <dict>
+        <key>name</key>
+        <string>Bold</string>
+        <key>scope</key>
+        <string>markup.bold</string>
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>bold</string>
+        </dict>
+      </dict>
+
+      <!-- Underline (todo?)
+      - mkdLink
+      - markdownLinkText
+      - @markup.underline
+      - @markup.link.url
+      -->
+
+      <!-- Underline - curl (idk if needed)
+      - DiagnosticUnderlineError      - red
+      - DiagnosticUnderlineWarn       - orange
+      - DiagnosticUnderlineInfo       - yellow
+      - DiagnosticUnderlineHint       - dark_green
+      - @lsp.type.unresolvedReference - red
+      - SpellBad                      - red
+      - SpellCap                      - orange
+      - SpellLocal                    - yellow
+      - SpellRare                     - pink
+      -->
+
+      <!-- Strikethrough 
+      - @markup.strikethrough
+      -->
+
+      <!-- Comments -->
+
+      <dict>
+        <key>name</key>
+        <string>Comment</string>
+        <key>scope</key>
+        <string>comment, punctuation.definition.comment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#7081d0</string> <!-- @comment -->
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+
+      <!-- Strings -->
+      <dict>
+        <key>name</key>
+        <string>String</string>
+        <key>scope</key>
+        <string>string, meta.string, punctuation.definition.string, string.quoted, string.unqouted,
+          string.template</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f1fc79</string> <!-- @string -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - docstring</string>
+        <key>scope</key>
+        <string>string.quoted.docstring</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f1fc79</string> <!-- @string.documentation -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - regexp</string>
+        <key>scope</key>
+        <string>string.regexp</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @string.regexp -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - html</string>
+        <key>scope</key>
+        <string>string.quoted.html</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#c0c95f</string> <!-- @string.html -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - escape</string>
+        <key>scope</key>
+        <string>constant.character.escape</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @string.escape -->
+        </dict>
+      </dict>
+
+      <!-- Numbers -->
+      <dict>
+        <key>name</key>
+        <string>Number</string>
+        <key>scope</key>
+        <string>constant.numeric, constant.numeric.integer, variable.other.numeric</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string> <!-- @number -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Number</string>
+        <key>scope</key>
+        <string>constant.numeric.float</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string> <!-- @number -->
+        </dict>
+      </dict>
+
+      <!-- Keywords -->
+      <dict>
+        <key>name</key>
+        <string>Keyword</string>
+        <key>scope</key>
+        <string>keyword, keyword.other, storage.modifier</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#37f499</string> <!-- @keyword -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - control</string>
+        <key>scope</key>
+        <string>keyword.control.conditional</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @keyword.conditional -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - repeat</string>
+        <key>scope</key>
+        <string>keyword.control.loop</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @keyword.repeat -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - import</string>
+        <key>scope</key>
+        <string>keyword.control.import</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#10A1BD</string> <!-- @keyword.import -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - exception</string>
+        <key>scope</key>
+        <string>keyword.control.trycatch</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#10A1BD</string> <!-- @keyword.exception -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - return</string>
+        <key>scope</key>
+        <string>keyword.control.return</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#37f499</string> <!-- @keyword.return -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>keyword - directive</string>
+        <key>scope</key>
+        <string>keyword.other.directive</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#10A1BD</string> <!-- @keyword.directive -->
+        </dict>
+      </dict>
+
+
+      <!-- Operators -->
+      <dict>
+        <key>name</key>
+        <string>Operator</string>
+        <key>scope</key>
+        <string>keyword.operator, meta.operator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @keyword.operator -->
+        </dict>
+      </dict>
+
+      <!-- Storage types (class, function, var, let, const etc.) -->
+      <dict>
+        <key>name</key>
+        <string>Storage Type</string>
+        <key>scope</key>
+        <string>storage.type, keyword.declaration.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @keyword.storage -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Storage - function</string>
+        <key>scope</key>
+        <string>storage.type.function, keyword.declaration.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @keyword.function -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Storage - interface</string>
+        <key>scope</key>
+        <string>storage.type.interface, keyword.declaration.interface</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#4fdffb</string> <!-- @lsp.type.interface -->
+        </dict>
+      </dict>
+
+      <!-- Functions and Methods -->
+      <dict>
+        <key>name</key>
+        <string>Function</string>
+        <key>scope</key>
+        <string>entity.name.function, meta.function-call, variable.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f265b5</string> <!-- @function -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - constructor/destructor</string>
+        <key>scope</key>
+        <string>entity.name.function.constructor, entity.name.function.destructor</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @constructor -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - builtin</string>
+        <key>scope</key>
+        <string>support.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @function.builtin -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - macro</string>
+        <key>scope</key>
+        <string>entity.name.function.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#10A1BD</string> <!-- @function.macro -->
+        </dict>
+      </dict>
+
+      <!-- Variables -->
+      <dict>
+        <key>name</key>
+        <string>Variable</string>
+        <key>scope</key>
+        <string>variable, variable.other, meta.function.return-type, variable.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @variable -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Variable - param</string>
+        <key>scope</key>
+        <string>variable.parameter, meta.function.parameters</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @variable.parameter -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Variable - member</string>
+        <key>scope</key>
+        <string>variable.other.member</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#a48cf2</string> <!-- @variable.member -->
+        </dict>
+      </dict>
+
+      <!-- Constants -->
+      <dict>
+        <key>name</key>
+        <string>Constant</string>
+        <key>scope</key>
+        <string>constant, constant.other, constant.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string> <!-- @constant -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - builtin</string>
+        <key>scope</key>
+        <string>support.constant, </string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @constant.builtin -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - boolean</string>
+        <key>scope</key>
+        <string>constant.language.boolean, constant.language.true, constant.language.false</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f16c75</string> <!-- @boolean -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - character</string>
+        <key>scope</key>
+        <string>constant.character</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#f7c67f</string> <!-- @character -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - special character</string>
+        <key>scope</key>
+        <string>constant.character.escape.special</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @character.special -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - placeholder</string>
+        <key>scope</key>
+        <string>constant.other.placeholder</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @variable -->
+        </dict>
+      </dict>
+
+      <!-- Punctuation -->
+      <dict>
+        <key>name</key>
+        <string>Punctuation</string>
+        <key>scope</key>
+        <string>punctuation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @punctuation -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - delimiter</string>
+        <key>scope</key>
+        <string>punctuation.separator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @punctuation.delimiter -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - special</string>
+        <key>scope</key>
+        <string>punctuation.section, punctuation.terminator, punctuation.accessor, meta.braces,
+          meta.block, punctuation.definition.annotation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#04d1f9</string> <!-- @punctuation.special -->
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - bracket</string>
+        <key>scope</key>
+        <string>meta.brackets, meta.group, meta.parens, punctuation.section.group,
+          punctuation.section.parens, punctuation.section.brackets, punctuation.section.generic</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>#ABB4DA</string> <!-- @punctuation.bracket -->
+        </dict>
+      </dict>
+
+
+    </array>
+    <key>uuid</key>
+    <string>eldritch-tmtheme</string>
+  </dict>
+</plist>

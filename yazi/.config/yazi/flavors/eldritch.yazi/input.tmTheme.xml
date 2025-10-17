@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+
+    <palette>
+      <!-- Template -->
+      <!-- <color name="@" value="${}" /> -->
+
+      <!-- Base colour palette-->
+
+      <color name="none" value="NONE" />
+      <color name="bg_dark" value="#171928" />
+      <color name="bg" value="#212337" />
+      <color name="bg_highlight" value="#292e42" />
+      <color name="terminal_black" value="#414868" />
+
+      <color name="fg" value="#ebfafa" />
+      <color name="fg_dark" value="#ABB4DA" />
+      <color name="fg_gutter" value="#3b4261" />
+      <color name="fg_gutter_light" value="#7081d0" />
+      <color name="dark3" value="#6473B7" />
+      <color name="comment" value="#7081d0" />
+      <color name="dark5" value="#5866A2" />
+      <color name="bright_cyan" value="#39DDFD" />
+      <color name="visual" value="#76639e" />
+      <color name="cyan" value="#04d1f9" />
+      <color name="dark_cyan" value="#10A1BD" />
+      <color name="lighten_cyan_07" value="#4fdffb" />
+      <color name="darken_cyan_08" value="#0d9dbf" />
+      <color name="magenta" value="#a48cf2" />
+      <color name="magenta2" value="#bf4f8e" />
+      <color name="magenta3" value="#722f55" />
+      <color name="pink" value="#f265b5" />
+      <color name="purple" value="#a48cf2" />
+      <color name="lighten_purple_08" value="#b2a2f4" />
+      <color name="orange" value="#f7c67f" />
+      <color name="yellow" value="#f1fc79" />
+      <color name="dark_yellow" value="#c0c95f" />
+      <color name="green" value="#37f499" />
+      <color name="bright_green" value="#00FA82" />
+      <color name="dark_green" value="#33C57F" />
+      <color name="red" value="#f16c75" />
+      <color name="bright_red" value="#f0313e" />
+
+      <!-- Extra from colors.lua -->
+
+      <color name="black" value="#1a1c2c" /> <!-- darken(bg, 0.8, #000000) -->
+      <color name="border_highlight" value="#606eb1" /> <!-- darken(comment, 0.8) -->
+      <color name="border" value="${black}" />
+      <color name="bg_popup" value="${bg_dark}" />
+      <color name="bg_statusline" value="${bg_dark}" />
+      <color name="bg_sidebar" value="${bg}" />
+      <color name="bg_float" value="${bg}" />
+      <color name="bg_visual" value="#414974" /> <!-- darken(comment, 0.4) -->
+      <color name="bg_search" value="${comment}" />
+      <color name="fg_sidebar" value="${fg_dark}" />
+      <color name="fg_float" value="${fg}" />
+
+      <!-- Git base colours -->
+
+      <color name="git.change" value="${fg_gutter_light}" />
+      <color name="git.add" value="${green}" />
+      <color name="git.delete" value="${red}" />
+      <color name="git.ignore" value="${dark3}" />
+      <color name="gitSigns.add" value="${green}" />
+      <color name="gitSigns.change" value="${fg_gutter_light}" />
+      <color name="gitSigns.delete" value="${red}" />
+
+      <color name="diff.add" value="#244246" /> <!-- darken(green, 0.15)-->
+      <color name="diff.delete" value="#402e40" /> <!-- darken(red, 0.15)-->
+      <color name="diff.change" value="#404441" /> <!-- darken(yellow, 0.15)-->
+      <color name="diff.text" value="${cyan}" />
+
+      <color name="delta.add" value="#2b8163" /> <!-- darken(green, 0.45)-->
+      <color name="delta.delete" value="#7f4453" /> <!-- darken(red, 0.15)-->
+
+      <!-- Top level -->
+
+      <color name="Comment" value="${comment}" />
+      <color name="Directory" value="${cyan}" />
+      <color name="DiffAdd" value="${diff.add}" />
+      <color name="DiffChange" value="${diff.change}" />
+      <color name="DiffDelete" value="${diff.delete}" />
+      <color name="VirtSplit" value="${purple}" />
+      <color name="WinSeperator" value="${purple}" />
+      <color name="LineNr" value="${fg_gutter_light}" />
+      <color name="CursorLineNr" value="${green}" />
+      <color name="MatchParen" value="${orange}" />
+      <color name="ModeMsg" value="${fg_dark}" />
+      <color name="Title" value="${cyan}" />
+      <color name="FindHighlightBackground" value="${orange}" />
+      <color name="FindHighlightForeground" value="${bg}" />
+      <color name="Visual" value="${visual}" />
+
+      <color name="Constant" value="${red}" />
+      <color name="Boolean" value="${Constant}" />
+      <color name="Number" value="${Constant}" />
+      <color name="Float" value="${Constant}" />
+      <color name="String" value="${yellow}" />
+      <color name="Character" value="${orange}" />
+
+      <color name="Identifier" value="${magenta}" />
+      <color name="Function" value="${pink}" />
+      <color name="Statement" value="${magenta}" />
+      <color name="Conditional" value="${Statement}" />
+      <color name="Repeat" value="${Statement}" />
+      <color name="Label" value="${Statement}" />
+
+      <color name="Operator" value="${cyan}" />
+      <color name="Keyword" value="${dark_cyan}" />
+      <color name="Exception" value="${Keyword}" />
+
+      <color name="PreProc" value="${dark_cyan}" />
+      <color name="Include" value="${PreProc}" />
+      <color name="Define" value="${PreProc}" />
+      <color name="Macro" value="${PreProc}" />
+      <color name="PreCondit" value="${PreProc}" />
+
+      <color name="Type" value="${cyan}" />
+      <color name="StorageClass" value="${Type}" />
+      <color name="Structure" value="${Type}" />
+      <color name="Typedef" value="${Type}" />
+
+      <color name="Special" value="${cyan}" />
+      <color name="SpecialChar" value="${Special}" />
+      <color name="Delimiter" value="${Special}" />
+      <color name="Debug" value="${orange}" />
+
+      <color name="Error" value="${red}" />
+      <color name="Todo" value="${yellow}" />
+
+      <color name="htmlH1" value="${magenta}" />
+      <color name="htmlH2" value="${cyan}" />
+
+      <color name="mkdCodeStart" value="${cyan}" />
+      <color name="mkdCodeEnd" value="${cyan}" />
+      <color name="markdownHeadingDelimiter" value="${orange}" />
+      <color name="markdownCode" value="${cyan}" />
+      <color name="markdownCodeBlock" value="${cyan}" />
+      <color name="markdownH1" value="${magenta}" />
+      <color name="markdownH2" value="${cyan}" />
+      <color name="markdownLinkText" value="${cyan}" />
+
+      <!-- Tree sitter -->
+
+      <color name="@none" value="${bg}" />
+
+      <color name="@annotation" value="${PreProc}" />
+      <color name="@attribute" value="${PreProc}" />
+      <color name="@operator" value="${Operator}" />
+      <color name="@boolean" value="${Boolean}" />
+      <color name="@character" value="${Character}" />
+      <color name="@character.special" value="${SpecialChar}" />
+
+      <color name="@variable" value="${cyan}" />
+      <color name="@variable.builtin" value="${red}" /> <!-- this, self, ...-->
+      <color name="@variable.parameter" value="${purple}" />
+      <color name="@variable.parameter.builtin" value="${lighten_purple_08}" />
+      <color name="@variable.member" value="${purple}" />
+
+      <color name="@property" value="${purple}" />
+
+      <color name="@label" value="${cyan}" />
+
+      <color name="@module" value="${Include}" />
+      <color name="@module.builtin" value="${red}" /> <!-- this, self, ...-->
+
+      <color name="@keyword" value="${green}" />
+      <color name="@keyword.function" value="${magenta}" />
+      <color name="@keyword.conditional" value="${Conditional}" />
+      <color name="@keyword.debug" value="${Debug}" />
+      <color name="@keyword.directive.define" value="${Define}" />
+      <color name="@keyword.exception" value="${Exception}" />
+      <color name="@keyword.import" value="${Include}" />
+      <color name="@keyword.coroutine" value="${@keyword}" />
+      <color name="@keyword.operator" value="${@operator}" />
+      <color name="@keyword.return" value="${@keyword}" />
+      <color name="@keyword.directive" value="${PreProc}" />
+      <color name="@keyword.repeat" value="${Repeat}" />
+      <color name="@keyword.storage" value="${StorageClass}" />
+
+      <color name="@constant" value="${Constant}" />
+      <color name="@constant.builtin" value="${Special}" />
+      <color name="@constant.macro" value="${Define}" />
+
+      <color name="@number" value="${Number}" />
+      <color name="@number.float" value="${Float}" />
+
+      <color name="@function" value="${Function}" />
+      <color name="@function.builtin" value="${Special}" />
+      <color name="@function.call" value="${@function}" />
+      <color name="@function.macro" value="${Macro}" />
+      <color name="@function.method" value="${Function}" />
+      <color name="@function.method.call" value="${Function}" />
+      <color name="@constructor" value="${magenta}" />
+
+      <color name="@namespace.builtin" value="${@variable.builtin}" />
+
+      <color name="@string" value="${String}" />
+      <color name="@string.documentation" value="${yellow}" />
+      <color name="@string.html" value="${dark_yellow}" />
+      <color name="@string.regexp" value="${cyan}" />
+      <color name="@string.escape" value="${magenta}" />
+
+      <color name="@markup" value="${@none}" />
+      <color name="@markup.link" value="${cyan}" />
+      <color name="@markup.link.label" value="${SpecialChar}" />
+      <color name="@markup.link.label.symbol" value="${Identifier}" />
+      <color name="@markup.environment" value="${Macro}" />
+      <color name="@markup.environment.name" value="${Type}" />
+      <color name="@markup.raw" value="${String}" />
+      <color name="@markup.math" value="${Special}" />
+      <color name="@markup.heading" value="${Title}" />
+      <color name="@markup.list" value="${cyan}" />
+      <color name="@markup.list.markdown" value="${orange}" />
+      <color name="@markup.raw.markdown" value="${cyan}" />
+      <color name="@markup.raw.markdown_inline" value="${cyan}" />
+      <color name="@markup.list.unchecked" value="${cyan}" />
+      <color name="@markup.list.checked" value="${purple}" />
+
+      <color name="@comment" value="${Comment}" />
+      <color name="@comment.note" value="${pink}" />
+      <color name="@comment.error" value="${red}" />
+      <color name="@comment.hint" value="${pink}" />
+      <color name="@comment.info" value="${yellow}" />
+      <color name="@comment.warning" value="${orange}" />
+      <color name="@comment.todo" value="${Todo}" />
+
+      <color name="@type" value="${Type}" />
+      <color name="@type.definition" value="${Typedef}" />
+      <color name="@type.qualifier" value="${@keyword}" />
+      <color name="@type.builtin" value="${darken_cyan_08}" />
+
+
+      <color name="@punctuation.delimiter" value="${cyan}" />
+      <color name="@punctuation.bracket" value="${fg_dark}" />
+      <color name="@punctuation.special" value="${cyan}" />
+
+      <color name="@diff.plus" value="${DiffAdd}" />
+      <color name="@diff.minus" value="${DiffDelete}" />
+      <color name="@diff.delta" value="${DiffChange}" />
+
+      <color name="@tag" value="${Label}" />
+      <color name="@tag.attribute" value="${@property}" />
+      <color name="@tag.delimiter" value="${Delimiter}" />
+
+      <color name="@tag.tsx" value="${red}" />
+      <color name="@constructor.tsx" value="${cyan}" />
+      <color name="@tag.delimiter.tsx" value="${darken_cyan_08}" />
+
+      <!-- LSP Semantic Token Groups -->
+
+      <color name="@lsp.type.boolean" value="${@boolean}" />
+      <color name="@lsp.type.builtinType" value="${@type.builtin}" />
+      <color name="@lsp.type.comment" value="${@comment}" />
+      <color name="@lsp.type.decorator" value="${@attribute}" />
+      <color name="@lsp.type.deriveHelper" value="${@attribute}" />
+      <color name="@lsp.type.enum" value="${@type}" />
+      <color name="@lsp.type.enumMember" value="${@constant}" />
+      <color name="@lsp.type.escapeSequence" value="${@string.escape}" />
+      <color name="@lsp.type.formatSpecifier" value="${@markup.list}" />
+      <color name="@lsp.type.generic" value="${@variable}" />
+      <color name="@lsp.type.interface" value="${lighten_cyan_07}" />
+      <color name="@lsp.type.keyword" value="${@keyword}" />
+      <color name="@lsp.type.lifetime" value="${@keyword.storage}" />
+      <color name="@lsp.type.namespace" value="${@module}" />
+      <color name="@lsp.type.number" value="${@number}" />
+      <color name="@lsp.type.operator" value="${@operator}" />
+      <color name="@lsp.type.parameter" value="${@variable.parameter}" />
+      <color name="@lsp.type.property" value="${@property}" />
+      <color name="@lsp.type.selfKeyword" value="${@variable.builtin}" />
+      <color name="@lsp.type.selfTypeKeyword" value="${@variable.builtin}" />
+      <color name="@lsp.type.string" value="${@string}" />
+      <color name="@lsp.type.typeAlias" value="${@type.definition}" />
+      <color name="@lsp.type.unresolvedReference" value="${red}" />
+      <color name="@lsp.typemod.class.defaultLibrary" value="${@type.builtin}" />
+      <color name="@lsp.typemod.enum.defaultLibrary" value="${@type.builtin}" />
+      <color name="@lsp.typemod.enumMember.defaultLibrary" value="${@constant.builtin}" />
+      <color name="@lsp.typemod.function.defaultLibrary" value="${@function.builtin}" />
+      <color name="@lsp.typemod.keyword.async" value="${@keyword.coroutine}" />
+      <color name="@lsp.typemod.keyword.injected" value="${@keyword}" />
+      <color name="@lsp.typemod.macro.defaultLibrary" value="${@function.builtin}" />
+      <color name="@lsp.typemod.method.defaultLibrary" value="${@function.builtin}" />
+      <color name="@lsp.typemod.operator.injected" value="${@operator}" />
+      <color name="@lsp.typemod.string.injected" value="${@string}" />
+      <color name="@lsp.typemod.struct.defaultLibrary" value="${@type.builtin}" />
+      <color name="@lsp.typemod.type.defaultLibrary" value="${darken_cyan_08}" />
+      <color name="@lsp.typemod.typeAlias.defaultLibrary" value="${darken_cyan_08}" />
+      <color name="@lsp.typemod.variable.callable" value="${@function}" />
+      <color name="@lsp.typemod.variable.defaultLibrary" value="${@variable.builtin}" />
+      <color name="@lsp.typemod.variable.injected" value="${@variable}" />
+      <color name="@lsp.typemod.variable.static" value="${@constant}" />
+
+
+    </palette>
+    <key>author</key>
+    <string>Adapted for Eldritch by 6ruby1</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>name</key>
+    <string>Eldritch Theme</string>
+    <key>semanticClass</key>
+    <string>eldritch.theme</string>
+    <key>settings</key>
+    <array>
+      <dict>
+        <key>settings</key>
+        <dict>
+          <key>activeGuide</key>
+          <string>${dark3}</string>
+          <key>background</key>
+          <string>${bg}</string>
+          <key>caret</key>
+          <string>${yellow}</string>
+          <key>findHighlight</key>
+          <string>${FindHighlightBackground}</string>
+          <key>findHighlightForeground</key>
+          <string>${FindHighlightForeground}</string>
+          <key>foreground</key>
+          <string>${fg}</string>
+          <key>guide</key>
+          <string>${fg_gutter}</string>
+          <key>gutterForeground</key>
+          <string>${fg_gutter}</string>
+          <key>inactiveSelection</key>
+          <string>${bg_search}</string>
+          <key>invisibles</key>
+          <string>${dark5}</string>
+          <key>lineHighlight</key>
+          <string>${CursorLineNr}</string>
+          <key>phantomCss</key>
+          <string>&lt;![CDATA[ html { position: relative; } ]]&gt;</string>
+          <key>popupCss</key>
+          <string>&lt;![CDATA[ html { color: ${fg}; background-color: ${bg}; padding: 10px; } a {
+            color: ${cyan}; line-height: 1.2; text-decoration: none; } .error, .deleted { color:
+            ${red}; } .success, .inserted { color: ${green}; } .warning, .modified { color:
+            ${yellow}; } ]]&gt;</string>
+          <key>selection</key>
+          <string>${Visual}</string>
+          <key>shadow</key>
+          <string>${bg_dark}</string>
+          <key>stackGuide</key>
+          <string>${fg_dark}</string>
+          <key>tagsOptions</key>
+          <string>underline</string>
+        </dict>
+      </dict>
+
+      <!-- Italics
+      - Comment
+      - x @markup.emphasis
+      -->
+      <dict>
+        <key>name</key>
+        <string>Italics - Comments, Storage, Keyword Flow, Vue attributes, Decorators</string>
+        <key>scope</key>
+        <string>markup.italic</string>
+        <!-- <string>comment, meta.var.expr storage.type, keyword.control.flow, meta.directive.vue -->
+        <!--   punctuation.separator.key-value.html, meta.directive.vue
+        entity.other.attribute-name.html, -->
+        <!--   tag.decorator.js entity.name.tag.js, tag.decorator.js punctuation.definition.tag.js, -->
+        <!--   storage.modifier</string> -->
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+
+      <!-- Bold 
+      - VertSplit
+      - WinSeperator
+      - MatchParen
+      - ModeMsg
+      - QuickFixLine
+      - Title
+      - htmlH1
+      - htmlH2
+      - mkdHeading
+      - mkdCodeStart
+      - mkdCodeEnd
+      - markdownHeadingDelimiter
+      - markdownH1
+      - markdownH2
+      - @markup.strong
+      - @markup.list.markdown
+      -->
+
+      <dict>
+        <key>name</key>
+        <string>Bold</string>
+        <key>scope</key>
+        <string>markup.bold</string>
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>bold</string>
+        </dict>
+      </dict>
+
+      <!-- Underline (todo?)
+      - mkdLink
+      - markdownLinkText
+      - @markup.underline
+      - @markup.link.url
+      -->
+
+      <!-- Underline - curl (idk if needed)
+      - DiagnosticUnderlineError      - red
+      - DiagnosticUnderlineWarn       - orange
+      - DiagnosticUnderlineInfo       - yellow
+      - DiagnosticUnderlineHint       - dark_green
+      - @lsp.type.unresolvedReference - red
+      - SpellBad                      - red
+      - SpellCap                      - orange
+      - SpellLocal                    - yellow
+      - SpellRare                     - pink
+      -->
+
+      <!-- Strikethrough 
+      - @markup.strikethrough
+      -->
+
+      <!-- Comments -->
+
+      <dict>
+        <key>name</key>
+        <string>Comment</string>
+        <key>scope</key>
+        <string>comment, punctuation.definition.comment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@comment}</string>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+
+      <!-- Strings -->
+      <dict>
+        <key>name</key>
+        <string>String</string>
+        <key>scope</key>
+        <string>string, meta.string, punctuation.definition.string, string.quoted, string.unqouted,
+          string.template</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - docstring</string>
+        <key>scope</key>
+        <string>string.quoted.docstring</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.documentation}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - regexp</string>
+        <key>scope</key>
+        <string>string.regexp</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.regexp}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - html</string>
+        <key>scope</key>
+        <string>string.quoted.html</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.html}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>String - escape</string>
+        <key>scope</key>
+        <string>constant.character.escape</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.escape}</string>
+        </dict>
+      </dict>
+
+      <!-- Numbers -->
+      <dict>
+        <key>name</key>
+        <string>Number</string>
+        <key>scope</key>
+        <string>constant.numeric, constant.numeric.integer, variable.other.numeric</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@number}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Number</string>
+        <key>scope</key>
+        <string>constant.numeric.float</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@number}</string>
+        </dict>
+      </dict>
+
+      <!-- Keywords -->
+      <dict>
+        <key>name</key>
+        <string>Keyword</string>
+        <key>scope</key>
+        <string>keyword, keyword.other, storage.modifier</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - control</string>
+        <key>scope</key>
+        <string>keyword.control.conditional</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.conditional}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - repeat</string>
+        <key>scope</key>
+        <string>keyword.control.loop</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.repeat}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - import</string>
+        <key>scope</key>
+        <string>keyword.control.import</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.import}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - exception</string>
+        <key>scope</key>
+        <string>keyword.control.trycatch</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.exception}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Keyword - return</string>
+        <key>scope</key>
+        <string>keyword.control.return</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.return}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>keyword - directive</string>
+        <key>scope</key>
+        <string>keyword.other.directive</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.directive}</string>
+        </dict>
+      </dict>
+
+
+      <!-- Operators -->
+      <dict>
+        <key>name</key>
+        <string>Operator</string>
+        <key>scope</key>
+        <string>keyword.operator, meta.operator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.operator}</string>
+        </dict>
+      </dict>
+
+      <!-- Storage types (class, function, var, let, const etc.) -->
+      <dict>
+        <key>name</key>
+        <string>Storage Type</string>
+        <key>scope</key>
+        <string>storage.type, keyword.declaration.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.storage}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Storage - function</string>
+        <key>scope</key>
+        <string>storage.type.function, keyword.declaration.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.function}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Storage - interface</string>
+        <key>scope</key>
+        <string>storage.type.interface, keyword.declaration.interface</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@lsp.type.interface}</string>
+        </dict>
+      </dict>
+
+      <!-- Functions and Methods -->
+      <dict>
+        <key>name</key>
+        <string>Function</string>
+        <key>scope</key>
+        <string>entity.name.function, meta.function-call, variable.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - constructor/destructor</string>
+        <key>scope</key>
+        <string>entity.name.function.constructor, entity.name.function.destructor</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constructor}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - builtin</string>
+        <key>scope</key>
+        <string>support.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.builtin}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Function - macro</string>
+        <key>scope</key>
+        <string>entity.name.function.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.macro}</string>
+        </dict>
+      </dict>
+
+      <!-- Variables -->
+      <dict>
+        <key>name</key>
+        <string>Variable</string>
+        <key>scope</key>
+        <string>variable, variable.other, meta.function.return-type, variable.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Variable - param</string>
+        <key>scope</key>
+        <string>variable.parameter, meta.function.parameters</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.parameter}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Variable - member</string>
+        <key>scope</key>
+        <string>variable.other.member</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.member}</string>
+        </dict>
+      </dict>
+
+      <!-- Constants -->
+      <dict>
+        <key>name</key>
+        <string>Constant</string>
+        <key>scope</key>
+        <string>constant, constant.other, constant.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constant}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - builtin</string>
+        <key>scope</key>
+        <string>support.constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constant.builtin}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - boolean</string>
+        <key>scope</key>
+        <string>constant.language.boolean, constant.language.true, constant.language.false</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@boolean}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - character</string>
+        <key>scope</key>
+        <string>constant.character</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@character}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - special character</string>
+        <key>scope</key>
+        <string>constant.character.escape.special</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@character.special}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Constant - placeholder</string>
+        <key>scope</key>
+        <string>constant.other.placeholder</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable}</string>
+        </dict>
+      </dict>
+
+      <!-- Punctuation -->
+      <dict>
+        <key>name</key>
+        <string>Punctuation</string>
+        <key>scope</key>
+        <string>punctuation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - delimiter</string>
+        <key>scope</key>
+        <string>punctuation.separator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.delimiter}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - special</string>
+        <key>scope</key>
+        <string>punctuation.section, punctuation.terminator, punctuation.accessor, meta.braces,
+          meta.block, punctuation.definition.annotation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.special}</string>
+        </dict>
+      </dict>
+      <dict>
+        <key>name</key>
+        <string>Punctuation - bracket</string>
+        <key>scope</key>
+        <string>meta.brackets, meta.group, meta.parens, punctuation.section.group,
+          punctuation.section.parens, punctuation.section.brackets, punctuation.section.generic</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.bracket}</string>
+        </dict>
+      </dict>
+
+
+    </array>
+    <key>uuid</key>
+    <string>eldritch-tmtheme</string>
+  </dict>
+</plist>

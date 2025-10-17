@@ -1,0 +1,8 @@
+<!-- comment.block -->
+<root>
+  <section name="Test">           <!-- entity.name.section, entity.attribute-name, string.quoted.double -->
+    <number>42</number>         <!-- constant.numeric -->
+    <color>#ff0000</color>      <!-- constant.other -->
+    <enabled>true</enabled>     <!-- constant.language -->
+  </section>
+</root>

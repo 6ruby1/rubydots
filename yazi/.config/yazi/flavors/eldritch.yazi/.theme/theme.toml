@@ -1,0 +1,6 @@
+# comment.line.number-sign
+title = "Example" # string.quoted.double
+[section] # entity.name.section
+number = 42       # constant.numeric
+color = "#ff0000" # constant.other
+enabled = true    # constant.language

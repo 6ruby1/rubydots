@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>author</key>
+    <string>Adapted for Eldritch by 6ruby1</string>
+    <key>colorSpaceName</key>
+    <string>sRGB</string>
+    <key>name</key>
+    <string>Eldritch Theme</string>
+    <key>semanticClass</key>
+    <string>eldritch.theme</string>
+    <key>settings</key>
+    <array>
+      <dict>
+        <key>settings</key>
+        <dict>
+          <key>activeGuide</key>
+          <string>${dark3}</string>
+          <key>background</key>
+          <string>${bg}</string>
+          <key>caret</key>
+          <string>${yellow}</string>
+          <key>findHighlight</key>
+          <string>${FindHighlightBackground}</string>
+          <key>findHighlightForeground</key>
+          <string>${FindHighlightForeground}</string>
+          <key>foreground</key>
+          <string>${fg}</string>
+          <key>guide</key>
+          <string>${fg_gutter}</string>
+          <key>gutterForeground</key>
+          <string>${fg_gutter}</string>
+          <key>inactiveSelection</key>
+          <string>${bg_search}</string>
+          <key>invisibles</key>
+          <string>${dark5}</string>
+          <key>lineHighlight</key>
+          <string>${CursorLineNr}</string>
+          <key>phantomCss</key>
+          <string>&lt;![CDATA[ html { position: relative; } ]]&gt;</string>
+          <key>popupCss</key>
+          <string>&lt;![CDATA[ html { color: ${fg}; background-color: ${bg}; padding: 10px; } a {
+            color: ${cyan}; line-height: 1.2; text-decoration: none; } .error, .deleted { color:
+            ${red}; } .success, .inserted { color: ${green}; } .warning, .modified { color:
+            ${yellow}; } ]]&gt;</string>
+          <key>selection</key>
+          <string>${Visual}</string>
+          <key>shadow</key>
+          <string>${bg_dark}</string>
+          <key>stackGuide</key>
+          <string>${fg_dark}</string>
+          <key>tagsOptions</key>
+          <string>underline</string>
+        </dict>
+      </dict>
+
+      <!-- Italics
+      - Comment
+      - x @markup.emphasis
+      -->
+      <dict>
+        <key>name</key>
+        <string>Italics - Comments, Storage, Keyword Flow, Vue attributes, Decorators</string>
+        <key>scope</key>
+        <string>markup.italic</string>
+        <!-- <string>comment, meta.var.expr storage.type, keyword.control.flow, meta.directive.vue -->
+        <!--   punctuation.separator.key-value.html, meta.directive.vue
+        entity.other.attribute-name.html, -->
+        <!--   tag.decorator.js entity.name.tag.js, tag.decorator.js punctuation.definition.tag.js, -->
+        <!--   storage.modifier</string> -->
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>italic</string>
+        </dict>
+      </dict>
+
+      <!-- Bold 
+      - VertSplit
+      - WinSeperator
+      - MatchParen
+      - ModeMsg
+      - QuickFixLine
+      - Title
+      - htmlH1
+      - htmlH2
+      - mkdHeading
+      - mkdCodeStart
+      - mkdCodeEnd
+      - markdownHeadingDelimiter
+      - markdownH1
+      - markdownH2
+      - @markup.strong
+      - @markup.list.markdown
+      -->
+
+      <dict>
+        <key>name</key>
+        <string>Bold</string>
+        <key>scope</key>
+        <string>markup.bold</string>
+        <key>settings</key>
+        <dict>
+          <key>fontStyle</key>
+          <string>bold</string>
+        </dict>
+      </dict>
+
+      <!-- Underline (todo?)
+      - mkdLink
+      - markdownLinkText
+      - @markup.underline
+      - @markup.link.url
+      -->
+
+      <!-- Underline - curl (idk if needed)
+      - DiagnosticUnderlineError      - red
+      - DiagnosticUnderlineWarn       - orange
+      - DiagnosticUnderlineInfo       - yellow
+      - DiagnosticUnderlineHint       - dark_green
+      - @lsp.type.unresolvedReference - red
+      - SpellBad                      - red
+      - SpellCap                      - orange
+      - SpellLocal                    - yellow
+      - SpellRare                     - pink
+      -->
+
+      <!-- Strikethrough 
+      - @markup.strikethrough
+      -->
+
+      <!-- Annotation -->
+      <dict>
+        <key>scope</key>
+        <string>meta.annotation</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@annotation}</string>
+        </dict>
+      </dict>
+
+      <!-- Attribute -->
+      <dict>
+        <key>scope</key>
+        <string>meta.attribute</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@attribute}</string>
+        </dict>
+      </dict>
+
+      <!-- Boolean -->
+      <dict>
+        <key>scope</key>
+        <string>constant.language.boolean, constant.language.true, constant.language.false</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@boolean}</string>
+        </dict>
+      </dict>
+
+      <!-- Character -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@character}</string>
+        </dict>
+      </dict>
+
+      <!-- Character Special/Escape -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character.escape.special</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@character.special}</string>
+        </dict>
+      </dict>
+
+      <!-- Comment -->
+      <dict>
+        <key>scope</key>
+        <string>comment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@comment}</string>
+        </dict>
+      </dict>
+
+      <!-- Conditional Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.conditional}</string>
+        </dict>
+      </dict>
+
+      <!-- Constant -->
+      <dict>
+        <key>scope</key>
+        <string>constant</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constant}</string>
+        </dict>
+      </dict>
+
+      <!-- Builtin Constant -->
+      <dict>
+        <key>scope</key>
+        <string>constant.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constant.builtin}</string>
+        </dict>
+      </dict>
+
+      <!-- Macro Constant -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.constant.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constant.macro}</string>
+        </dict>
+      </dict>
+
+      <!-- Debug Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.debug</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.debug}</string>
+        </dict>
+      </dict>
+
+      <!-- Directive Define -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.directive.define</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.directive.define}</string>
+        </dict>
+      </dict>
+
+      <!-- Exception Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.trycatch</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.exception}</string>
+        </dict>
+      </dict>
+
+      <!-- Float Number -->
+      <dict>
+        <key>scope</key>
+        <string>constant.numeric.float</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@number.float}</string>
+        </dict>
+      </dict>
+
+      <!-- Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function}</string>
+        </dict>
+      </dict>
+
+      <!-- Builtin Function -->
+      <dict>
+        <key>scope</key>
+        <string>support.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.builtin}</string>
+        </dict>
+      </dict>
+
+      <!-- Function Call -->
+      <dict>
+        <key>scope</key>
+        <string>meta.function-call</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.call}</string>
+        </dict>
+      </dict>
+
+      <!-- Macro Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function.macro</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.macro}</string>
+        </dict>
+      </dict>
+      <!-- Import Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.import</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.import}</string>
+        </dict>
+      </dict>
+      <!-- Coroutine Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.coroutine</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.coroutine}</string>
+        </dict>
+      </dict>
+      <!-- Return Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.return</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.return}</string>
+        </dict>
+      </dict>
+      <!-- Method Function -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.function.method</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.method}</string>
+        </dict>
+      </dict>
+      <!-- Method Call -->
+      <dict>
+        <key>scope</key>
+        <string>meta.function-call.method</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@function.method.call}</string>
+        </dict>
+      </dict>
+      <!-- Namespace Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.namespace</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@namespace.builtin}</string>
+        </dict>
+      </dict>
+      <!-- Number -->
+      <dict>
+        <key>scope</key>
+        <string>constant.numeric</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@number}</string>
+        </dict>
+      </dict>
+      <!-- Directive Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.directive</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.directive}</string>
+        </dict>
+      </dict>
+      <!-- Repeat Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.control.loop</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.repeat}</string>
+        </dict>
+      </dict>
+      <!-- Storage Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>storage.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.storage}</string>
+        </dict>
+      </dict>
+      <!-- String -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link Label -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link.label</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.link.label}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link Label Symbol -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link.label.symbol</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.link.label.symbol}</string>
+        </dict>
+      </dict>
+      <!-- Tag -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@tag}</string>
+        </dict>
+      </dict>
+      <!-- Tag Attribute -->
+      <dict>
+        <key>scope</key>
+        <string>entity.other.attribute-name</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@tag.attribute}</string>
+        </dict>
+      </dict>
+      <!-- Tag Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.tag</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@tag.delimiter}</string>
+        </dict>
+      </dict>
+      <!-- Markup -->
+      <dict>
+        <key>scope</key>
+        <string>markup</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup}</string>
+        </dict>
+      </dict>
+      <!-- Markup Environment -->
+      <dict>
+        <key>scope</key>
+        <string>markup.environment</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.environment}</string>
+        </dict>
+      </dict>
+      <!-- Markup Environment Name -->
+      <dict>
+        <key>scope</key>
+        <string>markup.environment.name</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.environment.name}</string>
+        </dict>
+      </dict>
+      <!-- Markup Raw -->
+      <dict>
+        <key>scope</key>
+        <string>markup.raw</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.raw}</string>
+        </dict>
+      </dict>
+      <!-- Markup Math -->
+      <dict>
+        <key>scope</key>
+        <string>markup.math</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.math}</string>
+        </dict>
+      </dict>
+      <!-- Markup Heading -->
+      <dict>
+        <key>scope</key>
+        <string>markup.heading</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.heading}</string>
+        </dict>
+      </dict>
+      <!-- Operator -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.operator</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.operator}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.delimiter</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.delimiter}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Bracket -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.section.brackets</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.bracket}</string>
+        </dict>
+      </dict>
+      <!-- Punctuation Special -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.special</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@punctuation.special}</string>
+        </dict>
+      </dict>
+      <!-- Markup List -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.list}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Markdown -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.markdown</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.list.markdown}</string>
+        </dict>
+      </dict>
+      <!-- String Documentation -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted.docstring</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.documentation}</string>
+        </dict>
+      </dict>
+      <!-- String HTML -->
+      <dict>
+        <key>scope</key>
+        <string>string.quoted.html</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.html}</string>
+        </dict>
+      </dict>
+      <!-- String Regexp -->
+      <dict>
+        <key>scope</key>
+        <string>string.regexp</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.regexp}</string>
+        </dict>
+      </dict>
+      <!-- String Escape -->
+      <dict>
+        <key>scope</key>
+        <string>constant.character.escape</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@string.escape}</string>
+        </dict>
+      </dict>
+      <!-- Constructor -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.type.constructor</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constructor}</string>
+        </dict>
+      </dict>
+      <!-- Variable Parameter -->
+      <dict>
+        <key>scope</key>
+        <string>variable.parameter</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.parameter}</string>
+        </dict>
+      </dict>
+      <!-- Variable Parameter Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>variable.parameter.builtin</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.parameter.builtin}</string>
+        </dict>
+      </dict>
+      <!-- Keyword -->
+      <dict>
+        <key>scope</key>
+        <string>keyword</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword}</string>
+        </dict>
+      </dict>
+      <!-- Keyword Function -->
+      <dict>
+        <key>scope</key>
+        <string>keyword.other.function</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@keyword.function}</string>
+        </dict>
+      </dict>
+      <!-- Label -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.label</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@label}</string>
+        </dict>
+      </dict>
+      <!-- Type Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.type</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@type.builtin}</string>
+        </dict>
+      </dict>
+      <!-- Variable Member -->
+      <dict>
+        <key>scope</key>
+        <string>variable.other.member</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.member}</string>
+        </dict>
+      </dict>
+      <!-- Property -->
+      <dict>
+        <key>scope</key>
+        <string>variable.other.property</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@property}</string>
+        </dict>
+      </dict>
+      <!-- Variable -->
+      <dict>
+        <key>scope</key>
+        <string>variable</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable}</string>
+        </dict>
+      </dict>
+      <!-- Variable Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>variable.language</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@variable.builtin}</string>
+        </dict>
+      </dict>
+      <!-- Module Builtin -->
+      <dict>
+        <key>scope</key>
+        <string>support.module.builtin</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@module.builtin}</string>
+        </dict>
+      </dict>
+      <!-- Raw Markdown Inline -->
+      <dict>
+        <key>scope</key>
+        <string>markup.raw.inline.markdown</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.raw.markdown_inline}</string>
+        </dict>
+      </dict>
+      <!-- Markup Link -->
+      <dict>
+        <key>scope</key>
+        <string>markup.underline.link</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.link}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Unchecked -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.unchecked</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.list.unchecked}</string>
+        </dict>
+      </dict>
+      <!-- Markup List Checked -->
+      <dict>
+        <key>scope</key>
+        <string>markup.list.checked</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@markup.link.checked}</string>
+        </dict>
+      </dict>
+      <!-- Diff Plus -->
+      <dict>
+        <key>scope</key>
+        <string>markup.inserted.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@diff.plus}</string>
+        </dict>
+      </dict>
+      <!-- Diff Minus -->
+      <dict>
+        <key>scope</key>
+        <string>markup.deleted.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@diff.minus}</string>
+        </dict>
+      </dict>
+      <!-- Diff Delta -->
+      <dict>
+        <key>scope</key>
+        <string>markup.changed.diff</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@diff.delta}</string>
+        </dict>
+      </dict>
+      <!-- Module Import -->
+      <dict>
+        <key>scope</key>
+        <string>support.module</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@module}</string>
+        </dict>
+      </dict>
+      <!-- TSX Tag -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.tag.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@tag.tsx}</string>
+        </dict>
+      </dict>
+      <!-- TSX Constructor -->
+      <dict>
+        <key>scope</key>
+        <string>entity.name.type.constructor.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@constructor.tsx}</string>
+        </dict>
+      </dict>
+      <!-- TSX Tag Delimiter -->
+      <dict>
+        <key>scope</key>
+        <string>punctuation.definition.tag.tsx</string>
+        <key>settings</key>
+        <dict>
+          <key>foreground</key>
+          <string>${@tag.delimiter.tsx}</string>
+        </dict>
+      </dict>
+
+
+    </array>
+    <key>uuid</key>
+    <string> eldritch-tmtheme</string>
+  </dict>
+</plist>

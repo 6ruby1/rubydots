@@ -1,6 +1,7 @@
 require("folder-rules"):setup()
 
 require("full-border"):setup()
+require("recycle-bin"):setup()
 
 require("yatline"):setup({
 	--theme = my_theme,
@@ -54,7 +55,7 @@ require("yatline"):setup({
 			section_a = {
 
 				{ type = "string", custom = false, name = "hovered_path" },
-				-- { type = "line", custom = false, name = "tabs", params = { "left" } },
+				{ type = "line", custom = false, name = "tabs", params = { "left" } },
 			},
 			section_b = {},
 			section_c = {},
@@ -89,9 +90,54 @@ require("yatline"):setup({
 				{ type = "string", custom = false, name = "cursor_percentage" },
 			},
 			section_c = {
-				{ type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
+				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
 				{ type = "coloreds", custom = false, name = "permissions" },
 			},
 		},
+	},
+})
+
+require("projects"):setup({
+	save = {
+		method = "yazi", -- yazi | lua
+		yazi_load_event = "@projects-load", -- event name when loading projects in `yazi` method
+		lua_save_path = "~/.local/state/yazi/projects.json",
+	},
+	last = {
+		update_after_save = true,
+		update_after_load = true,
+		load_after_start = false,
+	},
+	merge = {
+		event = "projects-merge",
+		quit_after_merge = false,
+	},
+	event = {
+		save = {
+			enable = true,
+			name = "project-saved",
+		},
+		load = {
+			enable = true,
+			name = "project-loaded",
+		},
+		delete = {
+			enable = true,
+			name = "project-deleted",
+		},
+		delete_all = {
+			enable = true,
+			name = "project-deleted-all",
+		},
+		merge = {
+			enable = true,
+			name = "project-merged",
+		},
+	},
+	notify = {
+		enable = true,
+		title = "Projects",
+		timeout = 3,
+		level = "info",
 	},
 })

@@ -1,5 +1,5 @@
 [flavor]
-dark = "dracula"
+dark = "eldritch"
 
 [mgr]
 border_style = { fg = "#a48cf2" }
@@ -11,3 +11,6 @@ marker_copied = { fg = "#37f499", bg = "#50fa7b" }
 marker_cut = { fg = "#f16c75", bg = "#f16c75" }
 marker_marked = { fg = "#f7c67f", bg = "#f7c67f" }
 marker_selected = { fg = "#f7c67f", bg = "#f7c67f" }
+
+[tabs]
+sep_inner = { open = "P", close = "E" }
