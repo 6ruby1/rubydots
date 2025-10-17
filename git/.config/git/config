@@ -1,3 +1,6 @@
+[include]
+	path = ~/.config/git/delta/themes.gitconfig
+
 
 
 [column]
@@ -45,6 +48,7 @@
 
 [core]
 	autocrlf = input
+	; pager = delta
 
 [help]
   autocorrect = prompt
@@ -61,3 +65,31 @@
 
 [merge]
   conflictstyle = zdiff3
+
+[interactive]
+	diffFilter = delta --color-only
+
+[rebase]
+	updateRefs = true
+
+[delta]
+  features = ruby
+  navigate = true  # use n and N to move between diff sections
+  ; true-color = always
+	; dark = true 
+; syntax-theme = Dracula
+; plus-style = syntax "#003800"
+; minus-style = syntax "#3f0001"
+
+; [delta "decorations"]
+;     commit-decoration-style = bold yellow box ul
+;     file-style = bold yellow ul
+;     file-decoration-style = none
+;     hunk-header-decoration-style = cyan box ul
+;
+; [delta "line-numbers"]
+;     line-numbers-left-style = red
+;     line-numbers-right-style = cyan
+;     line-numbers-minus-style = 124
+;     line-numbers-plus-style = 28
+
