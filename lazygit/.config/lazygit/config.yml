@@ -170,7 +170,7 @@ gui:
     show: true
 
   # If true, show the '5 of 20' footer at the bottom of list views
-  showListFooter: false
+  showListFooter: true
 
   # If true, display the files in the file views as a tree. If false, display the
   # files as a flat list.
@@ -184,10 +184,10 @@ gui:
   showRootItemInFileTree: true
 
   # If true, show the number of lines changed per file in the Files view
-  showNumstatInFilesView: true
+  showNumstatInFilesView: false
 
   # If true, show a random tip in the command log when Lazygit starts
-  showRandomTip: false
+  showRandomTip: true
 
   # If true, show the command log
   showCommandLog: true
@@ -198,10 +198,7 @@ gui:
   showBottomLine: true
 
   # If true, show jump-to-window keybindings in window titles.
-  showPanelJumps: false
-
-  # If true, show the "Donate Ask Question" message in the footer
-  showDonateMessage: false
+  showPanelJumps: true
 
   # Nerd fonts version to use.
   # One of: '2' | '3' | empty string (default)
@@ -227,10 +224,10 @@ gui:
 
   # Whether to show the divergence from the base branch in the branches view.
   # One of: 'none' | 'onlyArrow'  | 'arrowAndNumber'
-  showDivergenceFromBaseBranch: arrowAndNumber
+  showDivergenceFromBaseBranch: none
 
   # Height of the command log view
-  commandLogSize: 4
+  commandLogSize: 8
 
   # Whether to split the main window when viewing file changes.
   # One of: 'auto' | 'always'
@@ -262,27 +259,18 @@ gui:
   # Config relating to the spinner.
   spinner:
     # The frames of the spinner animation.
-    frames: [
-      "_",
-			"_",
-			"_",
-			"-",
-			"`",
-			"`",
-			"'",
-			"´",
-			"-",
-			"_",
-			"_",
-			"_"
-		]
+    frames:
+      - "|"
+      - /
+      - "-"
+      - \
 
     # The "speed" of the spinner in milliseconds.
-    rate: 80
+    rate: 50
 
   # Status panel view.
   # One of 'dashboard' (default) | 'allBranchesLog'
-  statusPanelView: allBranchesLog
+  statusPanelView: dashboard
 
   # If true, jump to the Files panel after popping a stash
   switchToFilesAfterStashPop: true
@@ -508,17 +496,17 @@ os:
 
   # CopyToClipboardCmd is the command for copying to clipboard.
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
-  copyToClipboardCmd: ""
+  # copyToClipboardCmd: ""
 
   # ReadFromClipboardCmd is the command for reading the clipboard.
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#custom-command-for-copying-to-and-pasting-from-clipboard
-  readFromClipboardCmd: ""
+  # readFromClipboardCmd: ""
 
   # A shell startup file containing shell aliases or shell functions. This will be
   # sourced before running any shell commands, so that shell functions are
   # available in the `:` command prompt or even in custom commands.
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#using-aliases-or-functions-in-shell-commands
-  shellFunctionsFile: ""
+  # shellFunctionsFile: ""
 
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: false
