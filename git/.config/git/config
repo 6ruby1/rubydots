@@ -72,9 +72,9 @@
 [rebase]
 	updateRefs = true
 
-[delta]
-  features = ruby
-  navigate = true  # use n and N to move between diff sections
+; [delta]
+  ; features = ruby
+  ; navigate = true  # use n and N to move between diff sections
   ; true-color = always
 	; dark = true 
 ; syntax-theme = Dracula
