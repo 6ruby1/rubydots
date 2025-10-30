@@ -78,6 +78,7 @@ alias ltree='eza --tree --level=2 --icons --git'
 
 # Dirs
 alias cdr='cd "$(git rev-parse --show-toplevel)"'
+alias z='cdi'
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -110,6 +111,7 @@ alias c='clear'
 alias nrd='npm run dev'
 alias 'gl'="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an %ar%C(auto) %D%n%s%n'"
 alias dev='cd ~/dev/'
+alias dev.='cd ~/dev; yazi'
 alias cr='cargo run'
 alias ct='cargo test'
 
@@ -163,6 +165,7 @@ eval "$(starship init zsh)"         # (see .zprofile)
 export STARSHIP_CONFIG=/home/ruby/.config/starship/starship.toml
 eval "$(tv init zsh)"
 eval "$(atuin init zsh)"
+eval "$(batman --export-env)"
 
 # Yazi
 function y() {
@@ -172,18 +175,6 @@ function y() {
     builtin cd -- "$cwd"
   fi
   rm -f -- "$tmp"
-}
-
-lazygit() {
-    kitty @ set-colors --all ~/.config/kitty/Eldritch.conf
-    command lazygit "$@"
-    kitty @ set-colors --all ~/.config/kitty/Catppuccin-Mocha.conf
-}
-
-copilot() {
-    kitty @ set-colors --all ~/.config/kitty/Eldritch.conf
-    command copilot "$@"
-    kitty @ set-colors --all ~/.config/kitty/Catppuccin-Mocha.conf
 }
 
 # enable transient prompt -------------------------------------------------------------
@@ -216,3 +207,5 @@ zle -N zle-line-init
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /home/ruby/.dart-cli-completion/zsh-config.zsh ]] && . /home/ruby/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+
+[ -f "/home/ruby/.ghcup/env" ] && . "/home/ruby/.ghcup/env" # ghcup-env

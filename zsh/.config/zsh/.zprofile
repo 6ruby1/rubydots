@@ -9,6 +9,7 @@
 
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.local/share/bin
+export PATH=$PATH:~/bin
 
 #### FPATH #### ------------------------------
 
