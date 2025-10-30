@@ -1,3 +1,13 @@
+-- Define colo
+local P = {
+	bg = "#212337",
+	bg_dark = "#171928",
+	visual = "#76639e",
+	yellow = "#f1fc79",
+	cyan = "#04d1f9",
+	red = "#f16c75",
+	purple = "#a48cf2",
+}
 require("folder-rules"):setup()
 
 require("full-border"):setup()
@@ -12,9 +22,9 @@ require("yatline"):setup({
 	style_a = {
 		fg = "black",
 		bg_mode = {
-			normal = "#04d1f9",
-			select = "#a48cf2",
-			un_set = "#f16c75",
+			normal = P.cyan,
+			select = P.visual,
+			un_set = P.red,
 		},
 	},
 	style_b = {
@@ -55,7 +65,7 @@ require("yatline"):setup({
 			section_a = {
 
 				{ type = "string", custom = false, name = "hovered_path" },
-				{ type = "line", custom = false, name = "tabs", params = { "left" } },
+				{ type = "line",   custom = false, name = "tabs",        params = { "left" } },
 			},
 			section_b = {},
 			section_c = {},
@@ -90,7 +100,7 @@ require("yatline"):setup({
 				{ type = "string", custom = false, name = "cursor_percentage" },
 			},
 			section_c = {
-				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
+				{ type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
 				{ type = "coloreds", custom = false, name = "permissions" },
 			},
 		},
@@ -99,7 +109,7 @@ require("yatline"):setup({
 
 require("projects"):setup({
 	save = {
-		method = "yazi", -- yazi | lua
+		method = "yazi",                  -- yazi | lua
 		yazi_load_event = "@projects-load", -- event name when loading projects in `yazi` method
 		lua_save_path = "~/.local/state/yazi/projects.json",
 	},

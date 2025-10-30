@@ -2,6 +2,20 @@
 # If you encounter any issues, please make an issue at https://github.com/yazi-rs/schemas.
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+#  _                                    _                  _ 
+# | | _____ _   _ _ __ ___   __ _ _ __ | |_ ___  _ __ ___ | |
+# | |/ / _ \ | | | '_ ` _ \ / _` | '_ \| __/ _ \| '_ ` _ \| |
+# |   <  __/ |_| | | | | | | (_| | |_) | || (_) | | | | | | |
+# |_|\_\___|\__, |_| |_| |_|\__,_| .__(_)__\___/|_| |_| |_|_|
+#           |___/                |_|                         
+# ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+# ▗▖  ▗▖ ▗▄▄▖▗▄▄▖ 
+# ▐▛▚▞▜▌▐▌   ▐▌ ▐▌
+# ▐▌  ▐▌▐▌▝▜▌▐▛▀▚▖
+# ▐▌  ▐▌▝▚▄▞▘▐▌ ▐▌
+# =====================================
 [mgr]
 
 keymap = [
@@ -240,7 +254,12 @@ keymap = [
 	{ on = [
 		"g",
 		"c",
-	], run = "cd ~/dot", desc = "config" },
+	], run = "cd ~/dot", desc = "dotfiles" },
+	{ on = [
+		"g",
+		".",
+		"c",
+	], run = "cd ~/.config", desc = "config" },
 	{ on = [
 		"g",
 		"d",
@@ -249,6 +268,10 @@ keymap = [
 		"g",
 		"D",
 	], run = "cd ~/Downloads/", desc = "Downloads" },
+	{ on = [
+		"g",
+		"<S-A-d>", # Shift + Alt + d
+	], run = "cd ~/Documents", desc = "Documents" },
 	{ on = [
 		"g",
 		"<Space>",
@@ -342,7 +365,7 @@ run = [
 
 [[mgr.prepend_keymap]]
 on = ["l"]
-run = "plugin Bypass"
+run = "plugin bypass"
 desc = "Recursively enter child directory, skipping children with only a single subdirectory"
 
 [[mgr.prepend_keymap]]
