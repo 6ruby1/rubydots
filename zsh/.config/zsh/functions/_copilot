@@ -1,0 +1,193 @@
+#compdef copilot
+
+# Zsh completion for GitHub Copilot CLI
+# Place this file in your zsh completion directory or source it directly
+
+_copilot() {
+  local context state state_descr line
+  typeset -A opt_args
+
+  _arguments -C \
+    '--add-dir[Add a directory to the allowed list for file access]:directory:_directories' \
+    '--allow-all-tools[Allow all tools to run automatically without confirmation]' \
+    '--allow-tool[Allow specific tools]:tools:' \
+    '--banner[Always show the animated banner on startup]' \
+    '--deny-tool[Deny specific tools]:tools:' \
+    '--disable-mcp-server[Disable a specific MCP server]:server-name:' \
+    '(-h --help)'{-h,--help}'[Display help for command]' \
+    '--log-dir[Set log file directory]:directory:_directories' \
+    '--log-level[Set the log level]:level:(error warning info debug all default none)' \
+    '--no-color[Disable all color output]' \
+    '(-p --prompt)'{-p,--prompt}'[Execute a prompt directly without interactive mode]:text:' \
+    '--resume[Resume from a previous session]:sessionId:_copilot_sessions' \
+    '--screen-reader[Enable screen reader optimizations]' \
+    '(-v --version)'{-v,--version}'[Show version information]' \
+    '1:command:_copilot_commands' \
+    '*::arg:->args'
+
+  case $state in
+    args)
+      case $words[1] in
+        help)
+          _copilot_help_topics
+          ;;
+      esac
+      ;;
+  esac
+}
+
+_copilot_commands() {
+  local commands=(
+    'help:Display help information'
+  )
+  _describe 'commands' commands
+}
+
+_copilot_help_topics() {
+  local topics=(
+    'config:Configuration Settings'
+    'environment:Environment Variables'
+    'logging:Logging'
+    'permissions:Tool Permissions'
+  )
+  _describe 'help topics' topics
+}
+
+_copilot_sessions() {
+  # Get available session IDs from copilot logs or config
+  # This is a placeholder - actual implementation would need to parse session files
+  local sessions=()
+  
+  # Check for session files in the default log directory
+  if [[ -d ~/.copilot/logs ]]; then
+    sessions=($(ls ~/.copilot/logs/ 2>/dev/null | grep -E '^session-' | sed 's/session-//' | sed 's/\.log$//' 2>/dev/null))
+  fi
+  
+  if (( ${#sessions[@]} > 0 )); then
+    _describe 'session IDs' sessions
+  else
+    _message 'no sessions found'
+  fi
+}
+
+# Interactive mode commands completion
+_copilot_interactive_commands() {
+  local interactive_commands=(
+    '/add-dir:Add a directory to the allowed list for file access'
+    '/clear:Clear chat history on the screen'
+    '/cwd:Change working directory or show current directory'
+    '/exit:Exit the CLI'
+    '/feedback:Provide feedback about the CLI'
+    '/help:Show help for interactive commands'
+    '/list-dirs:Display all allowed directories for file access'
+    '/login:Log in to Copilot'
+    '/logout:Log out of Copilot'
+    '/mcp:Manage MCP server configuration'
+    '/reset-allowed-tools:Reset the list of allowed tools'
+    '/session:Show information about the current CLI session'
+    '/theme:View or configure terminal theme'
+    '/user:Manage GitHub user list'
+  )
+  _describe 'interactive commands' interactive_commands
+}
+
+# MCP subcommands
+_copilot_mcp_commands() {
+  local mcp_commands=(
+    'show:Show MCP server configuration'
+    'add:Add MCP server configuration'
+    'edit:Edit MCP server configuration'
+    'delete:Delete MCP server configuration'
+    'disable:Disable MCP server'
+    'enable:Enable MCP server'
+  )
+  _describe 'MCP commands' mcp_commands
+}
+
+# Theme subcommands
+_copilot_theme_commands() {
+  local theme_commands=(
+    'show:Show current theme'
+    'set:Set theme'
+    'list:List available themes'
+  )
+  _describe 'theme commands' theme_commands
+}
+
+_copilot_themes() {
+  local themes=(
+    'auto:Automatic theme detection'
+    'dark:Dark theme'
+    'light:Light theme'
+  )
+  _describe 'themes' themes
+}
+
+# User subcommands
+_copilot_user_commands() {
+  local user_commands=(
+    'show:Show current user'
+    'list:List available users'
+    'switch:Switch user'
+  )
+  _describe 'user commands' user_commands
+}
+
+# Common tool patterns for --allow-tool and --deny-tool
+_copilot_tools() {
+  local tools=(
+    'shell:Shell command execution'
+    'write:File writing operations'
+    'read:File reading operations'
+    'git:Git operations'
+    'npm:NPM operations'
+    'pip:Python package operations'
+    'docker:Docker operations'
+  )
+  _describe 'tools' tools
+}
+
+# Log levels for --log-level
+_copilot_log_levels() {
+  local levels=(
+    'error:Error level logging'
+    'warning:Warning level logging'
+    'info:Info level logging'
+    'debug:Debug level logging'
+    'all:All levels'
+    'default:Default level'
+    'none:No logging'
+  )
+  _describe 'log levels' levels
+}
+
+# Enhanced completion for specific options
+_arguments_for_copilot() {
+  case $words[CURRENT-1] in
+    --allow-tool|--deny-tool)
+      _copilot_tools
+      ;;
+    --log-level)
+      _copilot_log_levels
+      ;;
+    --add-dir|--log-dir)
+      _directories
+      ;;
+    --resume)
+      _copilot_sessions
+      ;;
+  esac
+}
+
+# Register the completion function
+compdef _copilot copilot
+
+# Also provide completions for common interactive commands if used with -p
+_copilot_prompt_completion() {
+  if [[ $words[CURRENT-1] == "-p" || $words[CURRENT-1] == "--prompt" ]]; then
+    _message 'enter your prompt text'
+  fi
+}
+
+# Alternative completion for when copilot is used with specific patterns
+_copilot "$@"
