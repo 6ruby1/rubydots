@@ -89,6 +89,7 @@ alias ......="cd ../../../../.."
 alias vim='nvim'
 alias v='nvim'
 alias v.='nvim .'
+alias vconf='nvim ~/.config/nvim'
 alias va="NVIM_APPNAME=newnvim nvim"
 alias nvima="NVIM_APPNAME=newnvim nvim"
 
