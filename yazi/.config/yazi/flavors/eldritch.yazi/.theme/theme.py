@@ -13,5 +13,9 @@ class MyClass(BaseClass):  # entity.name.type, entity.inherited-class
             return color  # keyword.control
 
 
+def __str__(self):
+    return "Text"
+
+
 __underline__  # markup.underline
 print("bold text")  # markup.bold

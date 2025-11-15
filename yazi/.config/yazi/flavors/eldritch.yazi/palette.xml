@@ -89,6 +89,7 @@
   <color name="FindHighlightForeground" value="${bg}" />
   <color name="Visual" value="${visual}" />
 
+  <color name="Text" value="${fg}" />
   <color name="Constant" value="${red}" />
   <color name="Boolean" value="${Constant}" />
   <color name="Number" value="${Constant}" />
@@ -141,7 +142,7 @@
   <!-- Tree sitter -->
 
   <color name="@none" value="${bg}" />
-
+  <color name="@text" value="${Text}" />
   <color name="@annotation" value="${PreProc}" />
   <color name="@attribute" value="${PreProc}" />
   <color name="@operator" value="${Operator}" />
@@ -175,6 +176,7 @@
   <color name="@keyword.directive" value="${PreProc}" />
   <color name="@keyword.repeat" value="${Repeat}" />
   <color name="@keyword.storage" value="${StorageClass}" />
+  <color name="@keyword.unit" value="${yellow}" />
 
   <color name="@constant" value="${Constant}" />
   <color name="@constant.builtin" value="${Special}" />
@@ -184,7 +186,7 @@
   <color name="@number.float" value="${Float}" />
 
   <color name="@function" value="${Function}" />
-  <color name="@function.builtin" value="${Special}" />
+  <color name="@function.builtin" value="${darken_cyan_08}" />
   <color name="@function.call" value="${@function}" />
   <color name="@function.macro" value="${Macro}" />
   <color name="@function.method" value="${Function}" />

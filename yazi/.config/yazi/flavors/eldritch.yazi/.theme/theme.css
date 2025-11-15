@@ -9,4 +9,5 @@ body {
 }
 a:hover {
   text-decoration: underline; /* markup.underline */
+  width: 10px; /* constant, keyword.unit */
 }
