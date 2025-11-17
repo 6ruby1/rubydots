@@ -1,7 +1,6 @@
 [include]
+	path = ~/.config/git/env.gitconfig
 	path = ~/.config/git/delta/themes.gitconfig
-
-
 
 [column]
 	ui = auto
@@ -55,13 +54,10 @@
 
 [commit]
   verbose = true
-	
 
 [rerere]
   enabled = true
   autoupdate = true
-
-
 
 [merge]
   conflictstyle = zdiff3
