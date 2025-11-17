@@ -20,7 +20,14 @@ export FPATH=$FPATH:$HOME/.config/zsh/functions
 export EDITOR=/usr/bin/nvim
 export VISUAL=/usr/bin/nvim
 
-export HYPRSHOT_DIR=/home/ruby/Pictures/screenshots
+export HYPRSHOT_DIR=$HOME/Pictures/screenshots
+
+#### SECRETS FROM .env #### ------------------
+
+export $(grep -v '^#' .env | xargs)
+
+# Includes:
+# - Obsidian local REST API key
 
 #### XDG-NINJA #### --------------------------
 

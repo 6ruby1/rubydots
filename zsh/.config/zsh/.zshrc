@@ -164,7 +164,7 @@ zstyle ':fzf-tab:*' fzf-min-height 15
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"         # (see .zprofile)
-export STARSHIP_CONFIG=/home/ruby/.config/starship/starship.toml
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(tv init zsh)"
 eval "$(atuin init zsh)"
 eval "$(batman --export-env)"
@@ -207,7 +207,7 @@ zle -N zle-line-init
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
-[[ -f /home/ruby/.dart-cli-completion/zsh-config.zsh ]] && . /home/ruby/.dart-cli-completion/zsh-config.zsh || true
+[[ -f $HOME/.dart-cli-completion/zsh-config.zsh ]] && . $HOME/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-[ -f "/home/ruby/.ghcup/env" ] && . "/home/ruby/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && . "$HOME/.ghcup/env" # ghcup-env
