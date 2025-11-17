@@ -92,6 +92,7 @@ alias v.='nvim .'
 alias vconf='nvim ~/.config/nvim'
 alias va="NVIM_APPNAME=newnvim nvim"
 alias nvima="NVIM_APPNAME=newnvim nvim"
+alias minvim="NVIM_APPNAME=minvim nvim"
 
 # Obsidian
 alias oo='cd $HOME/vault/'
