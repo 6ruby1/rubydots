@@ -8,6 +8,12 @@
 ### Temp ###
 *.tmp
 
+### Log ###
+*.log
+
+### Backup ###
+*.bak
+
 ### non-root documentation ###
 **/README*
 !/README.md
@@ -17,6 +23,7 @@
 ### Zsh ###
 *.zhistory
 *.zsh_history
+*.zcompdump
 
 ### Mozilla ###
 .mozilla/
