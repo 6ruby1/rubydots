@@ -114,7 +114,12 @@ map({ "n", "v", "x" }, "<leader>O", "<Cmd>restart<CR>", { desc = "Restart vim." 
 map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "Enter norm command" })
 map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
 map({ "n" }, "<leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Search and replace word under cursor" })
-vim.keymap.set(
+map({ "n" }, "<leader>cv", function()
+	require("telescope.builtin").find_files({
+		cwd = vim.stdpath("config"),
+	})
+end, { desc = "edit config" })
+map(
 	"n",
 	"g/",
 	":vimgrep /<C-R>//j %<CR>|:cw<CR>",
