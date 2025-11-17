@@ -4,7 +4,7 @@
   "actions-preview.nvim": { "branch": "master", "commit": "cb938c25edaac38d362555f19244a9cb85d561e8" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
   "ccc.nvim": { "branch": "main", "commit": "9d1a256e006decc574789dfc7d628ca11644d4c2" },
-  "conform.nvim": { "branch": "master", "commit": "cde4da5c1083d3527776fee69536107d98dae6c9" },
+  "conform.nvim": { "branch": "master", "commit": "178b8f0d70ee63db616a8b3bda637218eef121dd" },
   "eldritch.nvim": { "branch": "master", "commit": "dc72e630587971d654a0fb112cb974286d2fc7ae" },
   "fidget.nvim": { "branch": "main", "commit": "e32b672d8fd343f9d6a76944fedb8c61d7d8111a" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
@@ -18,7 +18,7 @@
   "mini.nvim": { "branch": "main", "commit": "dce9bc4e19d02d5c37fe71c16f40f8a5536b0386" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-autopairs": { "branch": "master", "commit": "7a2c97cccd60abc559344042fefb1d5a85b3e33b" },
-  "nvim-lspconfig": { "branch": "master", "commit": "abf6d190f2c06818489c0bd4b926e7e3a06c5e51" },
+  "nvim-lspconfig": { "branch": "master", "commit": "dc7e7c7699cc01b1b6fefa97f9b496d8f447d7a1" },
   "nvim-treesitter": { "branch": "main", "commit": "0cfa59947416d14e36a41e6fe4f025abd8760301" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f" },
   "nvim-ts-autotag": { "branch": "main", "commit": "c4ca798ab95b316a768d51eaaaee48f64a4a46bc" },
@@ -31,5 +31,5 @@
   "telescope.nvim": { "branch": "master", "commit": "3a12a853ebf21ec1cce9a92290e3013f8ae75f02" },
   "todo-comments.nvim": { "branch": "main", "commit": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" },
-  "yazi.nvim": { "branch": "main", "commit": "fc3e694791b90c4578fbd3a3d7a61a2bd8f1d3db" }
+  "yazi.nvim": { "branch": "main", "commit": "499d37a19cc0ab2fb103bd7ac2812fe27ddbece0" }
 }
