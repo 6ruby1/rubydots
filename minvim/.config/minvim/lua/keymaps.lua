@@ -1,8 +1,37 @@
 local map = vim.keymap.set
 
-local function git_files()
-	builtin.find_files({ no_ignore = true })
+local function is_git_repo()
+	vim.fn.system("git rev-parse --is-inside-work-tree")
+	return vim.v.shell_error == 0
 end
+local function get_git_root()
+	local dot_git_path = vim.fn.finddir(".git", ".;")
+	return vim.fn.fnamemodify(dot_git_path, ":h")
+end
+
+-- Telescope functions ------------------------------------
+
+local function live_grep_from_project_git_root()
+	local opts = {}
+	if is_git_repo() then
+		opts = {
+			cwd = get_git_root(),
+		}
+	end
+	require("telescope.builtin").live_grep(opts)
+end
+
+local function find_files_from_project_git_root()
+	local opts = {}
+	if is_git_repo() then
+		opts = {
+			cwd = get_git_root(),
+		}
+	end
+	require("telescope.builtin").find_files(opts)
+end
+
+-- End Telescope functions --------------------------------
 
 local function toggle_autoformat_buff()
 	if vim.g.disable_autoformat then
@@ -42,9 +71,9 @@ end
 
 -- [F]ind
 local builtin = require("telescope.builtin")
-map({ "n" }, "<leader>ff", builtin.find_files, { desc = "files" })
-map({ "n" }, "<leader>fw", builtin.live_grep, { desc = "live grep" })
-map({ "n" }, "<leader>fg", git_files, { desc = "git files" })
+map({ "n" }, "<leader>ff", find_files_from_project_git_root, { desc = "files" })
+map({ "n" }, "<leader>fw", live_grep_from_project_git_root, { desc = "live grep" })
+map({ "n" }, "<leader>fg", builtin.git_files, { desc = "git files" })
 map({ "n" }, "<leader>fb", builtin.buffers, { desc = "buffers" })
 map({ "n" }, "<leader>fi", builtin.grep_string, { desc = "word under cursor" })
 map({ "n" }, "<leader>fo", builtin.oldfiles, { desc = "oldfiles" })
@@ -58,6 +87,7 @@ map({ "n" }, "<leader>fs", builtin.current_buffer_fuzzy_find, { desc = "fuzzy wo
 map({ "n" }, "<leader>ft", builtin.builtin, { desc = "telescope" })
 map({ "n" }, "<leader>fc", builtin.git_bcommits, { desc = "git commits" })
 map({ "n" }, "<leader>fk", builtin.keymaps, { desc = "keymaps" })
+map({ "n" }, "<leader>fC", builtin.commands, { desc = "commands" })
 map({ "n" }, "<leader>fe", "<cmd>Telescope env<cr>", { desc = "env variables" })
 map({ "n" }, "<leader>fa", require("actions-preview").code_actions, { desc = "code actions" })
 
