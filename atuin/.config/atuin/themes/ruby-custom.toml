@@ -1,0 +1,12 @@
+[theme]
+name = "ruby-custom"
+
+[colors]
+AlertInfo = "#36ef96"
+AlertWarn = "#f7c67f"
+AlertError = "#e3666f"
+Annotation = "#7dc4e4"
+Base = "#a48cf2"
+Guidance = "#6877bd"
+Important = "#f9515d"
+Title = "#f265b5"
