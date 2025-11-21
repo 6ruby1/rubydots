@@ -1,0 +1,34 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "command-raw",
+    "source": "~/.config/fastfetch/fastfetch-next.sh --color a48cf2 ~/.config/fastfetch/art ",
+  },
+  "display": {
+    "separator": "› ",
+  },
+  "modules": [
+    {
+      "type": "shell",
+      "key": "SH  ",
+      "keyColor": "magenta",
+    },
+    {
+      "type": "os",
+      "key": "OS  ",
+      "keyColor": "#f7c67f",
+    },
+    {
+      "type": "command",
+      "key": "AGE ",
+      "keyColor": "green",
+      "text": "birth_install=$(stat -c %W /); current=$(date +%s); days_difference=$(( (current - birth_install) / 86400 )); echo $days_difference days",
+    },
+    {
+      "type": "packages",
+      "key": "PKG ",
+      "keyColor": "cyan",
+    },
+    "break",
+  ],
+}
