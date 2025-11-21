@@ -1,0 +1,4 @@
+function _kitty_keys {
+    compadd 'copypaste' 'debugging' 'layouts' 'miscellaneous' 'scrolling' 'tabs' 'windows' 'custom'
+}
+compdef _kitty_keys kitty_keys

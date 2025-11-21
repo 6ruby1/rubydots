@@ -168,6 +168,7 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(tv init zsh)"
 eval "$(atuin init zsh)"
 eval "$(batman --export-env)"
+source "$ZDOTDIR/functions/kitty_keys.sh" # function to list kitty keybindings
 
 # Yazi
 function y() {
