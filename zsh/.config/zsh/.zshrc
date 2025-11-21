@@ -30,7 +30,6 @@ zinit snippet OMZP::command-not-found
 # Load completions
 autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/.zcompdump"
 _comp_options+=(globdots)
-# export FPATH="$HOME/.config/eza:$FPATH"
 zinit cdreplay -q
 
 # Keybindings ----------------------------------------------------------------------
@@ -40,7 +39,8 @@ bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
 bindkey "^[[3~" delete-char
 #open command in editor
-autoload edit-command-line; zle -N edit-command-line
+autoload edit-command-line
+zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # History --------------------------------------------------------------------------
@@ -105,7 +105,6 @@ alias dotlink='cd ~/dot; stow --verbose --target=$HOME --restow */; cd -'
 alias dotlinkrm='cd ~/dot; stow --verbose --target=$HOME --delete */; cd -'
 alias cpcw='cd ~/dot; copilot -p "create commits for files, use conventional commit styling" --allow-tool "shell(git commit)" --allow-tool "shell(git add)"; cd -'
 
-
 # Other
 alias cat='bat --paging=never'
 alias catp='bat'
@@ -121,31 +120,31 @@ alias ct='cargo test'
 alias sept='cd ~/dev/SEPT-25/SEPT-major/'
 
 #fzf
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=fg:#a48cf2,fg+:#36ef96,bg:#212337,bg+:#7081d0
-  --color=hl:#f265b5,hl+:#f265b5,info:#e3666f,marker:#04d1f9
-  --color=prompt:#f9515d,spinner:#04d1f9,pointer:#36ef96,header:#36ef96
-  --color=gutter:#212337,border:#6877bd,preview-border:#e3666f,preview-scrollbar:#36ef96
-  --color=preview-label:#e3666f,label:#36ef96,query:#d9d9d9
-  --border="rounded" --border-label-pos="0" --preview-window="border-rounded"
-  --prompt="> " --marker=">" --pointer="◆" --separator="─"
-  --scrollbar="│" --info="right"'
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} \
+  --color=fg:#a48cf2,fg+:#36ef96,bg:#212337,bg+:#7081d0 \
+  --color=hl:#f265b5,hl+:#f265b5,info:#e3666f,marker:#04d1f9 \
+  --color=prompt:#f9515d,spinner:#04d1f9,pointer:#36ef96,header:#36ef96 \
+  --color=gutter:#212337,border:#6877bd,preview-border:#e3666f,preview-scrollbar:#36ef96 \
+  --color=preview-label:#e3666f,label:#36ef96,query:#d9d9d9 \
+  --border=rounded --border-label-pos=0 --preview-window=border-rounded \
+  --prompt='> ' --marker='>' --pointer='◆' --separator='─' \
+  --scrollbar='│' --info='right'"
 
 # Completion styling ------------------------------------------------------------------
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 zstyle ':completion:*' menu no
 # zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:*' fzf-flags --bind "focus:transform-preview-label:[[ -n {} ]] && printf ' Previewing [%s] ' {}" \
   --bind "focus:+transform-header:file --brief {} || echo 'No file selected'" \
   --bind "result:transform-list-label:
-        if [[ -z $FZF_QUERY ]]; then
-          echo ' $FZF_MATCH_COUNT items '
-        else
-          echo ' $FZF_MATCH_COUNT matches for [$FZF_QUERY] '
-        fi
-        " \
-        --color=fg:#a48cf2,fg+:#36ef96,bg:#212337,bg+:#7081d0 \
+          if [[ -z \$FZF_QUERY ]]; then
+            echo ' \$FZF_MATCH_COUNT items '
+          else
+            echo ' \$FZF_MATCH_COUNT matches for [\$FZF_QUERY] '
+          fi
+          " \
+  --color=fg:#a48cf2,fg+:#36ef96,bg:#212337,bg+:#7081d0 \
   --color=hl:#f265b5,hl+:#f265b5,info:#e3666f,marker:#04d1f9 \
   --color=prompt:#f9515d,spinner:#04d1f9,pointer:#36ef96,header:#36ef96 \
   --color=gutter:#212337,border:#6877bd,preview-border:#e3666f,preview-scrollbar:#36ef96 \
@@ -159,11 +158,10 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always --icons $real
 # Set minimum height for fzf-tab to ensure consistent display
 zstyle ':fzf-tab:*' fzf-min-height 15
 
-
 # Shell integrations ------------------------------------------------------------------
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(starship init zsh)"         # (see .zprofile)
+eval "$(starship init zsh)" # (see .zprofile)
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(tv init zsh)"
 eval "$(atuin init zsh)"

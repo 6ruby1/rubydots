@@ -24,7 +24,23 @@ export HYPRSHOT_DIR=$HOME/Pictures/screenshots
 
 #### SECRETS FROM .env #### ------------------
 
-export $(grep -v '^#' .env | xargs)
+envfile=".env"
+if [ -f "$envfile" ]; then
+  while IFS= read -r line || [ -n "$line" ]; do
+    # trim leading whitespace
+    line="${line#"${line%%[![:space:]]*}"}"
+    # trim trailing whitespace
+    line="${line%"${line##*[![:space:]]}"}"
+    # skip empty lines and comments
+    case "$line" in
+    '' | \#*) continue ;;
+    esac
+    # only accept KEY=VALUE
+    if [[ "$line" == *=* ]]; then
+      export "$line"
+    fi
+  done <"$envfile"
+fi
 
 # Includes:
 # - Obsidian local REST API key
