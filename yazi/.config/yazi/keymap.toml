@@ -327,7 +327,7 @@ desc = "Goto git root"
 ## File/Directory finder using fd + fzf
 
 [[mgr.prepend_keymap]]
-on = ["b", "d"]
+on = ["b", "f"]
 run = "plugin fazif faziffd"
 desc = "fd + fzf"
 
