@@ -94,6 +94,20 @@ alias va="NVIM_APPNAME=newnvim nvim"
 alias nvima="NVIM_APPNAME=newnvim nvim"
 alias minvim="NVIM_APPNAME=minvim nvim"
 
+# tmux
+alias tm='tmux'
+alias t='tmux attach-session || tmux new-session'
+alias tml='tmux list-sessions'
+alias tmls='tmux list-sessions'
+alias tmlw='tmux list-windows'
+alias tma='tmux attach-session -t'
+alias tmat='tmux attach-session -t'
+alias tmn='tmux new-session'
+alias tmns='tmux new-session -s'
+alias tms='tmux new-session -s'
+alias tmxx='tmux kill-session'
+alias tmxxa='tmux kill-session -a'
+
 # Obsidian
 alias oo='cd $HOME/vault/'
 alias or='vim $HOME/vault/inbox/*.md'
