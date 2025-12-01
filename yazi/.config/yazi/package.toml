@@ -73,6 +73,11 @@ use = "yazi-rs/plugins:piper"
 rev = "9a52857"
 hash = "a20327710c3a8d37ee0972128dcb6a31"
 
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "d7056e3"
+hash = "be8e1b31833e356cad14dcda9d8ad2d3"
+
 [[flavor.deps]]
 use = "yazi-rs/flavors:dracula"
 rev = "2d73b79"

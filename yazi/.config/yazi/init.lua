@@ -13,6 +13,10 @@ require("folder-rules"):setup()
 require("full-border"):setup()
 require("recycle-bin"):setup()
 
+require("starship"):setup({
+	config_file = "~/.config/yazi/starship.toml",
+})
+
 require("yatline"):setup({
 	--theme = my_theme,
 	section_separator = { open = "", close = "" },
@@ -55,17 +59,16 @@ require("yatline"):setup({
 
 	show_background = false,
 
-	display_header_line = true,
-	display_status_line = true,
+	-- display_header_line = false,
+	-- display_status_line = true,
 
 	component_positions = { "header", "tab", "status" },
 
 	header_line = {
 		left = {
 			section_a = {
-
-				{ type = "string", custom = false, name = "hovered_path" },
-				{ type = "line",   custom = false, name = "tabs",        params = { "left" } },
+				-- { type = "string", custom = false, name = "hovered_path" },
+				-- { type = "line", custom = false, name = "tabs", params = { "left" } },
 			},
 			section_b = {},
 			section_c = {},
@@ -100,7 +103,7 @@ require("yatline"):setup({
 				{ type = "string", custom = false, name = "cursor_percentage" },
 			},
 			section_c = {
-				{ type = "string",   custom = false, name = "hovered_file_extension", params = { true } },
+				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
 				{ type = "coloreds", custom = false, name = "permissions" },
 			},
 		},
@@ -109,7 +112,7 @@ require("yatline"):setup({
 
 require("projects"):setup({
 	save = {
-		method = "yazi",                  -- yazi | lua
+		method = "yazi", -- yazi | lua
 		yazi_load_event = "@projects-load", -- event name when loading projects in `yazi` method
 		lua_save_path = "~/.local/state/yazi/projects.json",
 	},

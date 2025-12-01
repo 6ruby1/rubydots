@@ -1,0 +1,37 @@
+
+command_timeout = 3600
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+$directory\
+$character\
+$git_branch\
+$git_state\
+$git_status\
+"""
+
+[directory]
+style = "cyan bold"
+format = "[ $path ]($style)"
+
+[git_branch]
+symbol = " "
+format = '[$symbol$branch(:$remote_branch)]($style) '
+style = "purple bold"
+
+[time]
+time_format = "%R"
+style = "bg:peach"
+format = '[[  $time ](fg:mantle bg:foam)]($style)'
+
+[character]
+disabled = false
+success_symbol = '[->](bold fg:green)'
+error_symbol = ' [->](bold fg:red)'
+vimcmd_symbol = '[](bold fg:creen)'
+vimcmd_replace_one_symbol = '[](bold fg:purple)'
+vimcmd_replace_symbol = '[](bold fg:purple)'
+vimcmd_visual_symbol = '[](bold fg:lavender)'
