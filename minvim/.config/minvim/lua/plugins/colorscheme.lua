@@ -37,38 +37,34 @@ return {
 				---@param highlights Highlights
 				---@param colors ColorScheme
 				on_highlights = function(highlights, colors)
-					-- highlights.BlinkCmpDoc = { fg = colors.fg, bg = colors.bg }
-					-- highlights.BlinkCmpDocBorder = { fg = colors.green, bg = none }
-					-- highlights.BlinkCmpGhostText = { fg = colors.fg_gutter_light }
-					-- highlights.BlinkCmpKindCodeium = { fg = colors.cyan, bg = colors.none }
-					-- highlights.BlinkCmpKindCopilot = { fg = colors.cyan, bg = colors.none }
-					-- highlights.BlinkCmpKindDefault = { fg = colors.fg_dark, bg = colors.none }
-					-- highlights.BlinkCmpKindSupermaven = { fg = colors.cyan, bg = colors.none }
-					-- highlights.BlinkCmpKindTabNine = { fg = colors.cyan, bg = colors.none }
-					-- highlights.BlinkCmpLabel = { fg = colors.fg, bg = colors.none }
-					-- highlights.BlinkCmpLabelDeprecated =
-					-- 	{ fg = colors.fg_gutter, bg = colors.none, strikethrough = true }
-					-- highlights.BlinkCmpLabelMatch = { fg = colors.bright_cyan, bg = colors.none }
+					highlights.FloatBorder = { fg = colors.magenta2, bg = colors.none }
+					-- See heirline.lua
+					highlights.TabLine = { bg = colors.bg_dark }
+					highlights.TabLineSel = { bg = colors.bg_highlight, underline = true }
+					-- Set highlights for mini.icons
+					highlights.MiniIconsAzure = { fg = colors.pink }
+					highlights.MiniIconsBlue = { fg = colors.purple }
+					highlights.MiniIconsCyan = { fg = colors.cyan }
+					highlights.MiniIconsGreen = { fg = colors.green }
+					highlights.MiniIconsGrey = { fg = colors.fg_dark }
+					highlights.MiniIconsOrange = { fg = colors.orange }
+					highlights.MiniIconsPurple = { fg = colors.pink }
+					highlights.MiniIconsRed = { fg = colors.red }
+					highlights.MiniIconsYellow = { fg = colors.yellow }
+					-- Blink completion popup
 					highlights.BlinkCmpMenu = { fg = colors.fg, bg = colors.bg }
 					highlights.BlinkCmpMenuBorder = { fg = colors.magenta, bg = none }
 					highlights.BlinkCmpMenuSelection = { fg = colors.pink, bg = colors.bg_highlight, bold = true }
 					highlights.BlinkCmpScrollBarThumb = { bg = colors.magenta }
 					highlights.BlinkCmpScrollBarGutter = { bg = colors.fg_gutter }
 					highlights.BlinkCmpLabel = { fg = colors.cyan }
-					-- highlights.BlinkCmpLabelDeprecated = { fg = x, bg = x }
 					highlights.BlinkCmpLabelMatch = { fg = colors.pink }
-					-- highlights.BlinkCmpLabelDetail = { fg = x, bg = x }
 					highlights.BlinkCmpLabelDescription = { fg = colors.comment }
-					-- highlights.BlinkCmpKind = { fg = x, bg = x }
-					-- highlights.BlinkCmpSource = { fg = x, bg = x }
-					-- highlights.BlinkCmpGhostText = { fg = x, bg = x }
 					highlights.BlinkCmpDoc = { fg = colors.fg, bg = colors.bg }
 					highlights.BlinkCmpDocBorder = { fg = colors.magenta, bg = none }
 					highlights.BlinkCmpDocSeparator = { fg = colors.magenta, bg = colors.bg }
 					highlights.BlinkCmpDocCursorLine = { bg = colors.bg_highlight }
-					-- highlights.BlinkCmpSignatureHelp = { fg = colors.fg, bg = colors.bg }
 					highlights.BlinkCmpSignatureHelpBorder = { fg = colors.green, bg = none }
-					-- highlights.BlinkCmpSignatureHelpActiveParameter = { fg = x, bg = x }
 				end,
 			})
 			vim.cmd([[colorscheme eldritch]])
