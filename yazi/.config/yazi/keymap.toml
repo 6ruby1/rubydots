@@ -107,8 +107,14 @@ keymap = [
 	{ on = ";", run = "shell --interactive", desc = "Run a shell command" },
 	{ on = ":", run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
 	{ on = ".", run = "hidden toggle", desc = "Toggle the visibility of hidden files" },
-	{ on = "s", run = "search --via=fd", desc = "Search files by name via fd" },
-	{ on = "S", run = "search --via=rg", desc = "Search files by content via ripgrep" },
+	{ on = [
+		"b",
+		"f",
+	], run = "search --via=fd", desc = "Search files by name via fd" },
+	{ on = [
+		"b",
+		"r",
+	], run = "search --via=rg", desc = "Search files by content via ripgrep" },
 	{ on = "<C-s>", run = "escape --search", desc = "Cancel the ongoing search" },
 	{ on = "z", run = "plugin zoxide", desc = "Jump to a directory via zoxide" },
 	{ on = "Z", run = "plugin fzf", desc = "Jump to a file/directory via fzf" },
@@ -327,14 +333,14 @@ desc = "Goto git root"
 ## File/Directory finder using fd + fzf
 
 [[mgr.prepend_keymap]]
-on = ["b", "f"]
+on = "s"
 run = "plugin fazif faziffd"
 desc = "fd + fzf"
 
 ## Content finder using ripgrep + fzf
 
 [[mgr.prepend_keymap]]
-on = ["b", "r"]
+on = "S"
 run = "plugin fazif fazifrg"
 desc = "ripgrep + fzf"
 
