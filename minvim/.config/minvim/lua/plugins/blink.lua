@@ -23,7 +23,7 @@ local function get_kind_icon(CTX)
 					end
 				elseif ctx.item.source_name == "Path" then
 					ctx.kind_icon, ctx.kind_hl =
-							mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
+						mini_icons.get(ctx.kind == "Folder" and "directory" or "file", ctx.label)
 				elseif ctx.item.source_name == "Snippets" then
 					ctx.kind_icon, ctx.kind_hl = mini_icons.get("lsp", "snippet")
 				end
@@ -64,7 +64,7 @@ local function get_kind_icon(CTX)
 					local doc = vim.tbl_get(ctx, "item", "documentation")
 					if doc then
 						local color_item = highlight_colors_avail
-								and highlight_colors.format(doc, { kind = kinds[kinds.Color] })
+							and highlight_colors.format(doc, { kind = kinds[kinds.Color] })
 						if color_item and color_item.abbr_hl_group then
 							if color_item.abbr then
 								ctx.kind_icon = color_item.abbr
@@ -94,14 +94,27 @@ return {
 		version = "1.*",
 		dependencies = {
 			"L3MON4D3/LuaSnip",
-			"folke/lazydev.nvim",
 			"eldritch-theme/eldritch.nvim",
+			{ "tpope/vim-dadbod", lazy = true },
+			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 		},
 		--- @module 'blink.cmp'
 		--- @type blink.cmp.Config
 		opts = {
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
+				per_filetype = {
+					sql = { "snippets", "dadbod", "buffer" },
+					lua = { inherit_defaults = true, "lazydev" },
+				},
+				providers = {
+					dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100, -- increase priority
+					},
+				},
 			},
 			keymap = {
 				["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
@@ -136,7 +149,7 @@ return {
 					"fallback",
 				},
 			},
-			fuzzy = { implementation = "prefer_rust" },
+			fuzzy = { implementation = "prefer_rust_with_warning" },
 			completion = {
 				keyword = { range = "prefix" },
 				list = { selection = { preselect = false, auto_insert = true } },
@@ -159,7 +172,7 @@ return {
 							},
 						},
 						columns = {
-							{ "kind_icon",        "label", gap = 1 },
+							{ "kind_icon", "label", gap = 1 },
 							{ "label_description" },
 						},
 					},
@@ -178,6 +191,7 @@ return {
 				},
 			},
 			cmdline = {
+				enabled = false,
 				keymap = {
 					["<End>"] = { "hide", "fallback" },
 				},
