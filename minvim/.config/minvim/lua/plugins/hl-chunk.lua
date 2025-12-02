@@ -27,9 +27,6 @@ return {
 					duration = 100,
 					delay = 200,
 				},
-				line_num = {
-					enable = true,
-				},
 				indent = {
 					enable = true,
 					priority = 10,

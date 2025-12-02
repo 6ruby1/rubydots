@@ -9,6 +9,10 @@ local function get_git_root()
 	return vim.fn.fnamemodify(dot_git_path, ":h")
 end
 
+local function inc_rename_fill_word()
+	return ":IncRename " .. vim.fn.expand("<cword>")
+end
+
 -- Telescope functions ------------------------------------
 
 local function live_grep_from_project_git_root()
@@ -71,10 +75,12 @@ end
 
 -- [F]ind
 local builtin = require("telescope.builtin")
+map({ "n" }, "<leader>f", "", { desc = "Find" })
 map({ "n" }, "<leader>ff", find_files_from_project_git_root, { desc = "files" })
 map({ "n" }, "<leader>fw", live_grep_from_project_git_root, { desc = "live grep" })
 map({ "n" }, "<leader>fg", builtin.git_files, { desc = "git files" })
 map({ "n" }, "<leader>fb", builtin.buffers, { desc = "buffers" })
+map({ "n" }, "<leader>bb", builtin.buffers, { desc = "Pick buffer" })
 map({ "n" }, "<leader>fi", builtin.grep_string, { desc = "word under cursor" })
 map({ "n" }, "<leader>fo", builtin.oldfiles, { desc = "oldfiles" })
 map({ "n" }, "<leader>fh", builtin.help_tags, { desc = "help" })
@@ -92,19 +98,24 @@ map({ "n" }, "<leader>fe", "<cmd>Telescope env<cr>", { desc = "env variables" })
 map({ "n" }, "<leader>fa", require("actions-preview").code_actions, { desc = "code actions" })
 
 -- [U]I
+map({ "n" }, "<leader>u", "", { desc = "UI" })
 map({ "n" }, "<leader>uC", "<Cmd>CccHighlighterToggle<CR>", { desc = "Toggle color highlight" })
 map({ "n" }, "<leader>uf", toggle_autoformat_buff, { desc = "Toggle autoformat (buffer)" })
 map({ "n" }, "<leader>uF", toggle_autoformat_global, { desc = "Toggle autoformat (global)" })
 
 -- [L]anguage
-map({ "n" }, "<leader>lr", vim.lsp.buf.rename, { desc = "Rename current symbol" })
+map({ "n" }, "<leader>l", "", { desc = "Language" })
+map({ "n" }, "<leader>lr", inc_rename_fill_word, { expr = true, desc = "Rename current symbol" })
 map({ "n", "v", "x" }, "<leader>lf", function()
 	require("conform").format({ async = true, lsp_format = "fallback" })
 end, { desc = "Format buffer" })
-map({ "n" }, "<leader>cc", "<Cmd>CccConvert<CR>", { desc = "convert color" })
-map({ "n" }, "<leader>cp", "<Cmd>CccPick<CR>", { desc = "pick color" })
+map({ "n" }, "<leader>xc", "<Cmd>CccConvert<CR>", { desc = "convert color" })
+map({ "n" }, "<leader>xp", "<Cmd>CccPick<CR>", { desc = "pick color" })
 
 -- Misc
+map({ "n" }, "\\", "<cmd>split<cr>", { desc = "split horizontal" })
+map({ "n" }, "|", "<cmd>vsplit<cr>", { desc = "split vertical" })
+map({ "n" }, "<leader>c", "<Cmd>:bw<CR>", { desc = "Close buffer" })
 map({ "n" }, "<leader>w", "<Cmd>update<CR>", { desc = "Write the current buffer." })
 map({ "n" }, "<leader>q", "<Cmd>:quit<CR>", { desc = "Quit the current buffer." })
 map({ "n" }, "<leader>Q", "<Cmd>:wqa<CR>", { desc = "Quit all buffers and write." })
@@ -114,7 +125,7 @@ map({ "n", "v", "x" }, "<leader>O", "<Cmd>restart<CR>", { desc = "Restart vim." 
 map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "Enter norm command" })
 map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
 map({ "n" }, "<leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "Search and replace word under cursor" })
-map({ "n" }, "<leader>cv", function()
+map({ "n" }, "<leader>xv", function()
 	require("telescope.builtin").find_files({
 		cwd = vim.stdpath("config"),
 	})
@@ -125,6 +136,23 @@ map(
 	":vimgrep /<C-R>//j %<CR>|:cw<CR>",
 	{ noremap = true, silent = true, desc = "Populate quickfix with search results" }
 )
+
+-- Buffer
+map({ "n" }, "<leader>b", "", { desc = "Buffer" })
+map({ "n" }, "<leader>bc", "<Cmd>:bw<CR>", { desc = "Close buffer" })
+map({ "n" }, "<leader>ba", "<Cmd>:wa<CR>", { desc = "Write all changed buffers" })
+map({ "n" }, "]b", function()
+	require("heirline-components.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+end, { desc = "Next buffer" })
+map({ "n" }, "[b", function()
+	require("heirline-components.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
+end, { desc = "Previous buffer" })
+map({ "n" }, ">b", function()
+	require("heirline-components.buffer").move(vim.v.count > 0 and vim.v.count or 1)
+end, { desc = "Move buffer tab right" })
+map({ "n" }, "<b", function()
+	require("heirline-components.buffer").move(-(vim.v.count > 0 and vim.v.count or 1))
+end, { desc = "Move buffer tab left" })
 
 -- Quickfix
 map({ "n" }, "<leader>xl", "<Cmd>lopen<CR>", { desc = "open location list" })
