@@ -11,18 +11,18 @@ return {
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
 
-			local IconList = require("icons") -- see icons.lua
+			local IconList = require("icons") -- see ../icons.lua
 			require("mini.icons").setup({
 				style = "glyph",
 
 				-- Customize per category. See `:h MiniIcons.config` for details.
-				default = { IconList.default_icons },
-				directory = { IconList.directory_icons },
-				extension = { IconList.extension_icons },
-				file = { IconList.file_icons },
-				filetype = { IconList.file_icons },
-				lsp = { IconList.lsp_icons },
-				os = { IconList.os_icons },
+				default = IconList.default_icons,
+				directory = IconList.directory_icons,
+				extension = IconList.extension_icons,
+				file = IconList.file_icons,
+				filetype = IconList.file_icons,
+				lsp = IconList.lsp_icons,
+				os = IconList.os_icons,
 
 				-- Control which extensions will be considered during "file" resolution
 				use_file_extension = function(ext, file)
@@ -35,7 +35,7 @@ return {
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
-			-- require("mini.surround").setup()
+			require("mini.surround").setup()
 
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,

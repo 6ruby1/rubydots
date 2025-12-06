@@ -28,6 +28,10 @@ return {
 				"vim",
 				"vimdoc",
 				"rust",
+				"javascript",
+				"typescript",
+				"jsx",
+				"jsdoc",
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
@@ -46,6 +50,10 @@ return {
 					"vim",
 					"vimdoc",
 					"rust",
+					"javascript",
+					"typescript",
+					"jsx",
+					"jsdoc",
 				},
 				callback = function()
 					-- syntax highlighting, provided by Neovim

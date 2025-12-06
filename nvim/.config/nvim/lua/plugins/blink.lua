@@ -158,16 +158,24 @@ return {
 						return ctx.mode ~= "cmdline"
 					end,
 					min_width = 15,
-					border = "rounded",
+					border = "single",
 					draw = {
-						treesitter = { "lsp" },
+						-- treesitter = { "lsp" },
 						components = {
 							kind_icon = {
+								-- text = function(ctx)
+								-- 	return get_kind_icon(ctx).text
+								-- end,
+								-- highlight = function(ctx)
+								-- 	return get_kind_icon(ctx).highlight
+								-- end,
 								text = function(ctx)
-									return get_kind_icon(ctx).text
+									local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+									return kind_icon
 								end,
 								highlight = function(ctx)
-									return get_kind_icon(ctx).highlight
+									local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+									return hl
 								end,
 							},
 						},
@@ -185,7 +193,7 @@ return {
 					auto_show_delay_ms = 0,
 					window = {
 						min_width = 10,
-						border = "rounded",
+						border = "bold",
 					},
 					treesitter_highlighting = true,
 				},
@@ -205,7 +213,7 @@ return {
 					min_width = 10,
 					border = "rounded",
 					treesitter_highlighting = true,
-					show_documentation = true,
+					-- show_documentation = true,
 				},
 			},
 		},

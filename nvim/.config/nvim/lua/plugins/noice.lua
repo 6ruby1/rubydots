@@ -14,6 +14,17 @@ return {
 		opts = {},
 		config = function()
 			require("noice").setup({
+				lsp = {
+					hover = {
+						enabled = false,
+					},
+					signature = {
+						enabled = false,
+					},
+				},
+				cmdline = {
+					view = "cmdline",
+				},
 				presets = {
 					-- you can enable a preset by setting it to true, or a table that will override the preset config
 					-- you can also add custom presets that you can enable/disable with enabled=true

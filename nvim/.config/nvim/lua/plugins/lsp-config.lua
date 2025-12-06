@@ -5,10 +5,6 @@ vim.lsp.enable({
 	"lua_ls",
 })
 
-vim.diagnostic.config({
-	update_in_insert = true,
-})
-
 return {
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -19,7 +15,7 @@ return {
 			library = {
 				-- Load luvit types when the `vim.uv` word is found
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
-				{ path = "lazy.nvim", words = { "Lazy" } },
+				-- { path = "lazy.nvim", words = { "Lazy" } },
 			},
 		},
 	},
@@ -179,7 +175,7 @@ return {
 						client
 						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 					then
-						map("<leader>th", function()
+						map("<leader>lh", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 						end, "[T]oggle Inlay [H]ints")
 					end
@@ -189,6 +185,7 @@ return {
 			-- Diagnostic Config
 			-- See :help vim.diagnostic.Opts
 			vim.diagnostic.config({
+				update_in_insert = true,
 				severity_sort = true,
 				float = { border = "rounded", source = "if_many" },
 				underline = { severity = vim.diagnostic.severity.ERROR },
@@ -200,21 +197,45 @@ return {
 						[vim.diagnostic.severity.HINT] = "󰌶 ",
 					},
 				} or {},
+				-- Show virtual_lines only for ERROR-level diagnostics
+				virtual_lines = {
+					-- only show diagnostics whose severity is ERROR
+					severity = { min = vim.diagnostic.severity.ERROR, max = vim.diagnostic.severity.ERROR },
+					only_current_line = false,
+				},
+				-- Show virtual_text for everything except ERROR (WARN/INFO/HINT)
 				virtual_text = {
-					source = "if_many",
 					spacing = 2,
+					source = "if_many",
+					-- The format function may return nil to suppress virtual_text for that diagnostic.
 					format = function(diagnostic)
-						local diagnostic_message = {
-							[vim.diagnostic.severity.ERROR] = diagnostic.message,
-							[vim.diagnostic.severity.WARN] = diagnostic.message,
-							[vim.diagnostic.severity.INFO] = diagnostic.message,
-							[vim.diagnostic.severity.HINT] = diagnostic.message,
-						}
-						return diagnostic_message[diagnostic.severity]
+						-- suppress virtual_text for ERROR-level diagnostics
+						if diagnostic.severity == vim.diagnostic.severity.ERROR then
+							return nil
+						end
+						-- otherwise show the message (or customize per-severity if you like)
+						return diagnostic.message
 					end,
 				},
 			})
 
+			vim.cmd([[
+      highlight link DiagnosticVirtualLinesError DiagnosticVirtualTextError
+      highlight link DiagnosticVirtualLinesWarn DiagnosticVirtualTextWarn
+      highlight link DiagnosticVirtualLinesInfo DiagnosticVirtualTextInfo
+      highlight link DiagnosticVirtualLinesHint DiagnosticVirtualTextHint
+      highlight link DiagnosticVirtualLinesOk DiagnosticVirtualTextOk
+      ]])
+
+			vim.diagnostic.handlers.loclist = {
+				show = function(_, _, _, opts)
+					-- Generally don't want it to open on every update
+					opts.loclist.open = opts.loclist.open or false
+					local winid = vim.api.nvim_get_current_win()
+					vim.diagnostic.setloclist(opts.loclist)
+					vim.api.nvim_set_current_win(winid)
+				end,
+			}
 			-- LSP servers and clients are able to communicate to each other what features they support.
 			--  By default, Neovim doesn't support everything that is in the LSP specification.
 			--  When you add blink.cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -242,45 +263,6 @@ return {
 				--
 				-- But for many setups, the LSP (`ts_ls`) will work just fine
 				-- ts_ls = {},
-
-				lua_ls = {
-					-- cmd = { ... },
-					-- filetypes = { ... },
-					-- capabilities = {},
-					settings = {
-						Lua = {
-							completion = {
-								callSnippet = "Replace",
-							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
-						},
-					},
-				},
-
-				rust_analyzer = {
-					settings = {
-						["rust-analyzer"] = {
-							assist = {
-								importEnforceGranularity = true,
-								importPrefix = "crate",
-							},
-							cargo = {
-								allFeatures = true,
-							},
-							checkOnSave = {
-								command = "clippy",
-							},
-							inlayHints = { locationLinks = false },
-							diagnostics = {
-								enable = true,
-								experimental = {
-									enable = true,
-								},
-							},
-						},
-					},
-				},
 			}
 
 			-- Ensure the servers and tools above are installed

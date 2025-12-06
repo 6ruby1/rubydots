@@ -52,19 +52,21 @@ return {
 					highlights.MiniIconsRed = { fg = colors.red }
 					highlights.MiniIconsYellow = { fg = colors.yellow }
 					-- Blink completion popup
-					highlights.BlinkCmpMenu = { fg = colors.fg, bg = colors.bg }
-					highlights.BlinkCmpMenuBorder = { fg = colors.magenta, bg = none }
-					highlights.BlinkCmpMenuSelection = { fg = colors.pink, bg = colors.bg_highlight, bold = true }
+					highlights.BlinkCmpMenu = { bg = colors.bg_dark }
+					highlights.BlinkCmpMenuBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.BlinkCmpMenuSelection =
+						{ fg = colors.comment, bg = colors.bg_highlight, bold = true, underline = true }
 					highlights.BlinkCmpScrollBarThumb = { bg = colors.magenta }
 					highlights.BlinkCmpScrollBarGutter = { bg = colors.fg_gutter }
-					highlights.BlinkCmpLabel = { fg = colors.cyan }
-					highlights.BlinkCmpLabelMatch = { fg = colors.pink }
+					highlights.BlinkCmpLabel = { fg = colors.fg_dark }
+					highlights.BlinkCmpLabelMatch = { fg = colors.comment, underline = true, italic = true }
 					highlights.BlinkCmpLabelDescription = { fg = colors.comment }
-					highlights.BlinkCmpDoc = { fg = colors.fg, bg = colors.bg }
-					highlights.BlinkCmpDocBorder = { fg = colors.magenta, bg = none }
-					highlights.BlinkCmpDocSeparator = { fg = colors.magenta, bg = colors.bg }
+					highlights.BlinkCmpDoc = { fg = colors.fg, bg = colors.bg_dark }
+					highlights.BlinkCmpDocBorder = { fg = colors.dark5, bg = colors.bg_dark }
+					highlights.BlinkCmpDocSeparator = { fg = colors.red, bg = colors.bg_dark }
 					highlights.BlinkCmpDocCursorLine = { bg = colors.bg_highlight }
-					highlights.BlinkCmpSignatureHelpBorder = { fg = colors.green, bg = none }
+					highlights.BlinkCmpSignatureHelpBorder = { fg = colors.pink, bg = colors.bg_dark, bold = true }
+					highlights.BlinkCmpSignatureHelp = { fg = colors.fg_dark, bg = colors.bg_dark }
 				end,
 			})
 			vim.cmd([[colorscheme eldritch]])
