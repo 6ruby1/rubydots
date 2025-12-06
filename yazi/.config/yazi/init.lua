@@ -7,6 +7,8 @@ local P = {
 	cyan = "#04d1f9",
 	red = "#f16c75",
 	purple = "#a48cf2",
+	orange = "#f7c67f",
+	green = "#37f499",
 }
 require("folder-rules"):setup()
 
@@ -47,9 +49,9 @@ require("yatline"):setup({
 	tab_width = 20,
 	tab_use_inverse = false,
 
-	selected = { icon = "󰻭", fg = "yellow" },
-	copied = { icon = "", fg = "green" },
-	cut = { icon = "", fg = "red" },
+	selected = { icon = "󰻭", fg = P.orange },
+	copied = { icon = "", fg = P.green },
+	cut = { icon = "", fg = P.red },
 
 	total = { icon = "󰮍", fg = "yellow" },
 	succ = { icon = "", fg = "green" },
@@ -89,12 +91,16 @@ require("yatline"):setup({
 			section_a = {
 				{ type = "string", custom = false, name = "tab_mode" },
 			},
-			section_b = {
-				{ type = "string", custom = false, name = "hovered_size" },
-			},
+			section_b = {},
 			section_c = {
 				-- { type = "string",   custom = false, name = "hovered_path" },
 				{ type = "coloreds", custom = false, name = "count" },
+				{
+					type = "string",
+					custom = false,
+					name = "hovered_name",
+					params = { { trimed = false, show_symlink = true, max_length = 24, trim_length = 10 } },
+				},
 			},
 		},
 		right = {
@@ -105,6 +111,7 @@ require("yatline"):setup({
 			section_c = {
 				{ type = "string", custom = false, name = "hovered_file_extension", params = { true } },
 				{ type = "coloreds", custom = false, name = "permissions" },
+				{ type = "string", custom = false, name = "hovered_size" },
 			},
 		},
 	},
