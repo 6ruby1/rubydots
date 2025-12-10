@@ -24,7 +24,7 @@ return {
 					lib.component.fill(),
 					lib.component.cmd_info({}),
 					lib.component.fill(),
-					lib.component.compiler_state(),
+					-- lib.component.compiler_state(),
 					lib.component.virtual_env(),
 					-- lib.component.nav({ scrollbar = false, surround = { separator = "right" } }),
 					-- lib.component.mode({ surround = { separator = "right" } }),
