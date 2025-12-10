@@ -32,6 +32,7 @@ return {
 				"typescript",
 				"jsx",
 				"jsdoc",
+				"java",
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
@@ -54,6 +55,7 @@ return {
 					"typescript",
 					"jsx",
 					"jsdoc",
+					"java",
 				},
 				callback = function()
 					-- syntax highlighting, provided by Neovim

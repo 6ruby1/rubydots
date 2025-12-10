@@ -7,34 +7,28 @@ vim.lsp.enable({
 
 return {
 	{
-		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-		-- used for completion, annotations and signatures of Neovim apis
 		"folke/lazydev.nvim",
 		ft = "lua",
 		opts = {
 			library = {
-				-- Load luvit types when the `vim.uv` word is found
 				{ path = "${3rd}/luv/library", words = { "vim%.uv" } },
 				-- { path = "lazy.nvim", words = { "Lazy" } },
 			},
 		},
 	},
-
 	{
-		-- Main LSP Configuration
+		"mason-org/mason-lspconfig.nvim",
+		opts = {},
+		dependencies = { "mason-org/mason.nvim" },
+	},
+	-- { "mason-org/mason.nvim", opts = { path = "append" } },
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
-			-- Automatically install LSPs and related tools to stdpath for Neovim
-			-- Mason must be loaded before its dependents so we need to set it up here.
-			-- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
 			{ "mason-org/mason.nvim", opts = {} },
 			"mason-org/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
 		},
 		config = function()
@@ -77,32 +71,32 @@ return {
 					-- for LSP related items. It sets the mode, buffer and description for us each time.
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
-						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = desc })
 					end
 
 					-- Rename the variable under your cursor.
 					--  Most Language Servers support renaming across files, etc.
-					map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+					map("grn", vim.lsp.buf.rename, "Rename")
 
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+					map("gra", vim.lsp.buf.code_action, "Goto Code Action", { "n", "x" })
 
 					-- Find references for the word under your cursor.
-					map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+					map("grr", require("telescope.builtin").lsp_references, "Goto References")
 
 					-- Jump to the implementation of the word under your cursor.
 					--  Useful when your language has ways of declaring types without an actual implementation.
-					map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+					map("gri", require("telescope.builtin").lsp_implementations, "Goto Implementation")
 
 					-- Jump to the definition of the word under your cursor.
 					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
-					map("grd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+					map("grd", require("telescope.builtin").lsp_definitions, "Goto Definition")
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
-					map("grD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+					map("grD", vim.lsp.buf.declaration, "Goto Declaration")
 
 					-- Fuzzy find all the symbols in your current document.
 					--  Symbols are things like variables, functions, types, etc.
@@ -115,7 +109,7 @@ return {
 					-- Jump to the type of the word under your cursor.
 					--  Useful when you're not sure what type a variable is and you want to see
 					--  the definition of its *type*, not where it was *defined*.
-					map("grt", require("telescope.builtin").lsp_type_definitions, "[G]oto [T]ype Definition")
+					map("grt", require("telescope.builtin").lsp_type_definitions, "Goto Type Definition")
 
 					-- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
 					---@param client vim.lsp.Client
@@ -177,7 +171,7 @@ return {
 					then
 						map("<leader>lh", function()
 							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-						end, "[T]oggle Inlay [H]ints")
+						end, "Toggle Inlay Hints")
 					end
 				end,
 			})
@@ -288,48 +282,49 @@ return {
 				"css-lsp",
 				"emmet-ls",
 				"eslint-lsp",
-				"gopls",
+				-- "gopls",
 				"graphql-language-service-cli",
 				"html-lsp",
 				"hyprls",
-				"jdtls",
+				"jdtls", -- NOTE: configured via nvim-jdtls
 				"json-lsp",
-				"kotlin-language-server",
+				-- "kotlin-language-server",
 				"lua-language-server",
 				"marksman",
 				"neocmakelsp",
-				"sqls",
-				"tailwindcss-language-server",
+				-- "sqls",
+				-- "tailwindcss-language-server",
 				"taplo",
-				"vtsls",
+				-- "vtsls",
 				"yaml-language-server",
 
 				-- DAP
 				"bash-debug-adapter",
 				"codelldb",
 				"debugpy",
-				"delve",
+				-- "delve",
 				"java-debug-adapter",
 				"java-test",
-				"js-debug-adapter",
-				"kotlin-debug-adapter",
-				"netcoredbg",
-				"cpptools",
+				-- "js-debug-adapter",
+				-- "kotlin-debug-adapter",
+				-- "netcoredbg",
+				-- "cpptools",
 
 				-- Linter
-				"ktlint",
+				-- "ktlint",
 				"shellcheck",
-				"sqlfluff",
-				"standardrb",
+				-- "sqlfluff",
+				-- "standardrb",
 				"codespell",
 				"cpplint",
+				"eslint_d",
 
 				-- Formatters
 				"black",
-				"csharpier",
-				"goimports",
-				"gomodifytags",
-				"gotests",
+				-- "csharpier",
+				-- "goimports",
+				-- "gomodifytags",
+				-- "gotests",
 				"isort",
 				"prettierd",
 				"shfmt",
@@ -338,9 +333,28 @@ return {
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			-- TODO: relocate to bashls.lua
+			vim.lsp.config("bashls", {
+				filetypes = { "bash", "sh", "zsh" },
+				root_markers = { ".git" },
+				cmd = { "bash-language-server", "start" },
+				settings = {
+					bashIde = {
+						-- Glob pattern for finding and parsing shell script files in the workspace.
+						-- Used by the background analysis features across files.
+
+						-- Prevent recursive scanning which will cause issues when opening a file
+						-- directly in the home directory (e.g. ~/foo.sh).
+						--
+						-- Default upstream pattern is "**/*@(.sh|.inc|.bash|.command)".
+						globPattern = vim.env.GLOB_PATTERN or "*@(.sh|.inc|.bash|.command)",
+					},
+				},
+			})
 			require("mason-lspconfig").setup({
 				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
 				automatic_installation = false,
+				automatic_enable = { exclude = { "jdtls", "rust_analyzer" } },
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
