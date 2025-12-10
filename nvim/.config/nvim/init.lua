@@ -56,5 +56,6 @@ require("lazy").setup({
 	checker = { enabled = true },
 })
 
+require("autocmd")
 require("keymaps")
 require("status.init")

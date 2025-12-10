@@ -203,6 +203,11 @@ M.file_icons = {
   TODO                    = { glyph = '󰝖', hl = 'MiniIconsPurple' },
   ['TODO.md']             = { glyph = '󰝖', hl = 'MiniIconsPurple' },
   ['init.lua']            = { glyph = '󰢱', hl = 'MiniIconsGreen' },
+  ['keymaps.lua']         = { glyph = '󰢱', hl = 'MiniIconsCyan' },
+  ['options.lua']         = { glyph = '󰢱', hl = 'MiniIconsCyan' },
+  ['autocmd.lua']         = { glyph = '󰢱', hl = 'MiniIconsCyan' },
+  ['icons.lua']         = { glyph = '󰢱', hl = 'MiniIconsCyan' },
+  ['buffer.lua']         = { glyph = '󰢱', hl = 'MiniIconsCyan' },
   ['yazi']                = { glyph = '󰉓', hl = 'MiniIconsOrange' },
 
   -- Supported by `vim.filetype.match` but conflict with using extension first
