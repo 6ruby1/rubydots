@@ -6,8 +6,14 @@ return {
 	keys = {
 		{
 			"<leader>lf",
+			function()
+				require("conform").format({ async = true, lsp_format = "fallback" })
+			end,
+			mode = "",
+			desc = "Format buffer",
 		},
 	},
+
 	-- This will provide type hinting with LuaLS
 	-- -@module "conform"
 	-- -@type conform.setupOpts
@@ -15,17 +21,26 @@ return {
 		require("conform").setup({
 			-- Define your formatters
 			formatters_by_ft = {
+				-- Lang
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
-				toml = { "taplo" },
-				ruby = { "standardrb" },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				html = { "prettierd" },
+				sh = { "shfmt" },
 				bash = { "shfmt" },
-				go = { "goimports", "gomodifytags", "gotests" },
-				csharp = { "csharpier" },
+				zsh = { "shfmt" },
+				-- go = { "goimports", "gomodifytags", "gotests" },
+				-- csharp = { "csharpier" },
 				cpp = { "clang-format" },
 				rust = { "rustfmt" },
-				json = { "jq" },
+
+				-- Data
+				json = { "prettierd" },
+				css = { "prettierd" },
+				yaml = { "prettierd" },
+				toml = { "taplo" },
+				-- ruby = { "standardrb" },
 			},
 			-- Set default options
 			default_format_opts = {
