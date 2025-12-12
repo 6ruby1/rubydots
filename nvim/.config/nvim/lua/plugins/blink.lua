@@ -95,6 +95,7 @@ return {
 		dependencies = {
 			"L3MON4D3/LuaSnip",
 			"eldritch-theme/eldritch.nvim",
+			"MahanRahmati/blink-nerdfont.nvim",
 			{ "tpope/vim-dadbod", lazy = true },
 			{ "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
 		},
@@ -102,7 +103,7 @@ return {
 		--- @type blink.cmp.Config
 		opts = {
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "lsp", "path", "snippets", "buffer", "nerdfont" },
 				per_filetype = {
 					sql = { "snippets", "dadbod", "buffer" },
 					lua = { inherit_defaults = true, "lazydev" },
@@ -114,6 +115,13 @@ return {
 						module = "lazydev.integrations.blink",
 						score_offset = 100, -- increase priority
 					},
+					nerdfont = {
+						module = "blink-nerdfont",
+						name = "Nerd Fonts",
+						score_offset = 15, -- Tune by preference
+						opts = { insert = true }, -- Insert nerdfont icon (default) or complete its name
+					},
+					lsp = { fallbacks = {} },
 				},
 			},
 			keymap = {
@@ -158,7 +166,7 @@ return {
 						return ctx.mode ~= "cmdline"
 					end,
 					min_width = 15,
-					border = "single",
+					border = "none",
 					draw = {
 						-- treesitter = { "lsp" },
 						components = {
