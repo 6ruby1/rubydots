@@ -115,48 +115,63 @@ wk.add({
 	{
 		mode = { "n" },
 		{ "<leader>f", group = "Find" },
-		{ "<leader>ff", find_files_from_project_git_root, desc = "files" },
-		{ "<leader>fw", live_grep_from_project_git_root, desc = "live grep" },
-		{ "<leader>fg", builtin.git_files, desc = "git files" },
-		{ "<leader>fb", builtin.buffers, desc = "buffers" },
-		{ "<leader>bb", builtin.buffers, desc = "Pick buffer" },
-		{ "<leader>fi", builtin.grep_string, desc = "word under cursor" },
-		{ "<leader>fo", builtin.oldfiles, desc = "oldfiles" },
-		{ "<leader>fh", builtin.help_tags, desc = "help" },
-		{ "<leader>fm", builtin.man_pages, desc = "man pages" },
-		{ "<leader>fr", builtin.lsp_references, desc = "lsp references" },
-		{ "<leader>fd", builtin.diagnostics, desc = "diagnostics" },
-		{ "<leader>fi", builtin.lsp_implementations, desc = "lsp implementations" },
-		{ "<leader>fD", builtin.lsp_type_definitions, desc = "lsp definitions" },
-		{ "<leader>fs", builtin.current_buffer_fuzzy_find, desc = "fuzzy word in cur buff" },
-		{ "<leader>ft", builtin.builtin, desc = "telescope" },
-		{ "<leader>fc", builtin.git_bcommits, desc = "git commits" },
-		{ "<leader>fk", builtin.keymaps, desc = "keymaps" },
-		{ "<leader>fC", builtin.commands, desc = "commands" },
-		{ "<leader>fe", "<cmd>Telescope env<cr>", desc = "env variables" },
-		{ "<leader>fa", require("actions-preview").code_actions, desc = "code actions" },
+		{ "<leader>fa", require("actions-preview").code_actions, desc = "Code actions" },
+		{ "<leader>fb", builtin.buffers, desc = "Buffers", icon = { icon = "󰪷 ", color = "cyan" } },
+		{ "<leader>fB", builtin.buffers, desc = "Branches", icon = { icon = " ", color = "blue" } },
+		{ "<leader>fc", builtin.git_commits, desc = "Git commits" },
+		{ "<leader>fC", builtin.git_bcommits, desc = "Git file commits" },
+		{ "<leader>f<C-c>", builtin.commands, desc = "Commands" },
+		{ "<leader>fd", builtin.diagnostics, desc = "Diagnostics" },
+		{ "<leader>fD", builtin.lsp_type_definitions, desc = "Definitions" },
+		{ "<leader>fe", "<cmd>Telescope env<cr>", desc = "env", icon = { icon = " ", color = "yellow" } },
+		{ "<leader>ff", find_files_from_project_git_root, desc = "Files" },
+		{ "<leader>fg", builtin.git_files, desc = "Git files" },
+		{ "<leader>fh", builtin.help_tags, desc = "Help", icon = { icon = "󰋗 ", color = "yellow" } },
+		{ "<leader>fi", builtin.lsp_implementations, desc = "Implementations" },
+		{ "<leader>fk", builtin.keymaps, desc = "Keymaps" },
+		{ "<leader>fm", builtin.man_pages, desc = "Man pages", icon = { icon = "󱧊 ", color = "yellow" } },
+		{ "<leader>fo", builtin.oldfiles, desc = "Recent files", icon = { icon = "󰪺 " } },
+		{ "<leader>fr", builtin.lsp_references, desc = "References" },
+		{ "<leader>fs", builtin.grep_string, desc = "Grep wuc" },
+		{ "<leader>fS", builtin.lsp_document_symbols, desc = "Document symbols" },
+		{ "<leader>ft", builtin.builtin, desc = "Telescope" },
+		{ "<leader>fw", live_grep_from_project_git_root, desc = "Live grep" },
+		{ "<leader>fW", builtin.current_buffer_fuzzy_find, desc = "Fuzzy buf" },
 		{
 			"<leader>fv",
 			function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") })
 			end,
-			desc = "Nvim config files",
+			desc = "config files",
+			icon = { icon = " ", color = "grey" },
 		},
 		{
 			"<leader>fp",
 			function()
 				builtin.find_files({ cwd = vim.fn.stdpath("config") .. "/lua/plugins" })
 			end,
-			desc = "Nvim plugin files",
+			desc = "plugin files",
+			icon = { icon = "󱧼 ", color = "blue" },
 		},
 	},
 })
 
+local gitsigns = require("gitsigns")
 wk.add({
 	{
 		mode = { "n" },
 		{ "<leader>g", group = "Git" },
 		{ "<leader>gg", "<cmd>lua _lazygit_toggle()<CR>", desc = "Open Lazygit", noremap = true, silent = true },
+		{ "<leader>gb", builtin.git_branches, desc = "Branches" },
+		{ "<leader>gc", builtin.git_commits, desc = "Commits" },
+		{
+			"<leader>gC",
+			builtin.git_bcommits,
+			desc = "File Commits",
+			icon = { color = "orange", cat = "filetype", name = "git" },
+		},
+		{ "<leader>gt", builtin.git_status, desc = "Status" },
+		{ "<leader>gT", builtin.git_stash, desc = "Stash" },
 	},
 })
 
@@ -164,10 +179,10 @@ wk.add({
 	{
 		mode = { "n" },
 		{ "<leader>u", group = "UI" },
-		{ "<leader>us", "<cmd>setlocal spell!<cr>", desc = "Toggle spell" },
-		{ "<leader>uC", "<Cmd>CccHighlighterToggle<CR>", desc = "Toggle color highlight" },
-		{ "<leader>uf", toggle_autoformat_buff, desc = "Toggle autoformat (buffer)" },
-		{ "<leader>uF", toggle_autoformat_global, desc = "Toggle autoformat (global)" },
+		{ "<leader>us", "<cmd>setlocal spell!<cr>", desc = "Toggle spell", icon = { icon = " ", color = "green" } },
+		{ "<leader>uC", "<Cmd>CccHighlighterToggle<CR>", desc = "Toggle color highlight", icon = "" },
+		{ "<leader>uf", toggle_autoformat_buff, desc = "Toggle autoformat (buffer)", icon = "󰉼" },
+		{ "<leader>uF", toggle_autoformat_global, desc = "Toggle autoformat (global)", icon = "󰉼" },
 		{
 			"<leader>ud",
 			function()
@@ -175,6 +190,7 @@ wk.add({
 				vim.diagnostic.config({ virtual_lines = new_config })
 			end,
 			desc = "Toggle virtual lines",
+			icon = { icon = " ", color = "red" },
 		},
 		{
 			"<leader>uD",
@@ -183,6 +199,7 @@ wk.add({
 				vim.diagnostic.config({ virtual_text = new_config })
 			end,
 			desc = "Toggle virtual text",
+			icon = { icon = " ", color = "red" },
 		},
 	},
 })
@@ -195,8 +212,8 @@ wk.add({
 		{ "<leader>lg", group = "Go" },
 		{ "<leader>lx", group = "Execute" },
 		{ "<leader>lr", inc_rename_fill_word, expr = true, desc = "Rename current symbol" },
-		{ "<leader>xc", "<Cmd>CccConvert<CR>", desc = "convert color" },
-		{ "<leader>xp", "<Cmd>CccPick<CR>", desc = "pick color" },
+		{ "<leader>xc", "<Cmd>CccConvert<CR>", desc = "convert color", icon = "" },
+		{ "<leader>xp", "<Cmd>CccPick<CR>", desc = "pick color", icon = "" },
 	},
 })
 
@@ -206,34 +223,82 @@ wk.add({
 		mode = "n",
 		{ "\\", "<cmd>split<cr>", desc = "split horizontal", hidden = true },
 		{ "|", "<cmd>vsplit<cr>", desc = "split vertical", hidden = true },
-		{ "<leader>c", "<Cmd>:bw<CR>", desc = "Close buffer" },
-		{ "<leader>w", "<Cmd>update<CR>", desc = "Write the current buffer.", hidden = true },
-		{ "<leader>q", "<Cmd>:quit<CR>", desc = "Quit the current buffer.", hidden = true },
-		{ "<leader>Q", "<Cmd>:wqa<CR>", desc = "Quit all buffers and write.", hidden = true },
+		{ "<leader>w", "<Cmd>update<CR>", desc = "Write", hidden = true },
+		{ "<leader>q", "<Cmd>:quit<CR>", desc = "Quit", hidden = true },
+		{ "<leader>Q", "<Cmd>:wqa<CR>", desc = "Quit all + write", hidden = true },
 		{ "<Esc>", "<cmd>nohlsearch<CR>", desc = "Remove hl" },
+		{ "<leader>s", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], desc = "Sub wuc", icon = { icon = "" } },
+	},
+	{
+		mode = "v",
+		{ ">", ">gv", desc = "Indent line" }, -- Stay in visual after inden,
+		{ "<", "<gv", desc = "Unindent line" }, -- Stay in visual after uninden,
+		{ "<C-Up>", ":m '<-2<CR>gv=gv", desc = "Move selection up" },
+		{ "<C-Down>", ":m '>+1<CR>gv=gv", desc = "Move selection down" },
+	},
+	{
+		mode = { "n", "v", "x" },
+		{ "<leader>n", ":norm ", desc = "norm", icon = { icon = "󰘳 ", color = "blue" } },
+		{ "<C-s>", [[:s/\V]], desc = "Enter substitue mode in selection", icon = { icon = "" } },
+		{ "<leader><C-s>", [[:s/\V]], desc = "Sub in sel", icon = { icon = "" } },
 	},
 })
-map({ "n", "v", "x" }, "<leader>n", ":norm ", { desc = "norm" })
-map({ "n", "v", "x" }, "<C-s>", [[:s/\V]], { desc = "Enter substitue mode in selection" })
-map({ "n" }, "<leader>r", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]], { desc = "S+R wuc" })
-map({ "v" }, ">", ">gv", { desc = "Indent line" }) -- Stay in visual after indent
-map({ "v" }, "<", "<gv", { desc = "Unindent line" }) -- Stay in visual after unindent
-map({ "v" }, "<C-Up>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
-map({ "v" }, "<C-Down>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 map(
 	"n",
 	"g/",
 	":vimgrep /<C-R>//j %<CR>|:cw<CR>",
 	{ noremap = true, silent = true, desc = "Populate quickfix with search results" }
 )
+
 wk.add({
 	{
 		mode = { "n", "v" },
 		cond = function()
 			return pcall(require, "yazi")
 		end,
-		{ "<leader>e", "<cmd>Yazi<cr>", desc = "File manager" },
-		{ "<leader>xe", "<cmd>Yazi cwd<cr>", desc = "Yazi cwd" },
+		{ "<leader>e", "<cmd>Yazi<cr>", desc = "File manager", icon = { cat = "file", name = "yazi" } },
+		{ "<leader>xe", "<cmd>Yazi cwd<cr>", desc = "Yazi cwd", icon = { cat = "file", name = "yazi" } },
+	},
+})
+
+local function hunk_next()
+	local gs = require("gitsigns")
+	if vim.wo.diff then
+		vim.cmd.normal({ "]c", bang = true })
+	else
+		---@diagnostic disable-next-line
+		gs.nav_hunk("next")
+	end
+end
+
+local function hunk_prev()
+	local gs = require("gitsigns")
+	if vim.wo.diff then
+		vim.cmd.normal({ "[c", bang = true })
+	else
+		---@diagnostic disable-next-line
+		gs.nav_hunk("prev")
+	end
+end
+
+local function hunk_first()
+	local gs = require("gitsigns")
+	if vim.wo.diff then
+		vim.cmd.normal({ "]C", bang = true })
+	else
+		---@diagnostic disable-next-line
+		gs.nav_hunk("first")
+	end
+end
+
+wk.add({
+	{
+		mode = { "n" },
+		{ "]", group = "Nav next" },
+		{ "[", group = "Nav prev" },
+		{ "]c", hunk_next, desc = "Next hunk", buffer = 0 },
+		{ "[c", hunk_prev, desc = "Prev hunk", buffer = 0 },
+		{ "]C", hunk_first, desc = "First hunk", buffer = 0 },
 	},
 })
 
@@ -241,10 +306,12 @@ wk.add({
 wk.add({
 	{
 		mode = { "n" },
-		{ "<leader>b", group = "Buffer" },
+		{ "<leader>b", group = "Buffer", icon = { icon = "󰪷 ", color = "blue" } },
 
-		{ "<leader>bc", "<Cmd>:bw<CR>", desc = "Close buffer" },
-		{ "<leader>ba", "<Cmd>:wa<CR>", desc = "Write all changed buffers" },
+		{ "<leader>c", "<Cmd>:bw<CR>", desc = "Close buffer", hidden = true },
+		{ "<leader>bc", "<Cmd>:bw<CR>", desc = "Close buffer", icon = { icon = "󰺨 ", color = "red" } },
+		{ "<leader>ba", "<Cmd>:wa<CR>", desc = "Write all buffers", icon = { icon = "󱩼 ", color = "cyan" } },
+		{ "<leader>bb", builtin.buffers, desc = "Pick buffer", icon = { icon = "󰺮 ", color = "green" } },
 		{
 			"]b",
 			function()
@@ -280,7 +347,7 @@ wk.add({
 wk.add({
 	{
 		mode = { "n" },
-		{ "<leader>x", group = "Execute" },
+		{ "<leader>x", group = "Execute", icon = { icon = "" } },
 		{ "<leader>xl", "<Cmd>lopen<CR>", desc = "open location list" },
 		{ "<leader>xq", "<Cmd>copen<CR>", desc = "open quickfix list" },
 		{ "]q", "<Cmd>cnext<CR>", desc = "next quickfix" },
@@ -308,9 +375,9 @@ wk.add({
 			{ "<leader>t\\", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", desc = "ToggleTerm horizontal" },
 			{ "<leader>tv", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical" },
 			{ "<leader>t|", "<cmd>ToggleTerm size=80 direction=vertical<cr>", desc = "ToggleTerm vertical" },
-			{ "<leader>tn", "<cmd>lua _node_toggle()<cr>", desc = "ToggleTerm node" },
-			{ "<leader>tp", "<cmd>lua _python_toggle()<cr>", desc = "ToggleTerm python" },
-			{ "<leader>ts", "<cmd>ToggleTermSendCurrentLine<CR>", desc = "Send line to terminal" },
+			{ "<leader>tn", "<cmd>lua _node_toggle()<cr>", desc = "ToggleTerm node", icon = "" },
+			{ "<leader>tp", "<cmd>lua _python_toggle()<cr>", desc = "ToggleTerm python", icon = "󰌠" },
+			{ "<leader>ts", "<cmd>ToggleTermSendCurrentLine<CR>", desc = "Send line to terminal", icon = "" },
 		},
 		{
 			mode = { "v", "x" },
@@ -423,29 +490,35 @@ wk.add({
 			return pcall(require, "Comment")
 		end,
 		mode = "n",
+		-- icon = { cat = "filetype", name = "text" },
+		icon = { icon = "󰧥", color = "blue" },
 		{ "<leader>y", group = "Comment", mode = { "n", "v", "x" } },
 
 		{ "yd", "yy<cmd>normal gcc<CR>p", desc = "Dupe and comment" },
-
-		{ "<leader>yc", group = "Linewise", mode = { "n", "v", "x" } },
-		{ "<leader>/", comment.toggle.linewise.current, desc = "Comment (lw)" },
-		{ "<leader>ycc", comment.call("toggle.linewise", "g@"), expr = true, desc = "Linewise operator" },
 		{ "<leader>yd", "yy<cmd>normal gcc<CR>p", desc = "Dupe and comment" },
+		{
+			icon = { icon = "󰧥", color = "green" },
+			{ "<leader>yc", group = "Linewise", mode = { "n", "v", "x" } },
+			{ "<leader>/", comment.toggle.linewise.current, desc = "Comment lw" },
+			{ "<leader>ycc", comment.call("toggle.linewise", "g@"), expr = true, desc = "Linewise operator" },
+			{ "<leader>ycO", comment.insert.linewise.above, desc = "Insert comment above" },
+			{ "<leader>yco", comment.insert.linewise.below, desc = "Insert comment below" },
+			{ "<leader>ycA", comment.insert.linewise.eol, desc = "Insert comment eol" },
+		},
+		{
+			icon = { icon = "󰧥", color = "orange" },
+			{ "<leader>yb", group = "Blockwise", mode = { "n", "v", "x" } },
+			-- TODO: check this works
+			{ "<leader><C-/>", comment.toggle.blockwise.current, desc = "Comment bw" },
+			{ "<leader>ybb", comment.call("toggle.blockwise", "g@"), expr = true, desc = "Blockwise operator" },
 
-		{ "<leader>ycO", comment.insert.linewise.above, desc = "Insert comment above" },
-		{ "<leader>yco", comment.insert.linewise.below, desc = "Insert comment below" },
-		{ "<leader>ycA", comment.insert.linewise.eol, desc = "Insert comment eol" },
-
-		{ "<leader>yb", group = "Blockwise", mode = { "n", "v", "x" } },
-		{ "<leader><C-/>", comment.toggle.blockwise.current, desc = "Comment (bw)" },
-		{ "<leader>ybb", comment.call("toggle.blockwise", "g@"), expr = true, desc = "Blockwise operator" },
-
-		{ "<leader>yba", group = "Arround" },
-		{ "<leader>ybaf", "<cmd>normal gbaf<CR>", desc = "Comment around function" },
-		{ "<leader>ybac", "<cmd>normal gbac<CR>", desc = "Comment around class" },
-		{ "<leader>ybO", comment.insert.blockwise.above, desc = "Insert comment above" },
-		{ "<leader>ybo", comment.insert.blockwise.below, desc = "Insert comment below" },
-		{ "<leader>ybA", comment.insert.blockwise.eol, desc = "Insert comment eol" },
+			{ "<leader>yba", group = "Arround" },
+			{ "<leader>ybaf", "<cmd>normal gbaf<CR>", desc = "Comment around function" },
+			{ "<leader>ybac", "<cmd>normal gbac<CR>", desc = "Comment around class" },
+			{ "<leader>ybO", comment.insert.blockwise.above, desc = "Insert comment above" },
+			{ "<leader>ybo", comment.insert.blockwise.below, desc = "Insert comment below" },
+			{ "<leader>ybA", comment.insert.blockwise.eol, desc = "Insert comment eol" },
+		},
 	},
 	{
 		mode = "x",

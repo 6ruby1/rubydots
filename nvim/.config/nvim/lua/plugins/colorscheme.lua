@@ -67,6 +67,12 @@ return {
 					highlights.BlinkCmpDocCursorLine = { bg = colors.bg_highlight }
 					highlights.BlinkCmpSignatureHelpBorder = { fg = colors.pink, bg = colors.bg_dark, bold = true }
 					highlights.BlinkCmpSignatureHelp = { fg = colors.fg_dark, bg = colors.bg_dark }
+
+					highlights.WhichKey = { fg = colors.comment, italic = true }
+					highlights.WhichKeyDesc = { fg = colors.fg_dark }
+					highlights.WhichKeyGroup = { fg = colors.comment, italic = true }
+					highlights.WhichKeyBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.WhichKeyTitle = { fg = colors.comment, bg = colors.bg_dark, reverse = true }
 				end,
 			})
 			vim.cmd([[colorscheme eldritch]])

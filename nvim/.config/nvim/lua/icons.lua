@@ -352,6 +352,7 @@ M.filetype_icons = {
   bsdl                     = { glyph = '󰫯', hl = 'MiniIconsPurple' },
   bst                      = { glyph = '󰫯', hl = 'MiniIconsCyan' },
   btm                      = { glyph = '󰫯', hl = 'MiniIconsGreen' },
+  buffer                   = { glyph = '', hl = 'MiniIconsCyan' },
   bzl                      = { glyph = '', hl = 'MiniIconsGreen' },
   bzr                      = { glyph = '󰜘', hl = 'MiniIconsRed' },
   c                        = { glyph = '󰙱', hl = 'MiniIconsBlue' },

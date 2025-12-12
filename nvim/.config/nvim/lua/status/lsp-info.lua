@@ -45,8 +45,19 @@ local Diagnostics = {
 		self.info_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.INFO]
 		self.hint_icon = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.HINT]
 	end,
-
 	update = { "DiagnosticChanged", "BufEnter" },
+	on_click = {
+		name = "heirline_lsp_diagnostics",
+		callback = function()
+			if pcall(require, "telescope.builtin") then
+				require("telescope.builtin").diagnostics()
+			else
+				vim.notify("Telescope diagnostics unavailable", vim.log.levels.WARN)
+			end
+			-- vim.schedule(vim.cmd.LspInfo)
+		end,
+	},
+
 	{
 		provider = function(self)
 			-- return (self.error_icon .. self.errors .. " ")

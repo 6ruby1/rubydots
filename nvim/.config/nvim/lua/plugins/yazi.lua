@@ -4,10 +4,11 @@ return {
 	event = "VeryLazy",
 	cmd = { "Yazi" },
 	dependencies = {
-		"folke/snacks.nvim",
+		{ "nvim-lua/plenary.nvim", lazy = true },
 	},
 	---@type YaziConfig | {}
 	opts = {
+		config_home = "~/.config/yazi/nvim-config",
 		open_for_directories = true,
 		keymaps = {
 			show_help = "<f1>",
