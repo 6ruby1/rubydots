@@ -57,5 +57,6 @@ require("lazy").setup({
 })
 
 require("autocmd")
+require("usercmd")
 require("keymaps")
 require("status.init")

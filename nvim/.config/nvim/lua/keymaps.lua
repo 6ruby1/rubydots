@@ -212,8 +212,6 @@ wk.add({
 		{ "<leader>lg", group = "Go" },
 		{ "<leader>lx", group = "Execute" },
 		{ "<leader>lr", inc_rename_fill_word, expr = true, desc = "Rename current symbol" },
-		{ "<leader>xc", "<Cmd>CccConvert<CR>", desc = "convert color", icon = "" },
-		{ "<leader>xp", "<Cmd>CccPick<CR>", desc = "pick color", icon = "" },
 	},
 })
 
@@ -238,7 +236,7 @@ wk.add({
 	},
 	{
 		mode = { "n", "v", "x" },
-		{ "<leader>n", ":norm ", desc = "norm", icon = { icon = "󰘳 ", color = "blue" } },
+		{ "<leader>n", ":norm ", desc = "Norm", icon = { icon = "󰘳 ", color = "blue" } },
 		{ "<C-s>", [[:s/\V]], desc = "Enter substitue mode in selection", icon = { icon = "" } },
 		{ "<leader><C-s>", [[:s/\V]], desc = "Sub in sel", icon = { icon = "" } },
 	},
@@ -343,13 +341,10 @@ wk.add({
 	},
 })
 
--- Quickfix
+-- Quickfix Navigation
 wk.add({
 	{
 		mode = { "n" },
-		{ "<leader>x", group = "Execute", icon = { icon = "" } },
-		{ "<leader>xl", "<Cmd>lopen<CR>", desc = "open location list" },
-		{ "<leader>xq", "<Cmd>copen<CR>", desc = "open quickfix list" },
 		{ "]q", "<Cmd>cnext<CR>", desc = "next quickfix" },
 		{ "[q", "<Cmd>cprev<CR>", desc = "previous quickfix" },
 		{ "]Q", "<Cmd>clast<CR>", desc = "last quickfix" },
@@ -453,6 +448,24 @@ wk.add({
 	},
 })
 
+-- Execute
+wk.add({
+	mode = "n",
+	{ "<leader>x", group = "Execute", icon = { icon = "" } },
+	{ "<leader>xc", "<Cmd>CccConvert<CR>", desc = "Convert color", icon = "" },
+	{ "<leader>xl", "<Cmd>lopen<CR>", desc = "Open location list" },
+	{ "<leader>xp", "<Cmd>CccPick<CR>", desc = "Pick color", icon = "" },
+	{ "<leader>xq", "<Cmd>copen<CR>", desc = "Open quickfix list" },
+	{
+		"<leader>xu",
+		"<cmd>lua require'undotree'.toggle()<cr>",
+		desc = "Open undotree",
+		silent = true,
+		noremap = true,
+		icon = "",
+	},
+})
+
 wk.add({
 	{
 		mode = "n",
@@ -499,7 +512,7 @@ wk.add({
 		{
 			icon = { icon = "󰧥", color = "green" },
 			{ "<leader>yc", group = "Linewise", mode = { "n", "v", "x" } },
-			{ "<leader>/", comment.toggle.linewise.current, desc = "Comment lw" },
+			{ "<leader>/", comment.toggle.linewise.current, desc = "Comment (lw|^bw)" },
 			{ "<leader>ycc", comment.call("toggle.linewise", "g@"), expr = true, desc = "Linewise operator" },
 			{ "<leader>ycO", comment.insert.linewise.above, desc = "Insert comment above" },
 			{ "<leader>yco", comment.insert.linewise.below, desc = "Insert comment below" },
@@ -509,7 +522,7 @@ wk.add({
 			icon = { icon = "󰧥", color = "orange" },
 			{ "<leader>yb", group = "Blockwise", mode = { "n", "v", "x" } },
 			-- TODO: check this works
-			{ "<leader><C-/>", comment.toggle.blockwise.current, desc = "Comment bw" },
+			{ "<leader><C-/>", comment.toggle.blockwise.current, desc = "Comment bw", hidden = true },
 			{ "<leader>ybb", comment.call("toggle.blockwise", "g@"), expr = true, desc = "Blockwise operator" },
 
 			{ "<leader>yba", group = "Arround" },
