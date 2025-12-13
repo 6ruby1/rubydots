@@ -114,19 +114,19 @@ local Diagnostics = {
 }
 
 local Indicator = utils.surround({ "", " " }, nil, {
-	provider = " ", -- whitespace to add coloured bar
+	provider = "|",
 	hl = function(self)
 		-- TODO: use mode color as fallback instead of cyan!
 		if not conditions.lsp_attached() or self.errors > 0 then
-			return { bg = diagnostic_hl.error.fg }
+			return { fg = diagnostic_hl.error.fg }
 		elseif self.warnings > 0 then
-			return { bg = diagnostic_hl.warn.fg }
+			return { fg = diagnostic_hl.warn.fg }
 		elseif self.hints > 0 then
-			return { bg = diagnostic_hl.hint.fg }
+			return { fg = diagnostic_hl.hint.fg }
 		elseif self.info > 0 then
-			return { bg = diagnostic_hl.info.fg }
+			return { fg = diagnostic_hl.info.fg }
 		else
-			return { bg = "cyan" }
+			return { fg = "cyan" }
 		end
 	end,
 })

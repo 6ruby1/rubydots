@@ -7,29 +7,30 @@ return {
 			local utils = require("heirline.utils")
 			local conditions = require("heirline.conditions")
 			local lib = require("heirline-components.all")
+			local components = require("status")
 
 			return {
 				tabline = { -- UI upper bar
 					lib.component.tabline_conditional_padding(),
-					require("status.bufline"),
+					components.bufline,
 					lib.component.fill({ hl = { bg = "#212337" } }),
 					-- lib.component.tabline_tabpages(),
 				},
 				statusline = { -- UI statusbar
 					hl = { fg = "fg", bg = "bg" },
 					lib.component.mode(),
-					lib.component.git_branch(),
-					require("status.file-info"),
-					lib.component.git_diff(),
-					lib.component.fill(),
-					lib.component.cmd_info({}),
-					lib.component.fill(),
+					components.git,
+					-- lib.component.git_branch(),
+					components.file,
+					-- lib.component.git_diff(),
+					components.fill,
+					components.cmd_info,
+					components.fill,
 					-- lib.component.compiler_state(),
 					lib.component.virtual_env(),
-					-- lib.component.nav({ scrollbar = false, surround = { separator = "right" } }),
-					-- lib.component.mode({ surround = { separator = "right" } }),
-					require("status.lsp-info"),
-					require("status.spell"),
+					components.ruler,
+					components.lsp,
+					components.spell,
 				},
 				statuscolumn = { -- UI left column
 					init = function(self)
