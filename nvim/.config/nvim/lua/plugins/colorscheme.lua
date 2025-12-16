@@ -37,7 +37,8 @@ return {
 				---@param highlights Highlights
 				---@param colors ColorScheme
 				on_highlights = function(highlights, colors)
-					highlights.FloatBorder = { fg = colors.magenta2, bg = colors.none }
+					highlights.FloatBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.YaziFloat = { bg = colors.bg_dark }
 					-- See heirline.lua
 					highlights.TabLine = { bg = colors.bg_dark }
 					highlights.TabLineSel = { bg = colors.bg_highlight, underline = true }
@@ -73,6 +74,14 @@ return {
 					highlights.WhichKeyGroup = { fg = colors.comment, italic = true }
 					highlights.WhichKeyBorder = { fg = colors.comment, bg = colors.bg_dark }
 					highlights.WhichKeyTitle = { fg = colors.comment, bg = colors.bg_dark, reverse = true }
+
+					highlights.TelescopeNormal = { bg = colors.bg_dark }
+					highlights.TelescopeSelection =
+						{ fg = colors.comment, bg = colors.bg_highlight, underline = true, italic = true }
+					highlights.TelescopeBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.TelescopePreviewBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.TelescopeResultsBorder = { fg = colors.comment, bg = colors.bg_dark }
+					highlights.TelescopePromptBorder = { fg = colors.comment, bg = colors.bg_dark }
 				end,
 			})
 			vim.cmd([[colorscheme eldritch]])

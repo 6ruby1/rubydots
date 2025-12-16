@@ -15,12 +15,47 @@ return {
 					return vim.fn.executable("make") == 1
 				end,
 			},
-
+			{
+				"jvgrootveld/telescope-zoxide",
+				config = function() end,
+			},
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
 		config = function()
 			require("telescope").setup({
 				defaults = {
+					-- preview = { treesitter = false },
+					color_devicons = true,
+					sorting_strategy = "ascending",
+					-- border = {
+					-- 	prompt = { 1, 1, 1, 1 },
+					-- 	results = { 1, 1, 1, 1 },
+					-- 	preview = { 1, 1, 1, 1 },
+					-- },
+					borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+					--
+					-- 	prompt = { " ", " ", "─", "│", "│", " ", "─", "└" },
+					-- 	results = { "─", " ", " ", "│", "┌", "─", " ", "│" },
+					-- 	preview = { "─", "│", "─", "│", "┬", "┐", "┘", "┴" },
+					-- },
+					layout_strategy = "horizontal",
+					layout_config = {
+						-- horizontal = {
+						height = 0.99,
+						width = 0.99,
+						-- },
+						-- center = {
+						-- height = 0.8,
+						preview_cutoff = 10,
+						prompt_position = "top",
+						-- width = 0.8,
+						-- },
+						-- 	height = 100,
+						-- 	width = 100,
+						-- 	prompt_position = "top",
+						-- 	preview_cutoff = 40,
+					},
+
 					vimgrep_arguments = {
 						"rg",
 						"--color=never",
@@ -70,6 +105,7 @@ return {
 			pcall(require("telescope").load_extension, "fzf")
 			pcall(require("telescope").load_extension, "ui-select")
 			pcall(require("telescope").load_extension, "env")
+			pcall(require("telescope").load_extension, "zoxide")
 		end,
 	},
 }
