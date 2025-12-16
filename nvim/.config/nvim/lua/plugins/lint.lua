@@ -4,17 +4,24 @@ return {
 		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			local lint = require("lint")
-
 			lint.linters_by_ft = {
 				javascript = { "eslint_d" },
 				typescript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
-				bash = { "shellcheck" },
-				sh = { "shellcheck" },
-				zsh = { "shellcheck" },
+				-- bash = { "shellcheck" },
+				-- sh = { "shellcheck" },
+				-- zsh = { "shellcheck" },
 				cpp = { "cpplint" },
 				c = { "cpplint" },
+				lua = { "luacheck" },
+			}
+
+			lint.linters.luacheck.args = {
+				unpack(lint.linters.luacheck.args),
+				"--globals",
+				"love",
+				"vim",
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
