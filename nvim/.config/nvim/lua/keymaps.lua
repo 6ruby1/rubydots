@@ -183,6 +183,7 @@ wk.add({
 		{ "<leader>uC", "<Cmd>CccHighlighterToggle<CR>", desc = "Toggle color highlight", icon = "" },
 		{ "<leader>uf", toggle_autoformat_buff, desc = "Toggle autoformat (buffer)", icon = "󰉼" },
 		{ "<leader>uF", toggle_autoformat_global, desc = "Toggle autoformat (global)", icon = "󰉼" },
+		{ "<leader>uL", "<cmd>setlocal list!<cr>", desc = "Toggle list" },
 		{
 			"<leader>ud",
 			function()
@@ -211,7 +212,15 @@ wk.add({
 		{ "<leader>l", group = "Language" },
 		{ "<leader>lg", group = "Go" },
 		{ "<leader>lx", group = "Execute" },
+		{ "<leader>la", vim.lsp.buf.code_action, desc = "Goto Code Action", mode = { "n", "x" } },
+		{ "<leader>ld", builtin.lsp_definitions, desc = "Goto Definition" },
+		{ "<leader>lD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+		{ "<leader>li", builtin.lsp_implementations, desc = "Goto Implementationtion" },
 		{ "<leader>lr", inc_rename_fill_word, expr = true, desc = "Rename current symbol" },
+		{ "<leader>lR", builtin.lsp_references, desc = "Goto References" },
+		{ "<leader>ls", builtin.lsp_document_symbols, desc = "Open Document Symbols" },
+		{ "<leader>lS", builtin.lsp_dynamic_workspace_symbols, desc = "Open Workspace Symbols" },
+		{ "<leader>lt", require("telescope.builtin").lsp_type_definitions, desc = "Goto Type Definition" },
 	},
 })
 
@@ -463,6 +472,27 @@ wk.add({
 		silent = true,
 		noremap = true,
 		icon = "",
+	},
+})
+
+wk.add({
+	mode = "n",
+	{ "<leader>p", group = "Package", icon = "󰏗" },
+	{
+		cond = function()
+			return pcall(require, "lazy")
+		end,
+		{ "<leader>pl", require("lazy").home, desc = "Open Lazy" },
+		{ "<leader>ps", require("lazy").sync, desc = "Lazy Sync" },
+		{ "<leader>pu", require("lazy").update, desc = "Lazy Update" },
+	},
+	{
+		cond = function()
+			return pcall(require, "mason")
+		end,
+		"<leader>pm",
+		"<cmd>:Mason<cr>",
+		desc = "Open Mason",
 	},
 })
 
