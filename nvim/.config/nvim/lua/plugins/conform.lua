@@ -14,12 +14,13 @@ return {
 		},
 	},
 
-	-- This will provide type hinting with LuaLS
-	-- -@module "conform"
-	-- -@type conform.setupOpts
 	config = function()
+		---@module "conform"
+		---@type conform.setupOpts
 		require("conform").setup({
-			-- Define your formatters
+			notify_on_error = true,
+			notify_no_formatters = true,
+
 			formatters_by_ft = {
 				-- Lang
 				lua = { "stylua" },
@@ -30,22 +31,75 @@ return {
 				sh = { "shfmt" },
 				bash = { "shfmt" },
 				zsh = { "shfmt" },
-				-- go = { "goimports", "gomodifytags", "gotests" },
-				-- csharp = { "csharpier" },
 				cpp = { "clang-format" },
 				rust = { "rustfmt" },
+				markdown = { "mdformat", "injected" },
 
 				-- Data
 				json = { "prettierd" },
 				css = { "prettierd" },
 				yaml = { "prettierd" },
 				toml = { "taplo" },
-				-- ruby = { "standardrb" },
+
+				-- ["*"] to run on all filetypes
+				["*"] = { "trim_whitespace" },
+
+				-- ["_"] to run on filetypes without formatters
 			},
+
 			-- Set default options
 			default_format_opts = {
 				lsp_format = "fallback",
 			},
+
+			-- Customize formatters
+			formatters = {
+				shfmt = {
+					append_args = { "-i", "2" },
+				},
+				["clang-format"] = {
+					prepend_args = {
+						"-style={ \
+				            IndentWidth: 2, \
+				            TabWidth: 2, \
+				            UseTab: Never, \
+				            AccessModifierOffset: 0, \
+				            IndentAccessModifiers: true, \
+				            PackConstructorInitializers: Never}",
+					},
+				},
+				injected = {
+					options = {
+						-- Set to true to ignore errors
+						ignore_errors = false,
+						-- Map of treesitter language to filetype
+						lang_to_ft = {
+							bash = "sh",
+						},
+						-- Map of treesitter language to file extension
+						-- A temporary file name with this extension will be generated during formatting
+						-- because some formatters care about the filename.
+						lang_to_ext = {
+							bash = "sh",
+							c_sharp = "cs",
+							elixir = "exs",
+							javascript = "js",
+							julia = "jl",
+							latex = "tex",
+							markdown = "md",
+							python = "py",
+							ruby = "rb",
+							rust = "rs",
+							teal = "tl",
+							typescript = "ts",
+						},
+						-- Map of treesitter language to formatters to use
+						-- (defaults to the value from formatters_by_ft)
+						lang_to_formatters = {},
+					},
+				},
+			},
+
 			-- Set up format-on-save
 			format_on_save = function(bufnr)
 				-- Disable with a global or buffer-local variable
@@ -54,12 +108,6 @@ return {
 				end
 				return { timeout_ms = 500, lsp_format = "fallback" }
 			end,
-			-- Customize formatters
-			formatters = {
-				shfmt = {
-					append_args = { "-i", "2" },
-				},
-			},
 		})
 
 		vim.api.nvim_create_user_command("FormatDisable", function(args)

@@ -33,6 +33,8 @@ return {
 				"jsx",
 				"jsdoc",
 				"java",
+				"latex",
+				"yaml",
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {
@@ -56,6 +58,8 @@ return {
 					"jsx",
 					"jsdoc",
 					"java",
+					"latex",
+					"yaml",
 				},
 				callback = function()
 					-- syntax highlighting, provided by Neovim
